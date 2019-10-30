@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet } from 'react-native';
 import {
     View,
     Text,
-    Button,
     Alert,
     TouchableOpacity,
 } from 'react-native';
@@ -24,7 +23,8 @@ export default function AgeVerificationScreen()
                 <View style={styles.twinContainer}>
                     <TouchableOpacity 
                         style={styles.simpleYesButton}
-                        onPress={() => Alert.alert('Yes Pressed')}>
+                        // onPress={() => Alert.alert('Yes Pressed')}>
+                        onPress={() => navigate('TooYoung')}>
                         <Text style={styles.loginText}>Yes</Text>
                     </TouchableOpacity>
 
