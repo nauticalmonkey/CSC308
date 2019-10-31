@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
-import SegmentedControlIOS from "@react-native-community/segmented-control";
+//import SegmentedControlIOS from "@react-native-community/segmented-control";
 import Slider from "react-native-slider";
 import SearchableDropdown from "react-native-searchable-dropdown";
+import { SegmentedControls } from "react-native-radio-buttons";
 
 var items = [
   {
@@ -43,14 +44,42 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      totalCount: 0,
-      readingCount: 0,
-      readCount: 0,
+      selectedIndexFlavor: 2,
+      selectedIndexOrigin: 3,
       price: 10,
       selectedItems: []
     };
   }
   render() {
+    const flavorOptions = ["Sweet", "Mild", "Strong", "Fruity", "Blonde"];
+    const originOptions = ["Domestic", "Local", "Import"];
+
+    function setSelectedOption(selectedOption) {
+      this.setState({
+        selectedOption
+      });
+    }
+
+    function setSelectedFlavorOption(selectedFlavorOption) {
+      this.setState({
+        selectedFlavorOption
+      });
+    }
+
+    function renderOption(option, selected, onSelect, index) {
+      const style = selected ? { fontWeight: "bold" } : {};
+
+      return (
+        <TouchableWithoutFeedback onPress={onSelect} key={index}>
+          <Text style={style}>{option}</Text>
+        </TouchableWithoutFeedback>
+      );
+    }
+
+    function renderContainer(optionNodes) {
+      return <View>{optionNodes}</View>;
+    }
+
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView />
@@ -61,7 +90,7 @@ class App extends React.Component {
             borderBottomColor: "#E9E9E9",
             alignItems: "center",
             flexDirection: "row",
-            paddingLeft: 20
+            padding: 20
           }}
         >
           <Image
@@ -76,37 +105,38 @@ class App extends React.Component {
           <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
             Preferred Flavor Profile
           </Text>
-          <SegmentedControlIOS
-            values={["Sweet", "Mild", "Strong", "Fruity", "Blonde"]}
-            selectedIndexFlavor={this.state.selectedIndexFlavor}
-            onChange={event => {
-              this.setState({
-                selectedIndexFlavor: event.nativeEvent.selectedSegmentIndex
-              });
-            }}
-            style={{ paddingTop: 35, backgroundColor: "#54db27" }}
+          <SegmentedControls
+            tint={"#12d10f"}
+            selectedTint={"white"}
+            backTint={"#0c450c"}
+            options={flavorOptions}
+            allowFontScaling={false} // default: true
+            onSelection={setSelectedFlavorOption.bind(this)}
+            selectedOption={this.state.selectedFlavorOption}
+            optionStyle={{}}
+            optionContainerStyle={{ flex: 1 }}
+            containerBorderRadius={30}
           />
         </View>
         <View style={styles.container}>
           <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
             Origin
           </Text>
-          <SegmentedControlIOS
-            values={["Domestic", "Local", "Import"]}
-            selectedIndexOrigin={this.state.selectedIndexOrigin}
-            onChange={event => {
-              this.setState({
-                selectedIndexOrigin: event.nativeEvent.selectedSegmentIndex
-              });
-            }}
-            style={{
-              paddingTop: 35,
-              backgroundColor: "#54db27"
-            }}
+          <SegmentedControls
+            tint={"#12d10f"}
+            selectedTint={"white"}
+            backTint={"#0c450c"}
+            options={originOptions}
+            allowFontScaling={false} // default: true
+            onSelection={setSelectedOption.bind(this)}
+            selectedOption={this.state.selectedOption}
+            optionStyle={{}}
+            optionContainerStyle={{ flex: 1 }}
+            containerBorderRadius={30}
           />
         </View>
         <View style={styles.container}>
-          <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
+          <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
             Beers You've Tried
           </Text>
           <Fragment>
@@ -128,12 +158,12 @@ class App extends React.Component {
               itemStyle={{
                 padding: 10,
                 marginTop: 2,
-                backgroundColor: "#FFDD",
+                backgroundColor: "#276612",
                 borderColor: "#276612",
                 borderWidth: 1,
                 borderRadius: 5
               }}
-              itemTextStyle={{ color: "#276612" }}
+              itemTextStyle={{ color: "white" }}
               itemsContainerStyle={{ maxHeight: 140 }}
               items={items}
               defaultIndex={6}
@@ -176,8 +206,16 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 25,
-    paddingLeft: 20,
-    paddingRight: 20
+    padding: 20
   }
 });
+/*<SegmentedControlIOS
+            values={["Sweet", "Mild", "Strong", "Fruity", "Blonde"]}
+            selectedIndexFlavor={this.state.selectedIndexFlavor}
+            onChange={event => {
+              this.setState({
+                selectedIndexFlavor: event.nativeEvent.selectedSegmentIndex
+              });
+            }}
+            style={{ paddingTop: 35, backgroundColor: "#54db27" }}
+          />*/
