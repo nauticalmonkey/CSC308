@@ -1,5 +1,12 @@
 import React, { Fragment } from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  ScrollView
+} from "react-native";
 //import SegmentedControlIOS from "@react-native-community/segmented-control";
 import Slider from "react-native-slider";
 import SearchableDropdown from "react-native-searchable-dropdown";
@@ -101,102 +108,105 @@ class App extends React.Component {
             Help us get to know you
           </Text>
         </View>
-        <View style={styles.container}>
-          <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-            Preferred Flavor Profile
-          </Text>
-          <SegmentedControls
-            tint={"#12d10f"}
-            selectedTint={"white"}
-            backTint={"#0c450c"}
-            options={flavorOptions}
-            allowFontScaling={false} // default: true
-            onSelection={setSelectedFlavorOption.bind(this)}
-            selectedOption={this.state.selectedFlavorOption}
-            optionStyle={{}}
-            optionContainerStyle={{ flex: 1 }}
-            containerBorderRadius={30}
-          />
-        </View>
-        <View style={styles.container}>
-          <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-            Origin
-          </Text>
-          <SegmentedControls
-            tint={"#12d10f"}
-            selectedTint={"white"}
-            backTint={"#0c450c"}
-            options={originOptions}
-            allowFontScaling={false} // default: true
-            onSelection={setSelectedOption.bind(this)}
-            selectedOption={this.state.selectedOption}
-            optionStyle={{}}
-            optionContainerStyle={{ flex: 1 }}
-            containerBorderRadius={30}
-          />
-        </View>
-        <View style={styles.container}>
-          <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
-            Beers You've Tried
-          </Text>
-          <Fragment>
-            <SearchableDropdown
-              multi={true}
-              selectedItems={this.state.selectedItems}
-              onItemSelect={item => {
-                const items = this.state.selectedItems;
-                items.push(item);
-                this.setState({ selectedItems: items });
-              }}
-              containerStyle={{ padding: 5 }}
-              onRemoveItem={(item, index) => {
-                const items = this.state.selectedItems.filter(
-                  sitem => sitem.id !== item.id
-                );
-                this.setState({ selectedItems: items });
-              }}
-              itemStyle={{
-                padding: 10,
-                marginTop: 2,
-                backgroundColor: "#276612",
-                borderColor: "#276612",
-                borderWidth: 1,
-                borderRadius: 5
-              }}
-              itemTextStyle={{ color: "white" }}
-              itemsContainerStyle={{ maxHeight: 140 }}
-              items={items}
-              defaultIndex={6}
-              chip={true}
-              resetValue={false}
-              textInputProps={{
-                placeholder: "Bud Light",
-                underlineColorAndroid: "transparent",
-                style: {
-                  padding: 12,
-                  borderWidth: 1,
+        <ScrollView>
+          <View style={styles.container}>
+            <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
+              Beers You've Tried
+            </Text>
+            <Fragment>
+              <SearchableDropdown
+                multi={true}
+                selectedItems={this.state.selectedItems}
+                onItemSelect={item => {
+                  const items = this.state.selectedItems;
+                  items.push(item);
+                  this.setState({ selectedItems: items });
+                }}
+                containerStyle={{ padding: 5 }}
+                onRemoveItem={(item, index) => {
+                  const items = this.state.selectedItems.filter(
+                    sitem => sitem.id !== item.id
+                  );
+                  this.setState({ selectedItems: items });
+                }}
+                itemStyle={{
+                  padding: 10,
+                  marginTop: 2,
+                  backgroundColor: "#276612",
                   borderColor: "#276612",
+                  borderWidth: 1,
                   borderRadius: 5
-                }
-              }}
-              listProps={{
-                nestedScrollEnabled: true
-              }}
+                }}
+                itemTextStyle={{ color: "white" }}
+                itemsContainerStyle={{ maxHeight: 140 }}
+                items={items}
+                defaultIndex={6}
+                chip={true}
+                resetValue={false}
+                textInputProps={{
+                  placeholder: "Bud Light",
+                  underlineColorAndroid: "transparent",
+                  style: {
+                    padding: 12,
+                    borderWidth: 1,
+                    borderColor: "#276612",
+                    borderRadius: 5
+                  }
+                }}
+                listProps={{
+                  nestedScrollEnabled: true,
+                  keboardDismissMode: "on-drag"
+                }}
+              />
+            </Fragment>
+          </View>
+          <View style={styles.container}>
+            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
+              Preferred Flavor Profile
+            </Text>
+            <SegmentedControls
+              tint={"#12d10f"}
+              selectedTint={"white"}
+              backTint={"#276612"}
+              options={flavorOptions}
+              allowFontScaling={false} // default: true
+              onSelection={setSelectedFlavorOption.bind(this)}
+              selectedOption={this.state.selectedFlavorOption}
+              optionStyle={{}}
+              optionContainerStyle={{ flex: 1 }}
+              containerBorderRadius={30}
             />
-          </Fragment>
-        </View>
-        <View style={styles.container}>
-          <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-            Maximum Price ${Math.round(this.state.price)}
-          </Text>
-          <Slider
-            value={this.state.price}
-            onValueChange={price => this.setState({ price })}
-            minimumValue={5}
-            maximumValue={50}
-          />
-        </View>
-        <SafeAreaView />
+          </View>
+          <View style={styles.container}>
+            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
+              Origin
+            </Text>
+            <SegmentedControls
+              tint={"#12d10f"}
+              selectedTint={"white"}
+              backTint={"#276612"}
+              options={originOptions}
+              allowFontScaling={false} // default: true
+              onSelection={setSelectedOption.bind(this)}
+              selectedOption={this.state.selectedOption}
+              optionStyle={{}}
+              optionContainerStyle={{ flex: 1 }}
+              containerBorderRadius={30}
+            />
+          </View>
+          <View style={styles.container}>
+            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
+              Maximum Price ${Math.round(this.state.price)}
+            </Text>
+            <Slider
+              value={this.state.price}
+              onValueChange={price => this.setState({ price })}
+              minimumValue={5}
+              maximumValue={50}
+            />
+          </View>
+          <SafeAreaView />
+        </ScrollView>
       </View>
     );
   }
@@ -206,16 +216,7 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
+    padding: 20,
+    paddingBottom: 0.1
   }
 });
-/*<SegmentedControlIOS
-            values={["Sweet", "Mild", "Strong", "Fruity", "Blonde"]}
-            selectedIndexFlavor={this.state.selectedIndexFlavor}
-            onChange={event => {
-              this.setState({
-                selectedIndexFlavor: event.nativeEvent.selectedSegmentIndex
-              });
-            }}
-            style={{ paddingTop: 35, backgroundColor: "#54db27" }}
-          />*/
