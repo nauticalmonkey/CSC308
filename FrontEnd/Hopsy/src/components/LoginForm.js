@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 50,
-        backgroundColor: 'rgba(17, 71, 16, 0.6)',
+        backgroundColor: 'rgba(68, 126, 36, 0.6)',
         marginBottom: 20,
         color: '#FFF',
         paddingHorizontal: 10
     },
     butoonContainer: {
         height: 55,
-        backgroundColor: 'rgba(17, 71, 16, 0.9)',
+        backgroundColor: 'rgba(68, 126, 36, 1)',
         paddingVertical: 10,
         marginBottom: 40,
         justifyContent:'center',
