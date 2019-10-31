@@ -23,13 +23,13 @@ class AgeVerificationScreen extends Component {
                     <View style={styles.twinContainer}>
                         <TouchableOpacity 
                             style={styles.simpleYesButton}
-                            onPress={() => Alert.alert('Yes Pressed')}>
+                            onPress={() => this.props.navigation.navigate('Login')}>
                             <Text style={styles.loginText}>Yes</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity 
                             style={styles.simpleNoButton}
-                             onPress={() => this.props.navigation.navigate('TooYoung')}>
+                            onPress={() => this.props.navigation.navigate('TooYoung')}>
                             <Text style={styles.loginText}>No</Text>
                         </TouchableOpacity>            
                     </View>
@@ -46,44 +46,9 @@ AgeVerificationScreen.navigationOptions =
 
 export default AgeVerificationScreen;
 
-// export default function AgeVerificationScreen()
-// {
-//     return (
-//         <SafeAreaView style={styles.container}>
-//             <View>
-                
-//                 <Text style={styles.bigText}> 
-//                     Are you 21? 
-//                 </Text>
-
-//                 <View style={styles.twinContainer}>
-//                     <TouchableOpacity 
-//                         style={styles.simpleYesButton}
-//                         // onPress={() => Alert.alert('Yes Pressed')}>
-//                         onPress={() => navigate('TooYoung')}>
-//                         <Text style={styles.loginText}>Yes</Text>
-//                     </TouchableOpacity>
-
-//                     <TouchableOpacity 
-//                         style={styles.simpleNoButton}
-//                         onPress={() => Alert.alert('No Pressed')}>
-//                         <Text style={styles.loginText}>No</Text>
-//                     </TouchableOpacity>            
-//                 </View>
-//             </View>
-//         </SafeAreaView>
-
-//     );
-// }
-
-// AgeVerificationScreen.navigationOptions = 
-// {
-//     header: null,
-// };
   
 const styles = StyleSheet.create(
 {
-    
     container: 
     {
         flex: 1,
