@@ -1,0 +1,57 @@
+<!--Justin evans-->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Registration Form</title>
+	<!--[if lt IE 9]>
+    <![endif]-->
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/newform.css">
+</head>
+
+<body>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="News.html">News</a></li>
+		<li><a href="register.html">Contact</a></li>
+		<li><a href="about.html">About</a></li>
+	</ul>
+	<!-- Script 10.6 - register.html -->
+	<!--<form action="welcome.php" method="post" id="theForm"> -->
+	<form action="index.html" method="GET" id="theForm">
+		<fieldset>
+			<legend>Register</legend>
+			<p>All fields are required. </p>
+			<div class="two"><label for="firstName">First Name</label><input type="text" name="firstName"
+					id="firstName"></div>
+			<div class="two"><label for="lastName">Last Name</label><input type="text" name="lastName" id="lastName">
+			</div>
+			<div class="two"><label for="brewery">Brewery Name</label><input type="text" name="brewery" id="brewery">
+			</div>
+			<div class="two"><label for="email">Email Address</label><input type="email" name="email" id="email"></div>
+			<div class="two"><label for="phone">Phone Number<span class="tooltip">In the format XXX XXX XXXX or
+						XXX-XXX-XXXX or XXXXXXXXXX.</span></label><input type="text" name="phone" id="phone"></div>
+			<div class="two"><label for="city">City</label><input type="text" name="city" id="city"></div>
+			<div class="two"><label for="state">State</label><select name="state" id="state">
+					<option value="">Select a State</option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+				</select></div>
+			<div class="two"><label for="zip">Zip Code</label><input type="text" name="zip" id="zip"></div>
+			<div class="one"><input type="checkbox" name="terms" id="terms"> I agree to the terms, whatever they are.
+			</div>
+			<div class="one"><input type="submit" value="Register" id="submit"></div>
+		</fieldset>
+	</form>
+	<script src="js/utilities.js"></script>
+	<script src="js/errorMessages.js"></script>
+	<script src="js/register.js"></script>
+</body>
+
+</html>
