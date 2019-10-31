@@ -132,13 +132,13 @@ class App extends React.Component {
                 itemStyle={{
                   padding: 10,
                   marginTop: 2,
-                  backgroundColor: "#276612",
+                  backgroundColor: "#1a4d08",
                   borderColor: "#276612",
                   borderWidth: 1,
                   borderRadius: 5
                 }}
                 itemTextStyle={{ color: "white" }}
-                itemsContainerStyle={{ maxHeight: 140 }}
+                itemsContainerStyle={{ maxHeight: 250 }}
                 items={items}
                 defaultIndex={6}
                 chip={true}
@@ -165,9 +165,9 @@ class App extends React.Component {
               Preferred Flavor Profile
             </Text>
             <SegmentedControls
-              tint={"#12d10f"}
-              selectedTint={"white"}
-              backTint={"#276612"}
+              tint={"#aee74a"}
+              selectedTint={"#276612"}
+              backTint={"#1a4d08"}
               options={flavorOptions}
               allowFontScaling={false} // default: true
               onSelection={setSelectedFlavorOption.bind(this)}
@@ -182,9 +182,9 @@ class App extends React.Component {
               Origin
             </Text>
             <SegmentedControls
-              tint={"#12d10f"}
-              selectedTint={"white"}
-              backTint={"#276612"}
+              tint={"#aee74a"}
+              selectedTint={"#276612"}
+              backTint={"#1a4d08"}
               options={originOptions}
               allowFontScaling={false} // default: true
               onSelection={setSelectedOption.bind(this)}
@@ -216,7 +216,6 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    paddingBottom: 0.1
+    padding: 20
   }
 });
