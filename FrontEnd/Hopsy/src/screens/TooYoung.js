@@ -12,12 +12,17 @@ export default function TooYoungScreen()
 {
     return(
         <View>
-            <Text style={StyleSheet.bigRedText}>
+            <Text style={styles.bigRedText}>
                 Come back when you are 21   
             </Text>
         </View>
     );
 }
+
+TooYoungScreen.navigationOptions = 
+{
+    header: null,
+};
 
 const styles = StyleSheet.create(
 {

@@ -7,43 +7,79 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import { Component } from 'react';
 
 
-export default function AgeVerificationScreen()
-{
-    return (
-        <SafeAreaView style={styles.container}>
-            <View>
-                
-                <Text style={styles.bigText}> 
-                    Are you 21? 
-                </Text>
+class AgeVerificationScreen extends Component {
+    render() {
+        return (
+            <SafeAreaView style={styles.container}>
+                <View>
+                    
+                    <Text style={styles.bigText}> 
+                        Are you 21? 
+                    </Text>
 
+                    <View style={styles.twinContainer}>
+                        <TouchableOpacity 
+                            style={styles.simpleYesButton}
+                            onPress={() => Alert.alert('Yes Pressed')}>
+                            <Text style={styles.loginText}>Yes</Text>
+                        </TouchableOpacity>
 
-                <View style={styles.twinContainer}>
-                    <TouchableOpacity 
-                        style={styles.simpleYesButton}
-                        // onPress={() => Alert.alert('Yes Pressed')}>
-                        onPress={() => navigate('TooYoung')}>
-                        <Text style={styles.loginText}>Yes</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity 
-                        style={styles.simpleNoButton}
-                        onPress={() => Alert.alert('No Pressed')}>
-                        <Text style={styles.loginText}>No</Text>
-                    </TouchableOpacity>            
+                        <TouchableOpacity 
+                            style={styles.simpleNoButton}
+                             onPress={() => this.props.navigation.navigate('TooYoung')}>
+                            <Text style={styles.loginText}>No</Text>
+                        </TouchableOpacity>            
+                    </View>
                 </View>
-            </View>
-        </SafeAreaView>
-
-    );
-}
+            </SafeAreaView>
+        );
+    }
+} 
 
 AgeVerificationScreen.navigationOptions = 
 {
     header: null,
 };
+
+export default AgeVerificationScreen;
+
+// export default function AgeVerificationScreen()
+// {
+//     return (
+//         <SafeAreaView style={styles.container}>
+//             <View>
+                
+//                 <Text style={styles.bigText}> 
+//                     Are you 21? 
+//                 </Text>
+
+//                 <View style={styles.twinContainer}>
+//                     <TouchableOpacity 
+//                         style={styles.simpleYesButton}
+//                         // onPress={() => Alert.alert('Yes Pressed')}>
+//                         onPress={() => navigate('TooYoung')}>
+//                         <Text style={styles.loginText}>Yes</Text>
+//                     </TouchableOpacity>
+
+//                     <TouchableOpacity 
+//                         style={styles.simpleNoButton}
+//                         onPress={() => Alert.alert('No Pressed')}>
+//                         <Text style={styles.loginText}>No</Text>
+//                     </TouchableOpacity>            
+//                 </View>
+//             </View>
+//         </SafeAreaView>
+
+//     );
+// }
+
+// AgeVerificationScreen.navigationOptions = 
+// {
+//     header: null,
+// };
   
 const styles = StyleSheet.create(
 {
