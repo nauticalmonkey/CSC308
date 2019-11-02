@@ -5,14 +5,15 @@ import {
   View,
   SafeAreaView,
   Image,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native";
-//import SegmentedControlIOS from "@react-native-community/segmented-control";
 import Slider from "react-native-slider";
-import SearchableDropdown from "react-native-searchable-dropdown";
-import { SegmentedControls } from "react-native-radio-buttons";
+import SearchableDropdown from "./components/SearchableDropdown";
+import SegmentedControls from "./components/SegmentedControls";
+import CustomButton from "./components/CustomButton";
 
-var items = [
+var beers = [
   {
     id: 1,
     name: "Coors"
@@ -53,6 +54,8 @@ class App extends React.Component {
     this.state = {
       selectedIndexFlavor: 2,
       selectedIndexOrigin: 3,
+      selectedFlavorOption: "null",
+      selectedOriginOption: "null",
       price: 10,
       selectedItems: []
     };
@@ -61,30 +64,23 @@ class App extends React.Component {
     const flavorOptions = ["Sweet", "Mild", "Strong", "Fruity", "Blonde"];
     const originOptions = ["Domestic", "Local", "Import"];
 
-    function setSelectedOption(selectedOption) {
-      this.setState({
-        selectedOption
-      });
-    }
-
     function setSelectedFlavorOption(selectedFlavorOption) {
       this.setState({
         selectedFlavorOption
       });
+      this.selectedFlavorOption = selectedFlavorOption;
     }
 
-    function renderOption(option, selected, onSelect, index) {
-      const style = selected ? { fontWeight: "bold" } : {};
-
-      return (
-        <TouchableWithoutFeedback onPress={onSelect} key={index}>
-          <Text style={style}>{option}</Text>
-        </TouchableWithoutFeedback>
-      );
+    function setSelectedOriginOption(selectedOriginOption) {
+      this.setState({
+        selectedOriginOption
+      });
+      this.selectedOriginOption = selectedOriginOption;
     }
 
-    function renderContainer(optionNodes) {
-      return <View>{optionNodes}</View>;
+    function setPrice(price) {
+      this.setState({ price });
+      this.price = price;
     }
 
     return (
@@ -104,14 +100,20 @@ class App extends React.Component {
             style={{ width: 50, height: 50 }}
             source={require("/Users/nick/CSC308/FrontEnd/Hopsy/assets/logo_light.jpg")}
           />
-          <Text style={{ fontSize: 24, paddingLeft: 25 }}>
+          <Text
+            style={{
+              fontSize: 24,
+              paddingLeft: 25,
+              color: "#000"
+            }}
+          >
             Help us get to know you
           </Text>
         </View>
-        <ScrollView>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.container}>
             <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
-              Beers You've Tried
+              Beers you've tried
             </Text>
             <Fragment>
               <SearchableDropdown
@@ -132,15 +134,14 @@ class App extends React.Component {
                 itemStyle={{
                   padding: 10,
                   marginTop: 2,
-                  backgroundColor: "#1a4d08",
+                  backgroundColor: "#276612",
                   borderColor: "#276612",
                   borderWidth: 1,
-                  borderRadius: 5
+                  borderRadius: 15
                 }}
-                itemTextStyle={{ color: "white" }}
-                itemsContainerStyle={{ maxHeight: 250 }}
-                items={items}
-                defaultIndex={6}
+                itemsContainerStyle={{ maxHeight: 140 }}
+                items={beers}
+                defaultIndex={2}
                 chip={true}
                 resetValue={false}
                 textInputProps={{
@@ -149,32 +150,31 @@ class App extends React.Component {
                   style: {
                     padding: 12,
                     borderWidth: 1,
-                    borderColor: "#276612",
-                    borderRadius: 5
+                    borderColor: "#ccc",
+                    borderRadius: 15
                   }
                 }}
                 listProps={{
-                  nestedScrollEnabled: true,
-                  keboardDismissMode: "on-drag"
+                  nestedScrollEnabled: true
                 }}
               />
             </Fragment>
           </View>
           <View style={styles.container}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Preferred Flavor Profile
+              Preferred flavor profile
             </Text>
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
-              backTint={"#1a4d08"}
+              backTint={"#276612"}
               options={flavorOptions}
               allowFontScaling={false} // default: true
               onSelection={setSelectedFlavorOption.bind(this)}
               selectedOption={this.state.selectedFlavorOption}
               optionStyle={{}}
               optionContainerStyle={{ flex: 1 }}
-              containerBorderRadius={30}
+              containerBorderRadius={15}
             />
           </View>
           <View style={styles.container}>
@@ -184,25 +184,38 @@ class App extends React.Component {
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
-              backTint={"#1a4d08"}
+              backTint={"#276612"}
               options={originOptions}
               allowFontScaling={false} // default: true
-              onSelection={setSelectedOption.bind(this)}
-              selectedOption={this.state.selectedOption}
+              onSelection={setSelectedOriginOption.bind(this)}
+              selectedOption={this.state.selectedOriginOption}
               optionStyle={{}}
               optionContainerStyle={{ flex: 1 }}
-              containerBorderRadius={30}
+              containerBorderRadius={15}
             />
           </View>
           <View style={styles.container}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Maximum Price ${Math.round(this.state.price)}
+              Maximum price ${Math.round(this.state.price)}
             </Text>
             <Slider
               value={this.state.price}
-              onValueChange={price => this.setState({ price })}
+              onValueChange={setPrice.bind(this)}
               minimumValue={5}
               maximumValue={50}
+            />
+          </View>
+          <View
+            style={
+              (styles.container,
+              { flex: 1, justifyContent: "flex-end", padding: 20 })
+            }
+          >
+            <CustomButton
+              text="Continue"
+              onPress={() => {
+                alert("Hi there!!!");
+              }}
             />
           </View>
           <SafeAreaView />
