@@ -11,6 +11,7 @@ import Slider from "react-native-slider";
 import SearchableDropdown from "./components/SearchableDropdown";
 import SegmentedControls from "./components/SegmentedControls";
 import CustomButton from "./components/CustomButton";
+import Header from "./components/Header";
 
 var beers = [
   {
@@ -85,21 +86,7 @@ class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView />
-        <View style={styles.header}>
-          <Image
-            style={{ width: 50, height: 50 }}
-            source={require("./assets/logo_light.png")}
-          />
-          <Text
-            style={{
-              fontSize: 24,
-              paddingLeft: 25,
-              color: "#000"
-            }}
-          >
-            Help us get to know you
-          </Text>
-        </View>
+        <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.container}>
             <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
