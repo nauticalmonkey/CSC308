@@ -6,18 +6,19 @@ class Header extends React.Component {
     return (
       <View style={styles.header}>
         <Image
-          style={{ width: 50, height: 50 }}
+          style={styles.image}
           source={require("../assets/logo_light.png")}
         />
-        <Text
-          style={{
-            fontSize: 24,
-            paddingLeft: 25,
-            color: "#000"
-          }}
-        >
-          {this.props.text}
-        </Text>
+        <View>
+          <Text
+            style={{
+              fontSize: 24,
+              color: "#000"
+            }}
+          >
+            {this.props.text}
+          </Text>
+        </View>
       </View>
     );
   }
@@ -26,15 +27,20 @@ class Header extends React.Component {
 export default Header;
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 20
+  image: {
+    width: 50,
+    height: 50,
+    position: "absolute",
+    alignSelf: "flex-start",
+    marginLeft: 25
   },
   header: {
     height: 70,
     borderBottomWidth: 0.5,
     borderBottomColor: "#E9E9E9",
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "column",
+    justifyContent: "center",
     padding: 20
   }
 });
