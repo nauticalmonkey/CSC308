@@ -30,7 +30,10 @@ export default class SearchableDropDown extends Component {
 
   renderFlatList = () => {
     if (this.state.focus) {
-      const flatListPorps = { ...this.props.listProps, borderRadius: 5 };
+      const flatListPorps = {
+        ...this.props.listProps,
+        borderRadius: 5
+      };
       const oldSupport = [
         { key: "keyboardShouldPersistTaps", val: "always" },
         { key: "nestedScrollEnabled", val: false },

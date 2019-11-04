@@ -5,8 +5,7 @@ import {
   View,
   SafeAreaView,
   Image,
-  ScrollView,
-  TouchableOpacity
+  ScrollView
 } from "react-native";
 import Slider from "react-native-slider";
 import SearchableDropdown from "./components/SearchableDropdown";
@@ -54,8 +53,8 @@ class App extends React.Component {
     this.state = {
       selectedIndexFlavor: 2,
       selectedIndexOrigin: 3,
-      selectedFlavorOption: "null",
-      selectedOriginOption: "null",
+      selectedFlavorOption: null,
+      selectedOriginOption: null,
       price: 10,
       selectedItems: []
     };
@@ -86,16 +85,7 @@ class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView />
-        <View
-          style={{
-            height: 70,
-            borderBottomWidth: 0.5,
-            borderBottomColor: "#E9E9E9",
-            alignItems: "center",
-            flexDirection: "row",
-            padding: 20
-          }}
-        >
+        <View style={styles.header}>
           <Image
             style={{ width: 50, height: 50 }}
             source={require("/Users/nick/CSC308/FrontEnd/Hopsy/assets/logo_light.jpg")}
@@ -131,14 +121,7 @@ class App extends React.Component {
                   );
                   this.setState({ selectedItems: items });
                 }}
-                itemStyle={{
-                  padding: 10,
-                  marginTop: 2,
-                  backgroundColor: "#276612",
-                  borderColor: "#276612",
-                  borderWidth: 1,
-                  borderRadius: 15
-                }}
+                itemStyle={styles.beerstyle}
                 itemsContainerStyle={{ maxHeight: 140 }}
                 items={beers}
                 defaultIndex={2}
@@ -214,7 +197,7 @@ class App extends React.Component {
             <CustomButton
               text="Continue"
               onPress={() => {
-                alert("Hi there!!!");
+                alert("If I were a button how would you press me?");
               }}
             />
           </View>
@@ -230,5 +213,21 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     padding: 20
+  },
+  header: {
+    height: 70,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#E9E9E9",
+    alignItems: "center",
+    flexDirection: "row",
+    padding: 20
+  },
+  beerstyle: {
+    padding: 10,
+    marginTop: 2,
+    backgroundColor: "#276612",
+    borderColor: "#276612",
+    borderWidth: 1,
+    borderRadius: 15
   }
 });
