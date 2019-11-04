@@ -88,7 +88,7 @@ class App extends React.Component {
         <View style={styles.header}>
           <Image
             style={{ width: 50, height: 50 }}
-            source={require("/Users/nick/CSC308/FrontEnd/Hopsy/assets/logo_light.jpg")}
+            source={require("./assets/logo_light.png")}
           />
           <Text
             style={{
