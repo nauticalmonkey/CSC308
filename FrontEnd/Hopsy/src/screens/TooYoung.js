@@ -6,14 +6,14 @@ import {
     Text,
 } from 'react-native';
 
-//import { SafeAreaView } from 'react-navigation';
-
 export default function TooYoungScreen()
 {
     return(
         <View>
             <Text style={styles.bigRedText}>
-                Come back when you are 21   
+                We are sorry, but we take seriously, our responsibility
+                to limit access to our service to adults with legal drining
+                age.   
             </Text>
         </View>
     );
@@ -27,14 +27,13 @@ TooYoungScreen.navigationOptions =
 const styles = StyleSheet.create(
 {
     bigRedText: {
-        fontSize: 60,
-        marginTop: 225,
-        marginBottom: 30,
-        fontWeight: 'bold',
-        color: 'rgba(255, 0, 0, 1)',
-        //lineHeight: 48,
+        fontSize: 30,
+        marginTop: 355,
+        fontWeight: '600',
+        color: '#000',
         textAlign: 'center',
-        //backgroundColor: 'red'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
 });
