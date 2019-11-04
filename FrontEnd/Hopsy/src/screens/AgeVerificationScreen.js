@@ -57,7 +57,7 @@ const styles = StyleSheet.create(
     container: 
     {
         flex: 1,
-        backgroundColor: '#EAEDED',
+        backgroundColor: '#FFF',
     },
     bigText: {
         fontSize: 45,
@@ -76,14 +76,14 @@ const styles = StyleSheet.create(
         marginTop: 10,
         width: 120,
         textAlign: 'center',
-        backgroundColor: 'rgba(17, 71, 16, 0.9)',
+        backgroundColor: 'rgba(rgba(68, 126, 36, 1))',
         alignItems: 'center',
         justifyContent: 'center'
     },
     simpleNoButton: {
         height: 55,
         width: 120,
-        backgroundColor: 'rgba(17, 71, 16, 0.9)',
+        backgroundColor: 'rgba(rgba(68, 126, 36, 1))',
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create(
         height: 300,
     },
     logoContainer: {
-        marginTop: 105,
+        marginTop: 110,
         alignItems : 'center',
         flexGrow: 1,
         justifyContent: 'center'
