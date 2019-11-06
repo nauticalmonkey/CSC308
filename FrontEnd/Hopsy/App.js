@@ -13,7 +13,8 @@ import PreferenceScreen from "./src/screens/PreferenceScreen";
 const MainNavigator = createStackNavigator({
   AgeVer: AgeVerificationScreen,
   TooYoung: TooYoungScreen,
-  Login: LoginScreen
+  Login: LoginScreen,
+  Preference: PreferenceScreen
 
   //Profile: {screen: ProfileScreen},
 });
