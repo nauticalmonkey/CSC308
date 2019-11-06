@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Fragment } from "react";
 import {
   StyleSheet,
@@ -217,4 +218,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15
   }
+=======
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+
+import AgeVerificationScreen from './src/screens/AgeVerificationScreen';
+import TooYoungScreen from './src/screens/TooYoung';
+
+//Noel's Login stuff
+import LoginScreen from './src/components/Login';
+
+
+const MainNavigator = createStackNavigator({
+  AgeVer: AgeVerificationScreen,
+  TooYoung: TooYoungScreen,
+  Login: LoginScreen,
+
+  //Profile: {screen: ProfileScreen},
+>>>>>>> 99b658f44a891a94e0981c1eb3893a839797e113
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
