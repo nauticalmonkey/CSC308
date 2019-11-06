@@ -8,10 +8,10 @@ import {
   ScrollView
 } from "react-native";
 import Slider from "react-native-slider";
-import SearchableDropdown from "./components/SearchableDropdown";
-import SegmentedControls from "./components/SegmentedControls";
-import CustomButton from "./components/CustomButton";
-import Header from "./components/Header";
+import SearchableDropdown from "../components/SearchableDropdown";
+import SegmentedControls from "../components/SegmentedControls";
+import CustomButton from "../components/CustomButton";
+import Header from "../components/Header";
 
 var beers = [
   {
@@ -48,7 +48,7 @@ var beers = [
   }
 ];
 
-class Preferences extends Component {
+class PreferenceScreen extends Component {
   constructor() {
     super();
     this.state = {
@@ -195,7 +195,7 @@ class Preferences extends Component {
   }
 }
 
-export default App;
+export default PreferenceScreen;
 
 const styles = StyleSheet.create({
   container: {

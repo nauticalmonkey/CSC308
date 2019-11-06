@@ -7,6 +7,9 @@ import TooYoungScreen from "./src/screens/TooYoung";
 //Noel's Login stuff
 import LoginScreen from "./src/components/Login";
 
+// Nick's pref page stuff
+import PreferenceScreen from "./src/screens/PreferenceScreen";
+
 const MainNavigator = createStackNavigator({
   AgeVer: AgeVerificationScreen,
   TooYoung: TooYoungScreen,
