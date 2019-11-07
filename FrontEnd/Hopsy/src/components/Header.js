@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   header: {
-    height: 70,
+    height: 65,
     borderBottomWidth: 0.5,
     borderBottomColor: "#E9E9E9",
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
-    padding: 20
+    padding: 10
   }
 });
