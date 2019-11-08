@@ -195,6 +195,10 @@ class PreferenceScreen extends Component {
   }
 }
 
+PreferenceScreen.navigationOptions = {
+  header: null
+};
+
 export default PreferenceScreen;
 
 const styles = StyleSheet.create({
