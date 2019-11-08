@@ -12,11 +12,11 @@ public class HopCon {
         MongoDatabase db = mongoClient.getDatabase("test");
         MongoCollection<Document> dbCollection = db.getCollection("testCollection");
 
-        User user = new User("johnsmith@gmail.com", "guest");
-        Document userDoc = user.toDoc();
+        //User user = new User("johnsmith@gmail.com", "guest");
+        //Document userDoc = user.toDoc();
         //insertDoc(dbCollection, userDoc);
-        Document myDoc = findDoc(dbCollection, "_id", "Collin");
-        System.out.print(myDoc.getString("_id"));
+        Document myDoc = findDoc(dbCollection, "email", "johnsmith@gmail.com");
+        System.out.print(myDoc.getString("email"));
 
     }
 
