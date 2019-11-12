@@ -11,12 +11,13 @@
 </head>
 <body>
     <!-- Script 10.6 - register.html -->
+    <!-- TODO SEND PASSWORD AND LOGIN TO DB FOR VALIDATION-->
     <form action="index.html" method="GET" id="theForm">
         <fieldset><legend>Login</legend>
 			<p><img src="Photos/terrible Bunny.png" alt="Company Logo"></p>
 			<div class="two"><label for="email">Email Address</label><input type="email" name="email" id="email" ></div>
 			<div class="two"><label for="Password">Password</label><input type="text" name="zip" id="zip" ></div>
-			<div class="one"><input type="submit" value="Login" id="submit"></div>
+			<div class="one"><input type="button" value="Login" id="submit" onclick="window.location.href='index.html'"></div>
         </fieldset>
     </form>
     <script src="js/utilities.js"></script>
