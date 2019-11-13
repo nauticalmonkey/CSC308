@@ -10,7 +10,10 @@ import LoginScreen from "./src/components/Login";
 // Nick's pref page stuff
 import PreferenceScreen from "./src/screens/PreferenceScreen";
 
+import MapScreen from "./src/screens/MapScreen";
+
 const MainNavigator = createStackNavigator({
+  Map: MapScreen,
   AgeVer: AgeVerificationScreen,
   TooYoung: TooYoungScreen,
   Login: LoginScreen,
