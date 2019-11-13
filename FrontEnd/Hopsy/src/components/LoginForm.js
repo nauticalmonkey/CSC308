@@ -37,6 +37,7 @@ export default class LoginForm extends Component {
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <Text style={styles.singUp}>Don't have an account? Sign up</Text>
       </View>
     );
   }
@@ -53,11 +54,17 @@ const styles = StyleSheet.create({
     color: "#FFF",
     paddingHorizontal: 10
   },
+  singUp:{
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20
+  },
   butoonContainer: {
     height: 55,
     backgroundColor: "rgba(68, 126, 36, 1)",
     paddingVertical: 10,
-    marginBottom: 40,
+    marginBottom: 20,
     justifyContent: "center",
     alignItems: "center"
   },
