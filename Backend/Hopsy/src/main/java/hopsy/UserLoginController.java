@@ -1,19 +1,29 @@
+package hopsy;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.util.List;
+
 import static com.mongodb.client.model.Filters.eq;
 
-public class HopCon {
-    /*public static void main(String args[]) {
+@RestController
+public class UserLoginController {
+
+    public UserLoginController() {
         MongoClient mongoClient;
         mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://42cleslie:password1234@cluster0-gxgoh.mongodb.net/userdb?retryWrites=true&w=majority"));
 
         MongoDatabase db = mongoClient.getDatabase("test");
         MongoCollection<Document> dbCollection = db.getCollection("testCollection");
 
-        //hopsy.User user = new hopsy.User("johnsmith@gmail.com", "guest");
+        User user = new User("johnsmith@gmail.com", "guest");
         //Document userDoc = user.toDoc();
         //insertDoc(dbCollection, userDoc);
         Document myDoc = findDoc(dbCollection, "email", "jsmith@gmial.com");
@@ -21,8 +31,14 @@ public class HopCon {
 
         //Document doc = new Document("email", "jsmith@gmial.com").append("password", "mypass");
         //dbCollection.insertOne(doc);
+    }
 
-    }*/
+    @RequestMapping("/login")
+    public boolean userLogin(@RequestParam String name, @RequestParam String pswrd) {
+        System.out.println(name);
+        System.out.println(pswrd);
+        return true;
+    }
 
     private static boolean insertDoc(MongoCollection<Document> collection, Document doc) {
         try {

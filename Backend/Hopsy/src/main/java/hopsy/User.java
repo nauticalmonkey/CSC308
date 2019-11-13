@@ -1,3 +1,5 @@
+package hopsy;
+
 import org.bson.Document;
 
 public class User {
