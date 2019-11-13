@@ -253,7 +253,7 @@ mapTheme = [
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#575757"
+        color: "#6b8c32"
       }
     ]
   },
@@ -393,8 +393,6 @@ export default class MapScreen extends React.Component {
     );
   }
 }
-
-//export default MapScreen;
 
 MapScreen.navigationOptions = {
   header: null
