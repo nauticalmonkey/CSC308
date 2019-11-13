@@ -46,7 +46,7 @@ class AgeVerificationScreen extends Component {
 
 AgeVerificationScreen.navigationOptions = 
 {
-    header: null,
+    header: null
 };
 
 export default AgeVerificationScreen;
