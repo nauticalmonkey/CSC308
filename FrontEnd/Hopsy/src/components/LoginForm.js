@@ -37,7 +37,8 @@ export default class LoginForm extends Component {
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <Text style={styles.singUp}>Don't have an account? Sign up</Text>
+        <Text style={styles.singUp}>Don't have an account?<Text onPress={() => this.props.navigation.navigate("Preference")}
+        style={styles.blue}> Sign up</Text></Text>
       </View>
     );
   }
@@ -53,6 +54,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: "#FFF",
     paddingHorizontal: 10
+  },
+  blue :{
+    color: "rgba(44, 130, 201, 1)",
   },
   singUp:{
     textAlign: "center",
