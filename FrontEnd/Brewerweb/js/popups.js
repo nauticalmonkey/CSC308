@@ -1,5 +1,4 @@
 
-// Script 9.5- popups.js
 // This script creates a popup window on every link.
 
 // Function called when the link is clicked.
