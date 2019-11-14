@@ -5,28 +5,72 @@ import { View, Text } from "react-native";
 import { createBottomTabNavigator} from 'react-navigation-tabs';
 import { createStackNavigator } from "react-navigation-stack";
 
-import Test from "../screens/Test";
+import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/MapScreen";
+import RecScreen from "../screens/RecommendationScreen";
+import SearchScreen from "../screens/SearchScreen";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const TabNavigator = createBottomTabNavigator({
   Home: {
-    screen: Test,
+    screen: HomeScreen,
+    navigationOptions: {
+    tabBarIcon: ({ tintColor }) => (
+      <Icon name="ios-home" color={ tintColor }size={20}/>
+    )
+    }
   },
   Map: {
-    screen: Test
+    screen: MapScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-compass" color={ tintColor }size={20}/>
+      )
+    }
+  },
+  Rec: {
+    screen: RecScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-pricetag" color={ tintColor }size={20}/>
+      )
+    }
+  },
+  Search: {
+    screen: SearchScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="ios-search" color={ tintColor }size={20}/>
+      )
+    }
   }
 },{
   tabBarOptions: {
     activeBackgroundColor: "rgba(68, 126, 36, 1)",
     inactiveBackgroundColor: "rgba(68, 126, 36, 1)",
     activeTintColor: 'white',
-    inactiveTintColor: "black",
+    inactiveTintColor: "#939393",
+    showLabel: false,
     style: {
       backgroundColor: "rgba(68, 126, 36, 1)",
+      marginBottom: 0,
+    },
+    labelStyle:{
+      activeTintColor: 'white',
+      inactiveTintColor: 'gray',
+      alignContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      marginBottom: 25,
     },
     tabStyle:{
       width: 40,
-      height: 50
+      height: 60,
+      scaleY: 20,
+      alignContent: 'center',
+      alignItems: 'center',
+      showLabel: false
     }
   }
 });
