@@ -13,29 +13,27 @@ import {
 
 export default class LoginForm extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this._fetchData = this._fetchData.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this._fetchData = this._fetchData.bind(this);
+  }
+
 
   _fetchData() {
     
     let params = {
-      "name": "RobertMI",
-      "pswrd": "securepassword"
+      "name": this.state.username,
+      "pswrd": this.state.password
     }
 
     let query = Object.keys(params)
         .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
 
     let url = 'http://localhost:8080/login?' + query
-    const hardCodedUserName = "RobertMI";
-    const hardCodedPassword = "securepassword";
+   
     fetch(url);
 
   }
-
-
 
   render() {
     return (
@@ -45,6 +43,7 @@ export default class LoginForm extends Component {
           placeholder="username or email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
+          onChangeText={(text) => this.setState({username:text})}
           onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
           autoCapitalize="none"
@@ -58,6 +57,7 @@ export default class LoginForm extends Component {
           secureTextEntry
           style={styles.input}
           ref={input => (this.passwordInput = input)}
+          onChangeText={(text) => this.setState({password:text})}
         />
         <TouchableOpacity
           style={styles.butoonContainer}
