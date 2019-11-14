@@ -1,15 +1,15 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 export default function Test() {
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.bigRedText}>
         Test
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -22,5 +22,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignItems: "center",
     justifyContent: "center"
-  }
+  },
+  container: {
+    flex: 1,
+  },
 });

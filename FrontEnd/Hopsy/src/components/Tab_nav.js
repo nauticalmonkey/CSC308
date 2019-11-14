@@ -12,14 +12,22 @@ const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: Test,
   },
-  Test: {
+  Map: {
     screen: Test
   }
 },{
   tabBarOptions: {
-    activeBackgroundColor: 'black',
-    inactiveBackgroundColor: 'black',
+    activeBackgroundColor: "rgba(68, 126, 36, 1)",
+    inactiveBackgroundColor: "rgba(68, 126, 36, 1)",
     activeTintColor: 'white',
+    inactiveTintColor: "black",
+    style: {
+      backgroundColor: "rgba(68, 126, 36, 1)",
+    },
+    tabStyle:{
+      width: 40,
+      height: 50
+    }
   }
 });
 
