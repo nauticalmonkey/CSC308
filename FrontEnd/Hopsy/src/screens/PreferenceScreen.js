@@ -89,7 +89,7 @@ class PreferenceScreen extends Component {
     }
 
     return (
-      <View style={{ flex: 1, height: screenHeight, width: screenWidth }}>
+      <View style={styles.main}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -207,6 +207,12 @@ PreferenceScreen.navigationOptions = {
 export default PreferenceScreen;
 
 const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    height: screenHeight,
+    width: screenWidth,
+    paddingTop: Expo.Constants.statusBarHeight
+  },
   container: {
     padding: 20
   },

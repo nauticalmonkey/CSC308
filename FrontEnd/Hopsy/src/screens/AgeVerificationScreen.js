@@ -17,9 +17,6 @@ const screenHeight = window.height;
 const screenWidth = window.width;
 
 class AgeVerificationScreen extends Component {
-  componentWillMount() {
-    if (Platform.OS == "android") StatusBar.setHidden(true);
-  }
   render() {
     return (
       <View
