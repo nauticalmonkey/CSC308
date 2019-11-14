@@ -8,7 +8,35 @@ import {
   StatusBar
 } from "react-native";
 
+
+
+
 export default class LoginForm extends Component {
+
+  // constructor(props) {
+  //   super(props);
+  //   this._fetchData = this._fetchData.bind(this);
+  // }
+
+  _fetchData() {
+    
+    let params = {
+      "name": "RobertMI",
+      "pswrd": "securepassword"
+    }
+
+    let query = Object.keys(params)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
+
+    let url = 'http://localhost:8080/login?' + query
+    const hardCodedUserName = "RobertMI";
+    const hardCodedPassword = "securepassword";
+    fetch(url);
+
+  }
+
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,7 +61,7 @@ export default class LoginForm extends Component {
         />
         <TouchableOpacity
           style={styles.butoonContainer}
-          onPress={() => this.props.navigation.navigate("Home")}
+          onPress={this._fetchData}
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
@@ -43,6 +71,43 @@ export default class LoginForm extends Component {
     );
   }
 }
+
+// const apiUserData = 'http://localhost:8080/login';
+// async function getUserFromServer() {
+//   try {
+//     let response = await fetch(apiUserData)
+//     let responseJson = await response.json;
+//     return responseJson.data;
+//   } catch (error) {
+    
+//   }
+// }
+
+
+
+// fetch("https://localhost:8080/login", {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     name: 'one',
+//     pswrd: 'two',
+//   }),
+// });
+
+// function getData() {
+//   return fetch('http://localhost:8080/login')
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//       return responseJson.movies;
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -68,7 +133,7 @@ const styles = StyleSheet.create({
     height: 55,
     backgroundColor: "rgba(68, 126, 36, 1)",
     paddingVertical: 10,
-    marginBottom: 20,
+    marginBottom: 50,
     justifyContent: "center",
     alignItems: "center"
   },
