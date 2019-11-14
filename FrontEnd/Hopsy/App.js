@@ -1,9 +1,13 @@
+
 import { createAppContainer } from "react-navigation";
-import { createDrawerNavigator } from "react-navigation-drawer";
 import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import AgeVerificationScreen from "./src/screens/AgeVerificationScreen";
 import TooYoungScreen from "./src/screens/TooYoung";
+
+import { NavigationActions } from 'react-navigation';
+
 
 //Noel's Login stuff
 import LoginScreen from "./src/components/Login";
