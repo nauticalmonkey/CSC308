@@ -4,11 +4,11 @@ import { StyleSheet } from "react-native";
 import { View, SafeAreaView, Text } from "react-native";
 import Header from "../components/Header";
 
-export default class Test extends React.Component {
+export default class Search extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header text={"Home"} />
+        <Header text={"Search"} />
       </SafeAreaView>
     );
   }
