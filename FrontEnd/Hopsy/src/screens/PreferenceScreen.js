@@ -4,14 +4,19 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
-  ScrollView
+  ScrollView,
+  Dimensions,
+  StatusBar
 } from "react-native";
 import Slider from "react-native-slider";
 import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
 import Header from "../components/Header";
+
+const window = Dimensions.get("window");
+const screenHeight = window.height;
+const screenWidth = window.width;
 
 var beers = [
   {
@@ -84,7 +89,7 @@ class PreferenceScreen extends Component {
     }
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, height: screenHeight, width: screenWidth }}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>

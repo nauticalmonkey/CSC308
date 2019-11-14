@@ -1,13 +1,34 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import { View, Text, TouchableOpacity, Image, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StatusBar,
+  Dimensions
+} from "react-native";
 
 import CustomButton from "../components/CustomButton";
+import { Platform } from "@unimodules/core";
+
+const window = Dimensions.get("window");
+const screenHeight = window.height;
+const screenWidth = window.width;
 
 class AgeVerificationScreen extends Component {
+  componentWillMount() {
+    if (Platform.OS == "android") StatusBar.setHidden(true);
+  }
   render() {
     return (
-      <View>
+      <View
+        style={{
+          flex: 1,
+          height: screenHeight,
+          width: screenWidth
+        }}
+      >
         <StatusBar barStyle="dark-content" />
         <View style={styles.logoContainer}>
           <Image
@@ -48,7 +69,7 @@ const styles = StyleSheet.create({
   },
   bigText: {
     fontSize: 45,
-    marginTop: 150,
+    //marginTop: 150,
     marginBottom: 5,
     fontWeight: "700",
     textAlign: "center"
@@ -60,7 +81,7 @@ const styles = StyleSheet.create({
   },
   simpleYesButton: {
     height: 55,
-    marginTop: 10,
+    //marginTop: 10,
     width: 120,
     textAlign: "center",
     alignItems: "center",
@@ -71,8 +92,8 @@ const styles = StyleSheet.create({
     width: 120,
     textAlign: "center",
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10
+    alignItems: "center"
+    //marginTop: 10
   },
   loginText: {
     color: "#fff",
@@ -86,7 +107,7 @@ const styles = StyleSheet.create({
     height: 300
   },
   logoContainer: {
-    marginTop: 110,
+    //marginTop: 110,
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center"
@@ -94,16 +115,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 45,
     color: "#000",
-    marginTop: 10,
-    width: 200,
+    //marginTop: 10,
+    paddingBottom: 10,
+    //width: 200,
     textAlign: "center",
     fontWeight: "700"
   },
   subtitle: {
     fontSize: 25,
     color: "#000",
-    marginTop: 5,
-    width: 500,
+    //marginTop: 5,
+    //width: 500,
+    paddingBottom: 100,
     textAlign: "center",
     fontWeight: "600"
   }

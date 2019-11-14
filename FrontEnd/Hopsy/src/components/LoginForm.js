@@ -60,6 +60,7 @@ export default class LoginForm extends Component {
           secureTextEntry
           style={styles.input}
           ref={input => (this.passwordInput = input)}
+          onSubmitEditing={() => this.passwordInput.focus()}
           onChangeText={text => this.setState({ password: text })}
         />
 
