@@ -10,10 +10,16 @@ import Test from "../screens/Test";
 
 const TabNavigator = createBottomTabNavigator({
   Home: {
-    screen: Test
+    screen: Test,
   },
   Test: {
     screen: Test
+  }
+},{
+  tabBarOptions: {
+    activeBackgroundColor: 'black',
+    inactiveBackgroundColor: 'black',
+    activeTintColor: 'white',
   }
 });
 
