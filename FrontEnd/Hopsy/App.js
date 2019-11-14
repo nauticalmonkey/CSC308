@@ -13,11 +13,11 @@ import PreferenceScreen from "./src/screens/PreferenceScreen";
 import MapScreen from "./src/screens/MapScreen";
 
 const MainNavigator = createStackNavigator({
-  Map: MapScreen,
   AgeVer: AgeVerificationScreen,
   TooYoung: TooYoungScreen,
   Login: LoginScreen,
-  Preference: PreferenceScreen
+  Preference: PreferenceScreen,
+  Map: MapScreen
 
   //Profile: {screen: ProfileScreen},
 });
