@@ -17,7 +17,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: HomeScreen,
     navigationOptions: {
     tabBarIcon: ({ tintColor }) => (
-      <Icon name="ios-home" color={ tintColor }size={20}/>
+      <Icon name="ios-home" color={ tintColor }size={25}/>
     )
     }
   },
@@ -25,7 +25,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: MapScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-compass" color={ tintColor }size={20}/>
+        <Icon name="ios-compass" color={ tintColor }size={25}/>
       )
     }
   },
@@ -33,7 +33,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: RecScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-pricetag" color={ tintColor }size={20}/>
+        <Icon name="ios-pricetag" color={ tintColor }size={25}/>
       )
     }
   },
@@ -41,7 +41,7 @@ const TabNavigator = createBottomTabNavigator({
     screen: SearchScreen,
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-search" color={ tintColor }size={20}/>
+        <Icon name="ios-search" color={ tintColor }size={25}/>
       )
     }
   }
