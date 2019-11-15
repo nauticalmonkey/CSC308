@@ -89,11 +89,11 @@ class PreferenceScreen extends Component {
     }
 
     return (
-      <View style={styles.main}>
+      <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
               Beers you've tried
             </Text>
@@ -135,7 +135,7 @@ class PreferenceScreen extends Component {
               />
             </Fragment>
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Preferred flavor profile
             </Text>
@@ -152,7 +152,7 @@ class PreferenceScreen extends Component {
               containerBorderRadius={15}
             />
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Origin
             </Text>
@@ -169,7 +169,7 @@ class PreferenceScreen extends Component {
               containerBorderRadius={15}
             />
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Maximum price ${Math.round(this.state.price)}
             </Text>
@@ -182,8 +182,7 @@ class PreferenceScreen extends Component {
           </View>
           <View
             style={
-              (styles.container,
-              { flex: 1, justifyContent: "flex-end", padding: 20 })
+              (styles.sub, { flex: 1, justifyContent: "flex-end", padding: 20 })
             }
           >
             <CustomButton
@@ -207,13 +206,13 @@ PreferenceScreen.navigationOptions = {
 export default PreferenceScreen;
 
 const styles = StyleSheet.create({
-  main: {
+  container: {
     flex: 1,
     height: screenHeight,
     width: screenWidth,
     paddingTop: Expo.Constants.statusBarHeight
   },
-  container: {
+  sub: {
     padding: 20
   },
   header: {

@@ -19,13 +19,7 @@ const screenWidth = window.width;
 class AgeVerificationScreen extends Component {
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          height: screenHeight,
-          width: screenWidth
-        }}
-      >
+      <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <View style={styles.logoContainer}>
           <Image
@@ -62,7 +56,9 @@ export default AgeVerificationScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF"
+    backgroundColor: "#FFF",
+    height: screenHeight,
+    width: screenWidth
   },
   bigText: {
     fontSize: 45,
