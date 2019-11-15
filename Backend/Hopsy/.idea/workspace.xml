@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb1fabb2-22af-4a72-a642-5d382806857e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/TasteSubmissionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HopCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HopCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/HopCon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/HopCon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -72,7 +69,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="6" />
-          <entry key="java" value="47" />
+          <entry key="java" value="75" />
           <entry key="name" value="1" />
           <entry key="xml" value="12" />
         </counts>
@@ -80,20 +77,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="6" />
-          <entry key="JAVA" value="47" />
+          <entry key="JAVA" value="75" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="764" />
+          <entry key="java" value="857" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="764" />
+          <entry key="JAVA" value="857" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -102,10 +99,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="315">
+              <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +131,10 @@
         <option value="$PROJECT_DIR$/src/main/java/UserLoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/SpringRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hopsy/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hopsy/TasteSubmissionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hopsy/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java" />
       </list>
     </option>
   </component>
@@ -209,7 +208,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573618924754" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573775098303" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -356,10 +355,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -373,10 +382,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/TasteSubmissionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserLoginController {
+public class TasteSubmissionController {
 
-    @RequestMapping("/login")
-    public boolean userLogin(@RequestParam String name, @RequestParam String pswrd) {
+    @RequestMapping("/submit-tastes")
+    public boolean formSubmission(@RequestParam String name, @RequestParam String pswrd) {
         System.out.println(name);
         System.out.println(pswrd);
         return true;
