@@ -7,9 +7,9 @@
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/images/logo_light.png",
+    "icon": "./src/images/Bunny.png",
     "splash": {
-      "image": "./src/images/logo_light.png",
+      "image": "./src/images/Bunny.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

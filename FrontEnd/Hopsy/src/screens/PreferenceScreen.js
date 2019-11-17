@@ -4,14 +4,19 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
-  ScrollView
+  ScrollView,
+  Dimensions,
+  StatusBar
 } from "react-native";
 import Slider from "react-native-slider";
 import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
 import Header from "../components/Header";
+
+const window = Dimensions.get("window");
+const screenHeight = window.height;
+const screenWidth = window.width;
 
 var beers = [
   {
@@ -84,11 +89,11 @@ class PreferenceScreen extends Component {
     }
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
               Beers you've tried
             </Text>
@@ -130,7 +135,7 @@ class PreferenceScreen extends Component {
               />
             </Fragment>
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Preferred flavor profile
             </Text>
@@ -147,7 +152,7 @@ class PreferenceScreen extends Component {
               containerBorderRadius={15}
             />
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Origin
             </Text>
@@ -164,7 +169,7 @@ class PreferenceScreen extends Component {
               containerBorderRadius={15}
             />
           </View>
-          <View style={styles.container}>
+          <View style={styles.sub}>
             <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
               Maximum price ${Math.round(this.state.price)}
             </Text>
@@ -177,8 +182,7 @@ class PreferenceScreen extends Component {
           </View>
           <View
             style={
-              (styles.container,
-              { flex: 1, justifyContent: "flex-end", padding: 20 })
+              (styles.sub, { flex: 1, justifyContent: "flex-end", padding: 20 })
             }
           >
             <CustomButton
@@ -203,6 +207,12 @@ export default PreferenceScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    height: screenHeight,
+    width: screenWidth,
+    paddingTop: Expo.Constants.statusBarHeight
+  },
+  sub: {
     padding: 20
   },
   header: {
