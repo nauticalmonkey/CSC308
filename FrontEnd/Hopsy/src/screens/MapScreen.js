@@ -30,7 +30,7 @@ export default class MapScreen extends React.Component {
     const { latitude, longitude } = this.state;
     if (latitude) {
       return (
-        <View style={{ flex: 1 }}>
+        <View style={styles.container}>
           <SafeAreaView />
           <Header text={"Brewery locator"} />
           <MapView
@@ -68,8 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
+    paddingTop: Expo.Constants.statusBarHeight
   },
   mapStyle: {
     width: Dimensions.get("window").width,

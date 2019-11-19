@@ -10,19 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserLoginController {
+public class AccountCreationController {
 
-    @RequestMapping("/login")
+    @RequestMapping("/create-account")
     public boolean userLogin(@RequestBody String usr) {
         JSONObject jsObj = new JSONObject(usr);
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase("Users");
         MongoCollection<Document> dbCollection = db.getCollection("users");
 
-        Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
-
+        User theUser = new User(jsObj.get("name").toString(), jsObj.get("password").toString());
+        Document doc = theUser.toDoc();
+        DBUtils.insertDoc(dbCollection, doc);
         usrMC.close();
 
-        return (doc != null && doc.getString("password").equals(jsObj.get("password")));
+        return true;
     }
+
 }

@@ -2,7 +2,7 @@
 
 function darkSide(){
     'use strict';
-    var message = "Welcome to the darkside.";
+    var message = "Welcome to the Hopsy, A Better way to Beer.";
    U.setText("doomHandle",message);
    U.$("darkSide").onclick = U.setText("doomHandle",message);
 U.$("darkSide").style.visibility = "hidden";
