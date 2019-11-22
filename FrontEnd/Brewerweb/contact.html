@@ -3,21 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Contact</title>
     <!--[if lt IE 9]>
     <![endif]-->
 	<link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/LoginForm.css">
 </head>
 <body>
-    <!-- TODO SEND PASSWORD AND LOGIN TO DB FOR VALIDATION-->
+
     <form action="index.html" method="GET" id="theForm">
-        <fieldset><legend>Login</legend>
+        <fieldset><legend>Contact Us</legend>
 			<p><img src="Photos/terrible Bunny.png" alt="Company Logo"></p>
 			<div class="two"><label for="email">Email Address</label><input type="email" name="email" id="email" ></div>
-			<div class="two"><label for="Password">Password</label><input type="text" name="zip" id="zip" ></div>
-            <div class="one"><input type="button" value="Login" id="submit" onclick="window.location.href='index.html'"></div>
-            <div class="one"><p>If you Dont have an account <a href="register.html">Sign up here!</a></p></div>
+			<div class="two"><label for="Message">Message</label><input type="text" name="message" id="message" ></div>
+            <div class="one"><input type="button" value="Submit" id="submit" onclick="window.location.href='index.html'"></div>
         </fieldset>
     </form>
     <script src="js/utilities.js"></script>
