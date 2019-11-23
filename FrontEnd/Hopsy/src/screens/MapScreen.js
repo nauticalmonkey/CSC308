@@ -14,8 +14,7 @@ import * as Permissions from "expo-permissions";
 
 const maptheme = require("./maptheme.json");
 const URL =
-  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery&key=" +
-  MAP_API_KEY;
+  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery";
 
 export default class MapScreen extends React.Component {
   state = {
@@ -24,34 +23,77 @@ export default class MapScreen extends React.Component {
     loading: false
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({ loading: true });
     // ask user for location
-    const { status } = await Permissions.getAsync(Permissions.LOCATION);
+    /*const { status } = await Permissions.getAsync(Permissions.LOCATION);
 
     if (status != "granted") {
       const response = await Permissions.askAsync(Permissions.LOCATION);
-    }
+    }*/
 
     navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude } }) =>
-        this.setState({ latitude, longitude }, this.mergeCoords),
+      position => {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        this.setState({ latitude, longitude }, () => {
+          console.log(
+            URL +
+              "&location=" +
+              this.state.latitude +
+              "," +
+              this.state.longitude +
+              "&radius=10000&key=" +
+              MAP_API_KEY
+          );
+          return fetch(
+            URL +
+              "&location=" +
+              this.state.latitude +
+              "," +
+              this.state.longitude +
+              "&radius=10000&key=" +
+              MAP_API_KEY
+          )
+            .then(response => response.json())
+            .then(responseJson => {
+              this.setState(
+                {
+                  loading: false,
+                  brewdata: responseJson
+                },
+                function() {}
+              );
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        });
+      },
       error => console.log("Error:", error)
     );
 
     // fetch breweries from google api
-    try {
-      const brewresponse = await fetch(URL);
+
+    /*try {
+      const brewresponse = await fetch(
+        URL +
+          "&location=" +
+          this.state.latitude +
+          "," +
+          this.state.longitude +
+          "&radius=10000&key=" +
+          MAP_API_KEY
+      );
       if (!brewresponse.ok) {
         throw Error(brewresponse.statusText);
       }
       const json = await brewresponse.json();
       this.setState({ brewdata: json, loading: false });
       //console.log(this.state.brewdata);
-      console.log("Success!");
     } catch (error) {
       console.log(error);
-    }
+    }*/
   }
 
   render() {
@@ -85,6 +127,7 @@ export default class MapScreen extends React.Component {
             }}
           >
             {brewdata.results.map(brewery => {
+              console.log(brewery.name);
               if (brewery.opening_hours) {
                 return (
                   <MapView.Marker
