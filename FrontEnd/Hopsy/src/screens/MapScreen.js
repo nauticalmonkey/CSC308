@@ -26,11 +26,6 @@ export default class MapScreen extends React.Component {
   async componentDidMount() {
     this.setState({ loading: true });
     // ask user for location
-    /*const { status } = await Permissions.getAsync(Permissions.LOCATION);
-
-    if (status != "granted") {
-      const response = await Permissions.askAsync(Permissions.LOCATION);
-    }*/
     await this.askLocationPermisson();
 
     navigator.geolocation.getCurrentPosition(
@@ -66,35 +61,16 @@ export default class MapScreen extends React.Component {
                 function() {}
               );
             })
-            .catch(error => {
-              console.error(error);
-            });
+            .catch(
+              error => {
+                console.error(error);
+              },
+              { enableHighAccuracy: true }
+            );
         });
       },
       error => console.log("Error:", error)
     );
-
-    // fetch breweries from google api
-
-    /*try {
-      const brewresponse = await fetch(
-        URL +
-          "&location=" +
-          this.state.latitude +
-          "," +
-          this.state.longitude +
-          "&radius=10000&key=" +
-          MAP_API_KEY
-      );
-      if (!brewresponse.ok) {
-        throw Error(brewresponse.statusText);
-      }
-      const json = await brewresponse.json();
-      this.setState({ brewdata: json, loading: false });
-      //console.log(this.state.brewdata);
-    } catch (error) {
-      console.log(error);
-    }*/
   }
   async askLocationPermisson() {
     const { status } = await Permissions.getAsync(Permissions.LOCATION);
