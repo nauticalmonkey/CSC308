@@ -23,7 +23,7 @@ export default class MapScreen extends React.Component {
     loading: false
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({ loading: true });
     // ask user for location
     /*const { status } = await Permissions.getAsync(Permissions.LOCATION);
@@ -31,6 +31,7 @@ export default class MapScreen extends React.Component {
     if (status != "granted") {
       const response = await Permissions.askAsync(Permissions.LOCATION);
     }*/
+    await this.askLocationPermisson();
 
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -94,6 +95,13 @@ export default class MapScreen extends React.Component {
     } catch (error) {
       console.log(error);
     }*/
+  }
+  async askLocationPermisson() {
+    const { status } = await Permissions.getAsync(Permissions.LOCATION);
+
+    if (status != "granted") {
+      const response = await Permissions.askAsync(Permissions.LOCATION);
+    }
   }
 
   render() {
