@@ -5,12 +5,14 @@ import {
   SafeAreaView,
   Dimensions,
   Text,
+  Platform,
   ActivityIndicator
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import Header from "../components/Header";
 import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
+import * as Location from "expo-location";
 
 const maptheme = require("./maptheme.json");
 const URL =
@@ -20,64 +22,63 @@ export default class MapScreen extends React.Component {
   state = {
     latitude: null,
     longitude: null,
-    loading: false
+    loading: false,
+    location: null
+  };
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    latitude = location.coords.latitude;
+    longitude = location.coords.longitude;
+    this.setState({ latitude, longitude, location }, () => {
+      console.log(
+        URL +
+          "&location=" +
+          this.state.latitude +
+          "," +
+          this.state.longitude +
+          "&radius=10000&key=" +
+          MAP_API_KEY
+      );
+      return fetch(
+        URL +
+          "&location=" +
+          this.state.latitude +
+          "," +
+          this.state.longitude +
+          "&radius=10000&key=" +
+          MAP_API_KEY
+      )
+        .then(response => response.json())
+        .then(responseJson => {
+          this.setState(
+            {
+              loading: false,
+              brewdata: responseJson
+            },
+            function() {}
+          );
+        })
+        .catch(
+          error => {
+            console.error(error);
+          },
+          { enableHighAccuracy: true }
+        );
+    });
   };
 
   async componentDidMount() {
     this.setState({ loading: true });
     // ask user for location
-    await this.askLocationPermisson();
-
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        this.setState({ latitude, longitude }, () => {
-          console.log(
-            URL +
-              "&location=" +
-              this.state.latitude +
-              "," +
-              this.state.longitude +
-              "&radius=10000&key=" +
-              MAP_API_KEY
-          );
-          return fetch(
-            URL +
-              "&location=" +
-              this.state.latitude +
-              "," +
-              this.state.longitude +
-              "&radius=10000&key=" +
-              MAP_API_KEY
-          )
-            .then(response => response.json())
-            .then(responseJson => {
-              this.setState(
-                {
-                  loading: false,
-                  brewdata: responseJson
-                },
-                function() {}
-              );
-            })
-            .catch(
-              error => {
-                console.error(error);
-              },
-              { enableHighAccuracy: true }
-            );
-        });
-      },
-      error => console.log("Error:", error)
-    );
-  }
-  async askLocationPermisson() {
-    const { status } = await Permissions.getAsync(Permissions.LOCATION);
-
-    if (status != "granted") {
-      const response = await Permissions.askAsync(Permissions.LOCATION);
-    }
+    this._getLocationAsync();
   }
 
   render() {
@@ -86,7 +87,7 @@ export default class MapScreen extends React.Component {
       return (
         <View style={styles.container}>
           <SafeAreaView />
-          <Header text={"Brewery locator"} />
+          <Header text={"Breweries"} />
           <View style={{ flex: 1, justifyContent: "center" }}>
             <ActivityIndicator size="large" color="rgba(68, 126, 36, 1)" />
           </View>
@@ -96,7 +97,7 @@ export default class MapScreen extends React.Component {
       return (
         <View style={styles.container}>
           <SafeAreaView />
-          <Header text={"Brewery locator"} />
+          <Header text={"Breweries"} />
           <MapView
             style={styles.mapStyle}
             customMapStyle={maptheme}
@@ -144,7 +145,7 @@ export default class MapScreen extends React.Component {
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <Header text={"Brewery locator"} />
+        <Header text={"Breweries"} />
         <Text>We need your permission!</Text>
       </View>
     );
