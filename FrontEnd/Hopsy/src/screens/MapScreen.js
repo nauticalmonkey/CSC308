@@ -1,18 +1,32 @@
 import React, { Component } from "react";
-import { StyleSheet, View, SafeAreaView, Dimensions, Text } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Dimensions,
+  Text,
+  ActivityIndicator
+} from "react-native";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import Header from "../components/Header";
+import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
 
 const maptheme = require("./maptheme.json");
+const URL =
+  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery&key=" +
+  MAP_API_KEY;
 
 export default class MapScreen extends React.Component {
   state = {
     latitude: null,
-    longitude: null
+    longitude: null,
+    loading: false
   };
 
   async componentDidMount() {
+    this.setState({ loading: true });
+    // ask user for location
     const { status } = await Permissions.getAsync(Permissions.LOCATION);
 
     if (status != "granted") {
@@ -24,11 +38,35 @@ export default class MapScreen extends React.Component {
         this.setState({ latitude, longitude }, this.mergeCoords),
       error => console.log("Error:", error)
     );
+
+    // fetch breweries from google api
+    try {
+      const brewresponse = await fetch(URL);
+      if (!brewresponse.ok) {
+        throw Error(brewresponse.statusText);
+      }
+      const json = await brewresponse.json();
+      this.setState({ brewdata: json, loading: false });
+      //console.log(this.state.brewdata);
+      console.log("Success!");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
-    const { latitude, longitude } = this.state;
-    if (latitude) {
+    const { latitude, longitude, brewdata, loading } = this.state;
+    if (loading) {
+      return (
+        <View style={styles.container}>
+          <SafeAreaView />
+          <Header text={"Brewery locator"} />
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <ActivityIndicator size="large" color="rgba(68, 126, 36, 1)" />
+          </View>
+        </View>
+      );
+    } else if (latitude && brewdata) {
       return (
         <View style={styles.container}>
           <SafeAreaView />
@@ -46,14 +84,40 @@ export default class MapScreen extends React.Component {
               longitudeDelta: 0.0421
             }}
           >
-            <Text>latitude: {this.state.latitude}</Text>
-            <Text>longitude: {this.state.longitude}</Text>
+            {brewdata.results.map(brewery => {
+              if (brewery.opening_hours) {
+                return (
+                  <MapView.Marker
+                    coordinate={{
+                      latitude: brewery.geometry.location.lat,
+                      longitude: brewery.geometry.location.lng
+                    }}
+                    title={brewery.name}
+                    key={brewery.id}
+                    pinColor={"rgba(68, 126, 36, 1)"}
+                  />
+                );
+              } else {
+                return (
+                  <MapView.Marker
+                    coordinate={{
+                      latitude: brewery.geometry.location.lat,
+                      longitude: brewery.geometry.location.lng
+                    }}
+                    title={brewery.name}
+                    key={brewery.id}
+                  />
+                );
+              }
+            })}
           </MapView>
         </View>
       );
     }
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.container}>
+        <SafeAreaView />
+        <Header text={"Brewery locator"} />
         <Text>We need your permission!</Text>
       </View>
     );
