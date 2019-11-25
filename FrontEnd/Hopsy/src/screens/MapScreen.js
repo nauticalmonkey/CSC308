@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   Dimensions,
   Text,
-  Platform,
+  FlatList,
   ActivityIndicator
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
@@ -17,6 +17,14 @@ import * as Location from "expo-location";
 const maptheme = require("./maptheme.json");
 const URL =
   "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery";
+
+function Item({ name }) {
+  return (
+    <View style={styles.item}>
+      <Text style={{ fontSize: 32 }}>{name}</Text>
+    </View>
+  );
+}
 
 export default class MapScreen extends React.Component {
   state = {
@@ -115,7 +123,7 @@ export default class MapScreen extends React.Component {
               console.log(brewery.name);
               if (brewery.opening_hours) {
                 return (
-                  <MapView.Marker
+                  <Marker
                     coordinate={{
                       latitude: brewery.geometry.location.lat,
                       longitude: brewery.geometry.location.lng
@@ -123,7 +131,7 @@ export default class MapScreen extends React.Component {
                     title={brewery.name}
                     key={brewery.id}
                     pinColor={"rgba(68, 126, 36, 1)"}
-                  />
+                  ></Marker>
                 );
               } else {
                 return (
@@ -139,6 +147,14 @@ export default class MapScreen extends React.Component {
               }
             })}
           </MapView>
+          <View>
+            <FlatList
+              data={brewdata.results}
+              renderItem={({ item }) => <Item name={item.name} />}
+              keyExtractor={item => item.id}
+              style={{ borderRadius: 25 }}
+            />
+          </View>
         </View>
       );
     }
@@ -165,5 +181,11 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16
   }
 });
