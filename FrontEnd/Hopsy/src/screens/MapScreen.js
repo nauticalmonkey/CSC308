@@ -5,7 +5,8 @@ import {
   SafeAreaView,
   Dimensions,
   Text,
-  FlatList,
+  Animated,
+  Image,
   ActivityIndicator
 } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
@@ -13,18 +14,16 @@ import Header from "../components/Header";
 import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const maptheme = require("./maptheme.json");
 const URL =
-  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery";
+  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=brewery&fields=photos,formatted_address,name,rating,opening_hours,geometry";
 
-function Item({ name }) {
-  return (
-    <View style={styles.item}>
-      <Text style={{ fontSize: 32 }}>{name}</Text>
-    </View>
-  );
-}
+const { width, height } = Dimensions.get("window");
+
+const CARD_HEIGHT = height / 4;
+const CARD_WIDTH = CARD_HEIGHT - 50;
 
 export default class MapScreen extends React.Component {
   state = {
@@ -71,6 +70,7 @@ export default class MapScreen extends React.Component {
               loading: false,
               brewdata: responseJson
             },
+            console.log(responseJson.results),
             function() {}
           );
         })
@@ -91,6 +91,7 @@ export default class MapScreen extends React.Component {
 
   render() {
     const { latitude, longitude, brewdata, loading } = this.state;
+
     if (loading) {
       return (
         <View style={styles.container}>
@@ -107,6 +108,7 @@ export default class MapScreen extends React.Component {
           <SafeAreaView />
           <Header text={"Breweries"} />
           <MapView
+            ref={map => (this.map = map)}
             style={styles.mapStyle}
             customMapStyle={maptheme}
             provider={PROVIDER_GOOGLE}
@@ -119,8 +121,17 @@ export default class MapScreen extends React.Component {
               longitudeDelta: 0.0421
             }}
           >
-            {brewdata.results.map(brewery => {
+            {brewdata.results.map((brewery, index) => {
               console.log(brewery.name);
+              if (brewery.photos) {
+                console.log(
+                  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
+                    brewery.photos[0].photo_reference +
+                    "&key=" +
+                    MAP_API_KEY
+                );
+              }
+
               if (brewery.opening_hours) {
                 return (
                   <Marker
@@ -135,26 +146,72 @@ export default class MapScreen extends React.Component {
                 );
               } else {
                 return (
-                  <MapView.Marker
+                  <Marker
                     coordinate={{
                       latitude: brewery.geometry.location.lat,
                       longitude: brewery.geometry.location.lng
                     }}
                     title={brewery.name}
                     key={brewery.id}
-                  />
+                  ></Marker>
                 );
               }
             })}
           </MapView>
-          <View>
-            <FlatList
-              data={brewdata.results}
-              renderItem={({ item }) => <Item name={item.name} />}
-              keyExtractor={item => item.id}
-              style={{ borderRadius: 25 }}
-            />
-          </View>
+          <Animated.ScrollView
+            horizontal
+            scrollEventThrottle={1}
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={CARD_WIDTH + 20}
+            style={styles.scrollView}
+            contentContainerStyle={styles.endPadding}
+          >
+            {brewdata.results.map((brew, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() =>
+                  this.map.animateToRegion(
+                    {
+                      latitude: brew.geometry.location.lat,
+                      longitude: brew.geometry.location.lng,
+                      latitudeDelta: 0.0922,
+                      longitudeDelta: 0.0421
+                    },
+                    400
+                  )
+                }
+              >
+                <View style={styles.card}>
+                  <View style={styles.textContent}>
+                    <Text numberOfLines={1} style={styles.cardtitle}>
+                      {brew.name}
+                    </Text>
+                    <Text numberOfLines={1} style={styles.cardDescription}>
+                      {brew.formatted_address}
+                    </Text>
+                    <Image
+                      style={{
+                        width: CARD_WIDTH / 1.15,
+                        height: CARD_HEIGHT / 1.5,
+                        borderRadius: 15
+                      }}
+                      source={
+                        brew.photos == null
+                          ? require("../images/Bunny.png")
+                          : {
+                              uri:
+                                "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
+                                brew.photos[0].photo_reference +
+                                "&key=" +
+                                MAP_API_KEY
+                            }
+                      }
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </Animated.ScrollView>
         </View>
       );
     }
@@ -179,13 +236,44 @@ const styles = StyleSheet.create({
     paddingTop: Expo.Constants.statusBarHeight
   },
   mapStyle: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
+    flex: 1
   },
-  item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16
+  scrollView: {
+    position: "absolute",
+    bottom: 30,
+    left: 0,
+    right: 0,
+    paddingVertical: 10
+  },
+  endPadding: {
+    paddingRight: width - CARD_WIDTH
+  },
+  card: {
+    padding: 5,
+    elevation: 2,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    shadowColor: "#000",
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
+    shadowOffset: { x: 2, y: -2 },
+    height: CARD_HEIGHT,
+    width: CARD_WIDTH,
+    overflow: "hidden",
+    borderRadius: 20
+  },
+  textContent: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  cardtitle: {
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  cardDescription: {
+    fontSize: 12,
+    color: "#444",
+    paddingBottom: 5
   }
 });
