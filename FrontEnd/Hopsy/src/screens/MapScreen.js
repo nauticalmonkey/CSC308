@@ -15,6 +15,7 @@ import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import BottomSheet from "reanimated-bottom-sheet";
 
 const maptheme = require("./maptheme.json");
 const URL =
@@ -45,15 +46,6 @@ export default class MapScreen extends React.Component {
     latitude = location.coords.latitude;
     longitude = location.coords.longitude;
     this.setState({ latitude, longitude, location }, () => {
-      console.log(
-        URL +
-          "&location=" +
-          this.state.latitude +
-          "," +
-          this.state.longitude +
-          "&radius=10000&key=" +
-          MAP_API_KEY
-      );
       return fetch(
         URL +
           "&location=" +
@@ -123,15 +115,6 @@ export default class MapScreen extends React.Component {
           >
             {brewdata.results.map((brewery, index) => {
               console.log(brewery.name);
-              if (brewery.photos) {
-                console.log(
-                  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
-                    brewery.photos[0].photo_reference +
-                    "&key=" +
-                    MAP_API_KEY
-                );
-              }
-
               if (brewery.opening_hours) {
                 return (
                   <Marker
