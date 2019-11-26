@@ -6,9 +6,9 @@ import {
   Image,
   KeyboardAvoidingView
 } from "react-native";
-import LoginForm from "./LoginForm";
+import SignUpForm from "../components/SignUpForm";
 
-export default class Login extends Component {
+export default class SignUpScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -17,28 +17,31 @@ export default class Login extends Component {
             style={styles.logo}
             source={require("../images/Bunny.png")}
           ></Image>
-          <Text style={styles.title}>Hopsy</Text>
-          <Text style={styles.subtitle}>A simpler way to enjoy beer.</Text>
+          <Text style={styles.subtitle}>Create an account</Text>
         </View>
-        <View>
-          <LoginForm navigation={this.props.navigation} />
+        <View style={styles.container}>
+          <SignUpForm navigation={this.props.navigation} />
         </View>
       </KeyboardAvoidingView>
     );
   }
 }
 
-Login.navigationOptions = {
+SignUpScreen.navigationOptions = {
   header: null
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingBottom: 225,
+    justifyContent: 'center',
     backgroundColor: "#FFF"
   },
   logoContainer: {
     alignItems: "center",
+    paddingTop: 50,
+    paddingBottom: 25,
     flexGrow: 1,
     justifyContent: "center"
   },
