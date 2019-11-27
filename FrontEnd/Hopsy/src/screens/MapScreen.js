@@ -15,7 +15,6 @@ import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import BottomSheet from "reanimated-bottom-sheet";
 
 const maptheme = require("./maptheme.json");
 const URL =
@@ -166,7 +165,7 @@ export default class MapScreen extends React.Component {
               >
                 <View style={styles.card}>
                   <View style={styles.textContent}>
-                    <Text numberOfLines={1} style={styles.cardtitle}>
+                    <Text numberOfLines={1} style={styles.cardTitle}>
                       {brew.name}
                     </Text>
                     <Text numberOfLines={1} style={styles.cardDescription}>
@@ -250,7 +249,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  cardtitle: {
+  cardTitle: {
     fontSize: 15,
     fontWeight: "bold"
   },
