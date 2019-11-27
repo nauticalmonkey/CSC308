@@ -10,7 +10,7 @@ import {
 
 import CustomButton from "./CustomButton";
 
-export default class LoginForm extends Component {
+export default class SignUp extends Component {
   state = {
     username: null,
     password: null
@@ -43,9 +43,21 @@ export default class LoginForm extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <TextInput
+          placeholder="full name"
+          placeholderTextColor="#FFF"
+          returnKeyType="next"
+          ref={input => (this.fullnameInput = input)}
+          onChangeText={text => this.setState({ fullname: text })}
+          onSubmitEditing={() => this.emailInput.focus()}
+          autoCapitalize="none"
+          autoCorrect={false}
+          style={styles.input}
+        />
+        <TextInput
           placeholder="username or email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
+          ref={input => (this.emailInput = input)}
           onChangeText={text => this.setState({ username: text })}
           onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
@@ -67,24 +79,18 @@ export default class LoginForm extends Component {
         <CustomButton
           onPress={() => {
             this._fetchData();
-            this.props.navigation.navigate("Home");
+            this.props.navigation.navigate("Preference");
           }}
-          text="Login"
+          text="Sign Up"
         />
-        <Text style={styles.signUp}>
-          Don't have an account?
-          <Text
-            onPress={() => this.props.navigation.navigate("SignUp")}
-            style={styles.blue}
-          >
-            {" "}
-            Sign up
-          </Text>
-        </Text>
       </View>
     );
   }
 }
+
+SignUp.navigationOptions = {
+    header: null
+  };
 
 // const apiUserData = 'http://localhost:8080/login';
 // async function getUserFromServer() {
@@ -122,7 +128,8 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
+    padding: 20,
+    height: 100
   },
   input: {
     height: 50,
@@ -134,13 +141,6 @@ const styles = StyleSheet.create({
   },
   blue: {
     color: "rgba(44, 130, 201, 1)"
-  },
-  signUp: {
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-    marginTop: 10
   },
   buttonContainer: {
     height: 55,
