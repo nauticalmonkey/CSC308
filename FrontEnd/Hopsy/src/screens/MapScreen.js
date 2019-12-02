@@ -201,7 +201,9 @@ export default class MapScreen extends React.Component {
       <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Breweries"} />
-        <Text>We need your permission!</Text>
+        <Text style={{ fontSize: 32 }}>
+          We need your permission to access your location.
+        </Text>
       </View>
     );
   }
