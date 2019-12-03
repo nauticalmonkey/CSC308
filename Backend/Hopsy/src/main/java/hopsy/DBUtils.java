@@ -2,28 +2,19 @@ package hopsy;
 
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
-public class DBUtils {
+class DBUtils {
+    private static MongoClient usrMC = new MongoClient(new MongoClientURI("mongodb+srv://42cleslie:password1234@cluster0-gxgoh.mongodb.net/userdb?retryWrites=true&w=majority"));;
 
-    public DBUtils() {
-        MongoClient mongoClient;
-        mongoClient = new MongoClient(new MongoClientURI("mongodb+srv://42cleslie:password1234@cluster0-gxgoh.mongodb.net/userdb?retryWrites=true&w=majority"));
+    DBUtils() { }
 
-        MongoDatabase db = mongoClient.getDatabase("test");
-        MongoCollection<Document> dbCollection = db.getCollection("testCollection");
-
-        User user = new User("johnsmith@gmail.com", "guest");
-        Document userDoc = user.toDoc();
-        insertDoc(dbCollection, userDoc);
-        
-        Document myDoc = findDoc(dbCollection, "email", "jsmith@gmial.com");
-        System.out.print(myDoc.getString("email"));
+    static MongoClient getusrMC(){
+        return usrMC;
     }
 
-    private static boolean insertDoc(MongoCollection<Document> collection, Document doc) {
+    static boolean insertDoc(MongoCollection<Document> collection, Document doc) {
         try {
             collection.insertOne(doc);
         }
@@ -34,7 +25,7 @@ public class DBUtils {
         return true;
     }
 
-    private static Document findDoc(MongoCollection<Document> collection, String key, String value) {
+    static Document findDoc(MongoCollection<Document> collection, String key, String value) {
         return collection.find(eq(key, value)).first();
     }
 }
