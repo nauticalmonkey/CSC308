@@ -23,34 +23,24 @@ export default class LoginForm extends Component {
   _fetchData() {
     const { username, password } = this.state;
     if (username && password) {
-      let params = {
-        name: username,
-        pswrd: password
-      };
-
-      let query = Object.keys(params)
-        .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
-        .join("&");
-
-    let url = 'http://localhost:8080/login?' + query
+      fetch('http://localhost:8080/login?', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: username,
+          password: password,
+        }),
+      });
    
-    // fetch(url);
 
-    fetch("http://localhost:8080/login", {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: 'one',
-      password: 'two',
-    }),
-});
-
-      fetch(url);
     }
+
+      
   }
+
 
   render() {
     return (
