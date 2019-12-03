@@ -32,7 +32,6 @@ export default class LoginForm extends Component {
         .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
         .join("&");
 
-<<<<<<< HEAD
     let url = 'http://localhost:8080/login?' + query
    
     // fetch(url);
@@ -48,9 +47,6 @@ export default class LoginForm extends Component {
       password: 'two',
     }),
 });
-=======
-      let url = "http://localhost:8080/login?" + query;
->>>>>>> e74c25d7054991849227891e7c514859c45717b4
 
       fetch(url);
     }
@@ -157,12 +153,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-<<<<<<< HEAD
-    marginBottom: 50
-=======
     marginBottom: 20,
     marginTop: 10
->>>>>>> e74c25d7054991849227891e7c514859c45717b4
   },
   buttonContainer: {
     height: 55,
