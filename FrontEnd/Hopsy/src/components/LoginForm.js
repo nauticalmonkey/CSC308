@@ -31,7 +31,19 @@ export default class LoginForm extends Component {
 
     let url = 'http://localhost:8080/login?' + query
    
-    fetch(url);
+    // fetch(url);
+
+    fetch("http://localhost:8080/login", {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: 'one',
+      password: 'two',
+    }),
+});
 
   }
 
@@ -127,7 +139,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20
+    marginBottom: 50
   },
   butoonContainer: {
     height: 55,
