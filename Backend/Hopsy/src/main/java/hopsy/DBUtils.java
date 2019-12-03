@@ -16,8 +16,9 @@ public class DBUtils {
         MongoCollection<Document> dbCollection = db.getCollection("testCollection");
 
         User user = new User("johnsmith@gmail.com", "guest");
-        //Document userDoc = user.toDoc();
-        //insertDoc(dbCollection, userDoc);
+        Document userDoc = user.toDoc();
+        insertDoc(dbCollection, userDoc);
+        
         Document myDoc = findDoc(dbCollection, "email", "jsmith@gmial.com");
         System.out.print(myDoc.getString("email"));
     }
