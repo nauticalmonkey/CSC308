@@ -7,10 +7,20 @@ html {
 	padding:1em;
 	background:rgb(2, 102, 40);
 }
+
 form {
 	background:#fff;
 	padding:1em;
 	border:1px solid #eee;
+}
+.BeerList{
+    align-self: center;
+
+}
+.imgBunny{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 fieldset div {
@@ -50,7 +60,7 @@ li a {
     text-decoration: none;
 }
 legend {
-	color:#0b77b7;
+	color:#000203;
 	font-size:1.4em;
 }
 legend span {
