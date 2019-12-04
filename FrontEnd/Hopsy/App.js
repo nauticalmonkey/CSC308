@@ -34,13 +34,6 @@ const Draw = createStackNavigator({
   }
 });
 
-//const MainNavigator = createStackNavigator({
-  //AgeVer: AgeVerificationScreen,
-  //TooYoung: TooYoungScreen,
-  //Login: LoginScreen,
-  //Preference: PreferenceScreen,
-//});
-
 const App = createAppContainer(Draw);
 
 export default App;

@@ -22,7 +22,6 @@ public class AccountCreationController {
         User theUser = new User(jsObj.get("name").toString(), jsObj.get("password").toString());
         Document doc = theUser.toDoc();
         DBUtils.insertDoc(dbCollection, doc);
-        usrMC.close();
 
         return true;
     }
