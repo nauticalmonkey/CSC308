@@ -54,7 +54,7 @@ export default class SignUp extends Component {
           style={styles.input}
         />
         <TextInput
-          placeholder="username or email"
+          placeholder="email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
           ref={input => (this.emailInput = input)}
