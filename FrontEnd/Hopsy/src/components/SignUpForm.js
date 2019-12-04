@@ -41,16 +41,7 @@ export default class SignUp extends Component {
       }),
     });
 
-    
-
-    //   let query = Object.keys(params)
-    //     .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
-    //     .join("&");
-
-    //   let url = "http://localhost:8080/login?" + query;
-
-    //   fetch(url);
-    // }
+   
   }
 
   render() {

@@ -23,7 +23,8 @@ export default class LoginForm extends Component {
   _fetchData() {
     const { username, password } = this.state;
     if (username && password) {
-      fetch('http://localhost:8080/login?', {
+      
+      return(fetch('http://localhost:8080/login?', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -33,7 +34,7 @@ export default class LoginForm extends Component {
           name: username,
           password: password,
         }),
-      });
+      }));
    
 
     }
@@ -70,8 +71,10 @@ export default class LoginForm extends Component {
 
         <CustomButton
           onPress={() => {
-            this._fetchData();
-            this.props.navigation.navigate("Home");
+            if (this._fetchData() == true)
+            {
+              this.props.navigation.navigate("Home");
+            }
           }}
           text="Login"
         />
