@@ -24,6 +24,7 @@
     "react-native-searchable-dropdown": "^1.1.1",
     "react-native-segmented-control": "^1.1.0",
     "react-native-slider": "^0.11.0",
+    "react-native-styled-dialogs": "^1.0.0",
     "react-native-web": "^0.11.7",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",
