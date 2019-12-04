@@ -4,16 +4,17 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  TouchableHighlight,
   Modal,
   SafeAreaView,
   StyleSheet,
-  Image
+  Image,
+  RefreshControl
 } from 'react-native';
 import Header from "../components/Header";
 import { SearchBar, List, ListItem } from 'react-native-elements';
 import _ from 'lodash';
 
+import CustomButton from "../components/CustomButton";
 import DATA from './beers.json';
 
 export default class Search extends React.Component {
@@ -25,7 +26,8 @@ export default class Search extends React.Component {
       query: "",
       data: DATA,
       fullData: DATA,
-      collapsed: true,
+      currentBeer: DATA[0],
+      isFetching: false,
       modalVisible: false
     };
   }
@@ -66,7 +68,6 @@ export default class Search extends React.Component {
   //.toLowerCase.includes
 
   updateSearch = text => {
-    console.log("text", text);
     const formattedSearch = text.toLowerCase();
     const data = _.filter(this.state.fullData, item => {
       return item.name.toLowerCase().includes(formattedSearch);
@@ -74,8 +75,8 @@ export default class Search extends React.Component {
     this.setState({ query: formattedSearch, data });
   };
 
-  toggleModal(visible) {
-    this.setState({ modalVisible: visible });
+  toggleModal(visible, beer) {
+    this.setState({ modalVisible: visible, currentBeer: beer });
   }
 
   render() {
@@ -91,12 +92,20 @@ export default class Search extends React.Component {
 
         {/* <List containerStyle={styles.flatview}>
           {
-            data.map((item) => (
-              <ListItem
-                avatar={{uri:item.URL}}
-                key={l.name}
-                title={l.name}
-              />
+            this.state.data.map( (item) => (
+
+              <ListItem>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.updateButton();
+                  }}
+                >
+                  <View style={styles.modal}>
+                    <Text style = {styles.text}>Close Modal</Text>
+                  </View>
+                </TouchableOpacity>
+              </ListItem>
+
             ))
           }
         </List> */}
@@ -108,61 +117,51 @@ export default class Search extends React.Component {
           renderItem={({ item }) => (
 
             <View style = {styles.flatview}>
+
               <Modal animationType = {"slide"} transparent = {false}
                 visible = {this.state.modalVisible}
                 onRequestClose = {() => { console.log("Modal has been closed.") } }>
 
-                <View style = {styles.modal}>
-                    <Text style = {styles.text}>Modal is open!</Text>
+                <View>
+                  <Image
+                    style={styles.image}
+                    source={{uri: this.state.currentBeer.URL}}
+                  />
+                  <Text style = {styles.modalText}>{this.state.currentBeer.name}</Text>
+                  <Text style = {styles.modalText}>{"ABV: " + this.state.currentBeer.ABV + "%"}</Text>
+                  <Text style = {styles.modalText}>{"Calories: " + this.state.currentBeer.calories}</Text>
+                </View>
 
-                    <TouchableOpacity onPress = {() => {
-                      this.toggleModal(!this.state.modalVisible)}}>
-
-                      <Text style = {styles.text}>Close Modal</Text>
-                    </TouchableOpacity>
+                <View style = {styles.modalExit}>
+                  <CustomButton
+                    onPress={() => {
+                      this.toggleModal(!this.state.modalVisible, this.state.currentBeer);
+                    }}
+                    text="Back"
+                  />
                 </View>
               </Modal>
 
-              <TouchableOpacity onPress = {() => {this.toggleModal(true)}}>
-                <Image
-                  style={{flex: 1, flexDirection: 'row', width: 50, height: 50, resizeMode: 'contain'}}
-                  source={{uri: item.URL}}
-                />
-                <Text style = {styles.name}>{item.name}</Text>
+              <TouchableOpacity onPress = {() => {this.toggleModal(true, item)}}>
+                <View>
+                  <Image
+                    style={styles.thumb}
+                    source={{uri: item.URL}}
+                  />
+                  <Text style = {styles.name}>{item.name}</Text>
+                </View>
               </TouchableOpacity>
+
             </View>
-
-            //////////////////////////////
-
-            // <View>
-            //   <TouchableOpacity onPress={this.onPress}
-            //                     style={styles.flatview}>
-            //   <Text style={styles.name}>{item.name} </Text>
-            //   </TouchableOpacity>
-            //   {this.state.collapsed ?
-            //   <View>
-
-            //   </View>
-            //   :
-            //   <View>
-            //     <Text style={styles.subtext}>{"Calories: " + item.calories}</Text>
-            //     <Text style={styles.subtext}>{"ABV: " + item.ABV + "%"}</Text>
-            //   </View>}
-            // </View>
-
-
-            //         ////////////////////////
-
-            // <View style={styles.flatview}>
-
-            // <Text style={styles.name}>{item.name}</Text>
-            // <Text style={styles.subtext}>{"Calories: " + item.calories}</Text>
-            // <Text style={styles.subtext}>{"ABV: " + item.ABV + "%"}</Text>
-
-            // </View>
           )}
           keyExtractor={item => item.name}
           ItemSeparatorComponent={this.renderSeparator}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.isFetching}
+              onRefresh={() => setTimeout(() => {  }, 100) }
+            />
+          }
         />
 
 
@@ -189,16 +188,62 @@ const styles = StyleSheet.create({
   flatview: {
     flex: 1,
     flexDirection: 'row',
+    flexWrap: 'nowrap',
     justifyContent: 'flex-start',
+    alignItems: 'center',
     paddingLeft: 15,
     paddingTop: 10,
     paddingBottom: 10,
     borderRadius: 2,
   },
+  thumb: {
+    flex: 1,
+    flexDirection: 'row',
+    width: 50,
+    height: 50,
+    resizeMode: 'contain'
+  },
+  image: {
+    width: 400,
+    height: 400,
+    top: '25%',
+    left: '1%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain'
+  },
+  modalText: {
+    top: '25%',
+    fontSize: 30,
+    fontWeight: '300',
+    textAlign: 'center'
+  },
+  modalName: {
+    top: '25%',
+    fontSize: 30,
+    fontWeight: '300',
+    textAlign: 'center'
+  },
+  modalABV: {
+    top: '25%',
+    fontSize: 30,
+    textAlign: 'center'
+  },
+  modalCalories: {
+    top: '25%',
+    fontSize: 30,
+    textAlign: 'center'
+  },
+  modalExit: {
+    alignItems: 'center',
+    top: '25%',
+    backgroundColor: '#FFF'
+  },
   name: {
     flex: 8,
     flexDirection: 'row',
-    fontSize: 30
+    fontSize: 30,
+    fontWeight: '300'
   },
   subtext: {
     fontSize: 12,
@@ -208,11 +253,11 @@ const styles = StyleSheet.create({
   modal: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#f7021a',
+    backgroundColor: '#FFF',
   },
   text: {
     color: '#3f2949',
-    marginTop: 10
+    paddingBottom: 100
   },
   container: {
     flex: 1,
