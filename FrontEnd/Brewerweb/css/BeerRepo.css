@@ -25,11 +25,7 @@ h2 {
     text-align: left;
     z-index: 10000;
     position: relative;
-}
-
-.realList {
-    background-color: white;
-    opacity: 100;
+    font-size: 300%;
 }
 
 .imgBunny {

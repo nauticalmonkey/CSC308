@@ -173,9 +173,11 @@ function BeersToList(item, index) {
     var text = document.createTextNode(item.name);
     imgcomponet.src = item.URL;
     imgcomponet.id = "foo" + index;
+    paragraph.style.fontSize = 25;
     paragraph.appendChild(text);
     liElement.appendChild(paragraph)
     liElement.appendChild(imgcomponet);
+    liElement.style.textAlign = "center";
     list.appendChild(liElement);
 
 }
