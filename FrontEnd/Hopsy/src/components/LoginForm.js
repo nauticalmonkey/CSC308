@@ -43,7 +43,7 @@ export default class LoginForm extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <TextInput
-          placeholder="username or email"
+          placeholder="email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
           onChangeText={text => this.setState({ username: text })}
