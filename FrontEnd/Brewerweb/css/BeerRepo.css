@@ -21,11 +21,20 @@ html {
     position: relative;
 }
 
+img {
+    height: 150;
+    width: 150;
+    resize: initial;
+}
+
 h2 {
     text-align: left;
     z-index: 10000;
     position: relative;
     font-size: 300%;
+    height: 100;
+    width: 100;
+    resize: initial;
 }
 
 .imgBunny {
@@ -43,13 +52,6 @@ fieldset div {
 form {
     margin: 1em;
     width: 25em;
-}
-
-label {
-    float: none;
-    width: 12em;
-    display: block;
-    clear: both;
 }
 
 ul {
