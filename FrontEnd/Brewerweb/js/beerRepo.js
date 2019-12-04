@@ -1,5 +1,4 @@
-//import Data from BeersList.js
-
+//TODO Parse json to create array from another file
 let DATA = [{
         name: 'Anchor Steam',
         ABV: 4.9,
@@ -55,34 +54,16 @@ let DATA = [{
         URL: 'https://i.imgur.com/LrfUGPG.png'
     },
     {
-        name: 'Corona Extra',
-        ABV: 4.5,
-        calories: 148,
-        URL: 'https://i.imgur.com/Jz7EG61.png'
-    },
-    {
         name: 'Corona Light',
         ABV: 4.1,
         calories: 99,
         URL: 'https://i.imgur.com/aRLkHzI.png'
     },
     {
-        name: 'Dos Equis XX',
-        ABV: 4.8,
-        calories: 145,
-        URL: 'https://i.imgur.com/oY1I6G4.png'
-    },
-    {
         name: 'Firestone Walker 805',
         ABV: 4.7,
         calories: 141,
         URL: 'https://i.imgur.com/cdKPdUd.png'
-    },
-    {
-        name: 'Guinness Draught',
-        ABV: 4.2,
-        calories: 125,
-        URL: 'https://i.imgur.com/wTsCSdn.png'
     },
     {
         name: 'Heineken',
@@ -139,12 +120,6 @@ let DATA = [{
         URL: 'https://i.imgur.com/47CEyuc.png'
     },
     {
-        name: 'Pabst Blue Ribbon',
-        ABV: 4.8,
-        calories: 152,
-        URL: 'https://i.imgur.com/bwADzNJ.png'
-    },
-    {
         name: 'Pilsner Urquell',
         ABV: 4.3,
         calories: 156,
@@ -188,16 +163,19 @@ let DATA = [{
     },
 ];
 
+
 function BeersToList(item, index) {
     'use strict';
     var list = document.getElementById("beersList");
-    var liElement = document.createElement("LI");
+    var liElement = document.createElement("H2");
     var imgcomponet = document.createElement("img");
+    var paragraph = document.createElement("p")
     var text = document.createTextNode(item.name);
     imgcomponet.src = item.URL;
     imgcomponet.id = "foo" + index;
+    paragraph.appendChild(text);
+    liElement.appendChild(paragraph)
     liElement.appendChild(imgcomponet);
-    liElement.appendChild(text);
     list.appendChild(liElement);
 
 }
