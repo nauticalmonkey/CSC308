@@ -189,23 +189,3 @@ textarea {
 }
 
 
-/*
-:invalid {
-	color:red;
-}
-*/
-
-
-/*
-input[type=checkbox], input[type=radio] { visibility: hidden; width:0; height:0; padding:0; margin:0; }
-input[type=checkbox] + label, input[type=radio] + label { padding-left:18px; }
-input[type=checkbox] + label{ background: url(../gfx/check_radio.png) 0 0 no-repeat; }
-input[type=checkbox]:focus + label{ background-position: 0 -16px; }
-input[type=checkbox] + label:hover{ background-position: 0 -32px; } 
-input[type=checkbox]:checked + label{ background-position: 0 -48px; }
-
-input[type=radio] + label{ background: url(../gfx/check_radio.png) 0 -64px no-repeat; }
-input[type=radio]:focus + label{ background-position: 0 -80px; }
-input[type=radio] + label:hover{ background-position: 0 -96px; } 
-input[type=radio]:checked + label{ background-position: 0 -112px; }
-*/
