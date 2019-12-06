@@ -12,30 +12,36 @@ import CustomButton from "./CustomButton";
 
 export default class SignUp extends Component {
   state = {
+    fullname: null,
     username: null,
-    password: null
+    password: null,
+
   };
+
   constructor(props) {
     super(props);
     this._fetchData = this._fetchData.bind(this);
   }
 
+
+
   _fetchData() {
-    const { username, password } = this.state;
-    if (username && password) {
-      let params = {
+
+    const { username, password, fullname } = this.state;
+
+    fetch('http://localhost:8080/create-account?', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
         name: username,
-        pswrd: password
-      };
+        password: password,
+      }),
+    });
 
-      let query = Object.keys(params)
-        .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
-        .join("&");
-
-      let url = "http://localhost:8080/login?" + query;
-
-      fetch(url);
-    }
+   
   }
 
   render() {

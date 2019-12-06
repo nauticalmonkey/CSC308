@@ -1,11 +1,11 @@
 //Justin Evans
 
-function darkSide(){
+function MoreDetails(){
     'use strict';
     var message = "Welcome to the Hopsy, A Better way to Beer.";
-   U.setText("doomHandle",message);
-   U.$("darkSide").onclick = U.setText("doomHandle",message);
-U.$("darkSide").style.visibility = "hidden";
+   U.setText("IntroMsg",message);
+   U.$("MoreDetails").onclick = U.setText("IntroMsg",message);
+U.$("MoreDetails").style.visibility = "hidden";
 togglediv("taco");
 
 }
@@ -13,7 +13,7 @@ togglediv("taco");
 function init() {
     'use strict';
     
-U.$("darkSide").onclick = darkSide;
+U.$("MoreDetails").onclick = MoreDetails;
 
 }
 function togglediv(id) {

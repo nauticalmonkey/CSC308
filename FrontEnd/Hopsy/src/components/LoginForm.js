@@ -13,7 +13,7 @@ import CustomButton from "./CustomButton";
 export default class LoginForm extends Component {
   state = {
     username: null,
-    password: null
+    password: null,
   };
   constructor(props) {
     super(props);
@@ -23,18 +23,26 @@ export default class LoginForm extends Component {
   _fetchData() {
     const { username, password } = this.state;
     if (username && password) {
-      let params = {
-        name: username,
-        pswrd: password
-      };
-
-      let query = Object.keys(params)
-        .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
-        .join("&");
-
-      let url = "http://localhost:8080/login?" + query;
-
-      fetch(url);
+        fetch('http://localhost:8080/login?', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: username,
+          password: password,
+        }),
+      }).then((response) => response.json())
+        .then((responseJson) => {
+          if (responseJson == true)
+          {
+            this.props.navigation.navigate("Home");
+          }
+      })
+      .catch((error) => {
+        console.error(error);
+      })
     }
   }
 
@@ -65,10 +73,7 @@ export default class LoginForm extends Component {
         />
 
         <CustomButton
-          onPress={() => {
-            this._fetchData();
-            this.props.navigation.navigate("Home");
-          }}
+          onPress={this._fetchData}
           text="Login"
         />
         <Text style={styles.signUp}>
@@ -85,40 +90,6 @@ export default class LoginForm extends Component {
     );
   }
 }
-
-// const apiUserData = 'http://localhost:8080/login';
-// async function getUserFromServer() {
-//   try {
-//     let response = await fetch(apiUserData)
-//     let responseJson = await response.json;
-//     return responseJson.data;
-//   } catch (error) {
-
-//   }
-// }
-
-// fetch("https://localhost:8080/login", {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     name: 'one',
-//     pswrd: 'two',
-//   }),
-// });
-
-// function getData() {
-//   return fetch('http://localhost:8080/login')
-//     .then((response) => response.json())
-//     .then((responseJson) => {
-//       return responseJson.movies;
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// }
 
 const styles = StyleSheet.create({
   container: {

@@ -10,12 +10,19 @@
     <link rel="stylesheet" href="css/LoginForm.css">
 </head>
 <body>
+        <ul>
+                <li><a href="index.html" class="popup" id="link" target="PopUp">Home </a></li>
+                <li><a href="News.html" class="popup" id="link" target="PopUp">News</a></li>
+                <li><a href="BeerRepo.html" class="popup" id="link" target="PopUp">Beer Repository</a></li>
+                <li><a href="contact.html" class="popup" id="link" target="PopUp">Contact</a></li>
+                <li><a href="about.html" class="popup" id="link" target="PopUp">About</a></li>
+            </ul>
 
     <form action="index.html" method="GET" id="theForm">
         <fieldset><legend>Contact Us</legend>
 			<p><img src="Photos/terrible Bunny.png" alt="Company Logo"></p>
-			<div class="two"><label for="email">Email Address</label><input type="email" name="email" id="email" ></div>
-			<div class="two"><label for="Message">Message</label><input type="text" name="message" id="message" ></div>
+            <div class="two"><label for="email">Email Address</label><input type="email" name="email" id="email" ></div>
+            <div class="two"><textarea name="comment" form="theForm">Enter message here...</textarea></div>
             <div class="one"><input type="button" value="Submit" id="submit" onclick="window.location.href='index.html'"></div>
         </fieldset>
     </form>
