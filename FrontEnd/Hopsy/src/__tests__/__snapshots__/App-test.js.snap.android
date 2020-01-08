@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderBottomColor": "#E9E9E9",
+      "borderBottomWidth": 0.5,
+      "flexDirection": "column",
+      "height": 65,
+      "justifyContent": "center",
+      "padding": 10,
+    }
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "height": 50,
+        "marginLeft": 25,
+        "position": "absolute",
+        "width": 50,
+      }
+    }
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontSize": 24,
+        }
+      }
+    />
+  </View>
+</View>
+`;
