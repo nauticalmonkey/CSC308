@@ -39,7 +39,11 @@
     "jest-expo": "^35.0.0",
     "react-native-dotenv": "^0.2.0"
   },
+<<<<<<< HEAD
   "jest": {
+=======
+  "jest":{
+>>>>>>> b60c700552f1bb59078ba7796e4af5c5ed826fec
     "preset": "jest-expo/universal"
   },
   "private": true
