@@ -47,12 +47,12 @@ public class TDDLab {
 
         }
 
-        for (int i = 0; i < names.length; i++) {
+        for (String name : names) {
 
-            if (!isAllUpper(names[i])) {
-                greetingNames.add(names[i]);
+            if (!isAllUpper(name)) {
+                greetingNames.add(name);
             } else {
-                shoutingNames.add(names[i]);
+                shoutingNames.add(name);
             }
         }
 
