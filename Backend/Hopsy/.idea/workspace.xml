@@ -1,113 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb1fabb2-22af-4a72-a642-5d382806857e" name="Default Changelist" comment="">
+    <list default="true" id="e71d7b8c-5825-4db4-8562-e0d5cd5d2a42" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/TDDLab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hopsy/TestTDDLab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HopCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HopCon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/AccountCreationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/AccountCreationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/TasteSubmissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/TasteSubmissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1636695696">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1645" />
-          <entry key="txt" value="8" />
-          <entry key="xml" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1645" />
-          <entry key="PLAIN_TEXT" value="8" />
-          <entry key="XML" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="1" />
-          <entry key="java" value="20" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="20" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1475287098">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="iml" value="6" />
-          <entry key="java" value="47" />
-          <entry key="name" value="1" />
-          <entry key="xml" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="IDEA_MODULE" value="6" />
-          <entry key="JAVA" value="47" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="764" />
-          <entry key="xml" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="764" />
-          <entry key="XML" value="6" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -119,347 +31,189 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/User.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/HopCon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UserLoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SpringRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hopsy/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Hopsy" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
-  </component>
+  <component name="ProjectId" id="1WE1RFHjEvRvFH1vgXdLMLf8AG2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="UserDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hopsy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UserDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hopsy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UserDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hopsy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UserDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hopsy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UserDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hopsy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="hopsy" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574192647715" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/hopsy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hopsy.Application" />
-      <module name="UserDB" />
+  <component name="RunManager" selected="JUnit.TestTDDLab">
+    <configuration name="TestTDDLab" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hopsy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hopsy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hopsy" />
+      <option name="MAIN_CLASS_NAME" value="hopsy.TestTDDLab" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HopCon" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HopCon" />
-      <module name="UserDB" />
+    <configuration name="TestTDDLab.testEscapedCommas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hopsy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hopsy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hopsy" />
+      <option name="MAIN_CLASS_NAME" value="hopsy.TestTDDLab" />
+      <option name="METHOD_NAME" value="testEscapedCommas" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SpringRunner" />
-      <module name="UserDB" />
+    <configuration name="TestTDDLab.testEscapedCommas2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hopsy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hopsy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hopsy" />
+      <option name="MAIN_CLASS_NAME" value="hopsy.TestTDDLab" />
+      <option name="METHOD_NAME" value="testEscapedCommas2" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.HopCon" />
-      <item itemvalue="Application.SpringRunner" />
-      <item itemvalue="Application.Application" />
-    </list>
+    <configuration name="TestTDDLab.testStringsContainingCommas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hopsy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hopsy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hopsy" />
+      <option name="MAIN_CLASS_NAME" value="hopsy.TestTDDLab" />
+      <option name="METHOD_NAME" value="testStringsContainingCommas" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTDDLab.testStringsContainingCommas2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hopsy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hopsy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hopsy" />
+      <option name="MAIN_CLASS_NAME" value="hopsy.TestTDDLab" />
+      <option name="METHOD_NAME" value="testStringsContainingCommas2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
-        <item itemvalue="Application.SpringRunner" />
+        <item itemvalue="JUnit.TestTDDLab" />
+        <item itemvalue="JUnit.TestTDDLab.testEscapedCommas" />
+        <item itemvalue="JUnit.TestTDDLab.testEscapedCommas2" />
+        <item itemvalue="JUnit.TestTDDLab.testStringsContainingCommas" />
+        <item itemvalue="JUnit.TestTDDLab.testStringsContainingCommas2" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fb1fabb2-22af-4a72-a642-5d382806857e" name="Default Changelist" comment="" />
-      <created>1572394334129</created>
+      <changelist id="e71d7b8c-5825-4db4-8562-e0d5cd5d2a42" name="Default Changelist" comment="" />
+      <created>1578699929690</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572394334129</updated>
+      <updated>1578699929690</updated>
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.3297568" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/3.11.1/mongo-java-driver-3.11.1.jar!/com/mongodb/client/internal/MongoCollectionImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="359" selection-start-line="359" selection-end-line="359" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hopsy.iml" />
-    <entry file="file://$PROJECT_DIR$/UserDB.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/.name">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HopCon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/UserLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hopsy/DBUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>UserDB</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: org.mongodb:mongo-java-driver:3.11.1</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
-  </component>
-  <component name="mavenExecuteGoalHistory">
-    <option value="$PROJECT_DIR$" />
-    <option value="test" />
+  <component name="WindowStateProjectService">
+    <state x="577" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578700200298">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="577" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.972@0.23.1680.972" timestamp="1578700200298" />
+    <state x="520" y="282" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1578701054598">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="520" y="282" key="#com.intellij.ide.util.PackageChooserDialog/0.23.1680.972@0.23.1680.972" timestamp="1578701054598" />
+    <state x="519" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578701069399">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="519" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.972@0.23.1680.972" timestamp="1578701069399" />
+    <state x="548" y="386" width="467" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1578701070512">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="548" y="386" width="467" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1680.972@0.23.1680.972" timestamp="1578701070512" />
+    <state width="1416" height="203" key="GridCell.Tab.0.bottom" timestamp="1578717621257">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1416" height="203" key="GridCell.Tab.0.bottom/0.23.1680.973@0.23.1680.973" timestamp="1578717621257" />
+    <state width="1416" height="203" key="GridCell.Tab.0.center" timestamp="1578717621256">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1416" height="203" key="GridCell.Tab.0.center/0.23.1680.973@0.23.1680.973" timestamp="1578717621256" />
+    <state width="1416" height="203" key="GridCell.Tab.0.left" timestamp="1578717621255">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1416" height="203" key="GridCell.Tab.0.left/0.23.1680.973@0.23.1680.973" timestamp="1578717621255" />
+    <state width="1416" height="203" key="GridCell.Tab.0.right" timestamp="1578717621256">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1416" height="203" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1578717621256" />
+    <state x="517" y="341" key="com.intellij.ide.util.TipDialog" timestamp="1578706295339">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="517" y="341" key="com.intellij.ide.util.TipDialog/0.23.1680.972@0.23.1680.972" timestamp="1578706295339" />
+    <state x="486" y="395" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1578700796185">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state x="486" y="395" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1680.972@0.23.1680.972" timestamp="1578700796185" />
+    <state x="235" y="116" key="new project wizard" timestamp="1578717723114">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state x="235" y="116" key="new project wizard/0.23.1680.973@0.23.1680.973" timestamp="1578717723114" />
   </component>
 </project>
