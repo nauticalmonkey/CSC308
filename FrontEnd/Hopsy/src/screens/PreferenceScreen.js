@@ -5,10 +5,8 @@ import {
   View,
   SafeAreaView,
   ScrollView,
-  Dimensions,
-  StatusBar
+  Dimensions
 } from "react-native";
-import Slider from "react-native-slider";
 import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
@@ -52,7 +50,11 @@ var beers = [
     name: "Miller"
   }
 ];
-
+// backend stuff
+// username
+// arraylist of strings beers
+// string flavor
+// string origin
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -61,10 +63,41 @@ class PreferenceScreen extends Component {
       selectedIndexOrigin: 3,
       selectedFlavorOption: null,
       selectedOriginOption: null,
-      price: 10,
       selectedItems: []
     };
   }
+
+  _fetchData() {
+    const {
+      selectedItems,
+      selectedFlavorOption,
+      selectedOriginOption
+    } = this.state;
+    if (selectedFlavorOption && selectedOriginOption && selectedItems) {
+      fetch("http://localhost:8080/preference?", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          flavor: selectedFlavorOption,
+          origin: selectedOriginOption,
+          beers: selectedItems
+        })
+      })
+        .then(response => response.json())
+        .then(responseJson => {
+          if (responseJson == true) {
+            this.props.navigation.navigate("Home");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }
+
   render() {
     const flavorOptions = ["Sweet", "Mild", "Strong", "Fruity", "Blonde"];
     const originOptions = ["Domestic", "Local", "Import"];
@@ -81,11 +114,6 @@ class PreferenceScreen extends Component {
         selectedOriginOption
       });
       this.selectedOriginOption = selectedOriginOption;
-    }
-
-    function setPrice(price) {
-      this.setState({ price });
-      this.price = price;
     }
 
     return (
@@ -167,17 +195,6 @@ class PreferenceScreen extends Component {
               optionStyle={{}}
               optionContainerStyle={{ flex: 1 }}
               containerBorderRadius={15}
-            />
-          </View>
-          <View style={styles.sub}>
-            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Maximum price ${Math.round(this.state.price)}
-            </Text>
-            <Slider
-              value={this.state.price}
-              onValueChange={setPrice.bind(this)}
-              minimumValue={5}
-              maximumValue={50}
             />
           </View>
           <View
