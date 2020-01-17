@@ -10,40 +10,38 @@ import {
 
 import CustomButton from "./CustomButton";
 
-export default class LoginForm extends Component {
+export default class SignUp extends Component {
   state = {
+    fullname: null,
     username: null,
     password: null,
+
   };
+
   constructor(props) {
     super(props);
     this._fetchData = this._fetchData.bind(this);
   }
 
+
+
   _fetchData() {
-    const { username, password } = this.state;
-    if (username && password) {
-        fetch('http://localhost:8080/login?', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: username,
-          password: password,
-        }),
-      }).then((response) => response.json())
-        .then((responseJson) => {
-          if (responseJson == true)
-          {
-            this.props.navigation.navigate("Home");
-          }
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-    }
+
+    const { username, password, fullname } = this.state;
+
+    fetch('http://localhost:8080/create-account?', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: username,
+        password: password,
+      }),
+    });
+
+   
   }
 
   render() {
@@ -51,9 +49,21 @@ export default class LoginForm extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <TextInput
+          placeholder="full name"
+          placeholderTextColor="#FFF"
+          returnKeyType="next"
+          ref={input => (this.fullnameInput = input)}
+          onChangeText={text => this.setState({ fullname: text })}
+          onSubmitEditing={() => this.emailInput.focus()}
+          autoCapitalize="none"
+          autoCorrect={false}
+          style={styles.input}
+        />
+        <TextInput
           placeholder="email"
           placeholderTextColor="#FFF"
           returnKeyType="next"
+          ref={input => (this.emailInput = input)}
           onChangeText={text => this.setState({ username: text })}
           onSubmitEditing={() => this.passwordInput.focus()}
           keyboardType="email-address"
@@ -73,27 +83,59 @@ export default class LoginForm extends Component {
         />
 
         <CustomButton
-          onPress={this._fetchData}
-          text="Login"
+          onPress={() => {
+            this._fetchData();
+            this.props.navigation.navigate("Preference");
+          }}
+          text="Sign Up"
         />
-        <Text style={styles.signUp}>
-          Don't have an account?
-          <Text
-            onPress={() => this.props.navigation.navigate("SignUp")}
-            style={styles.blue}
-          >
-            {" "}
-            Sign up
-          </Text>
-        </Text>
       </View>
     );
   }
 }
 
+SignUp.navigationOptions = {
+    header: null
+  };
+
+// const apiUserData = 'http://localhost:8080/login';
+// async function getUserFromServer() {
+//   try {
+//     let response = await fetch(apiUserData)
+//     let responseJson = await response.json;
+//     return responseJson.data;
+//   } catch (error) {
+
+//   }
+// }
+
+// fetch("https://localhost:8080/login", {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     name: 'one',
+//     pswrd: 'two',
+//   }),
+// });
+
+// function getData() {
+//   return fetch('http://localhost:8080/login')
+//     .then((response) => response.json())
+//     .then((responseJson) => {
+//       return responseJson.movies;
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// }
+
 const styles = StyleSheet.create({
   container: {
-    padding: 20
+    padding: 20,
+    height: 100
   },
   input: {
     height: 50,
@@ -105,13 +147,6 @@ const styles = StyleSheet.create({
   },
   blue: {
     color: "rgba(44, 130, 201, 1)"
-  },
-  signUp: {
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-    marginTop: 10
   },
   buttonContainer: {
     height: 55,
