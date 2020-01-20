@@ -10,6 +10,8 @@ import MapScreen from "../screens/MapScreen";
 import RecScreen from "../screens/RecommendationScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
+import DrawNav from "./DrawerNav"
+
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -44,6 +46,9 @@ const TabNavigator = createBottomTabNavigator(
           <Icon name="ios-search" color={tintColor} size={25} />
         )
       }
+    },
+    Draw_nagivator: {
+      screen: DrawNav
     }
   },
   {
@@ -54,26 +59,6 @@ const TabNavigator = createBottomTabNavigator(
       inactiveTintColor: "#939393",
       showLabel: false,
       style: { marginBottom: 0, backgroundColor: "rgba(68, 126, 36, 1)" }
-      /*style: {
-      backgroundColor: "rgba(68, 126, 36, 1)",
-      marginBottom: 0,
-    },
-    labelStyle:{
-      activeTintColor: 'white',
-      inactiveTintColor: 'gray',
-      alignContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      marginBottom: 25,
-    },
-    tabStyle:{
-      width: 40,
-      height: 60,
-      scaleY: 20,
-      alignContent: 'center',
-      alignItems: 'center',
-      showLabel: false
-    }*/
     }
   }
 );

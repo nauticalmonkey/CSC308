@@ -8,16 +8,9 @@ import TooYoungScreen from "./src/screens/TooYoung";
 
 import { NavigationActions } from 'react-navigation';
 
-
-//Noel's Login stuff
-import LoginScreen from "./src/components/Login";
-
-// Nick's pref page stuff
-import PreferenceScreen from "./src/screens/PreferenceScreen";
-
 import Home from "./src/components/Tab_nav";
 import Main from "./src/components/Stack_nav";
-
+import DrawNav from "./src/components/DrawerNav"
 
 const Draw = createStackNavigator({
   Main_navigator: {

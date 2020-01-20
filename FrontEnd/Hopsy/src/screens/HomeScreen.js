@@ -3,12 +3,22 @@ import { StyleSheet } from "react-native";
 
 import { View, SafeAreaView, Text } from "react-native";
 import Header from "../components/Header";
+import CustomButton from "../components/CustomButton";
+import { DrawerActions } from "react-navigation-drawer";
 
 export default class Test extends React.Component {
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Header text={"Home"} />
+        <CustomButton
+          onPress={() => {
+
+            this.props.navigation.dispatch(DrawerActions.openDrawer());
+          }}
+          text="Sign Up"
+        />
       </SafeAreaView>
     );
   }

@@ -1,11 +1,12 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 class Header extends React.Component {
   render() {
     return (
       <View style={styles.header}>
-        <Image style={styles.image} source={require("../images/Bunny.png")} />
+          <Image style={styles.image} source={require("../images/Bunny.png")} />
         <View>
           <Text
             style={{
