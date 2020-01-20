@@ -75,7 +75,6 @@ export default class LoginForm extends Component {
         <CustomButton
           onPress={this._fetchData}
           text="Login"
-          onPress={() => this.props.navigation.navigate("Home")}
         />
         <Text style={styles.signUp}>
           Don't have an account?
