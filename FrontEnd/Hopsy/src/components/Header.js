@@ -1,12 +1,15 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
 
 class Header extends React.Component {
+
   render() {
     return (
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => {this.props.navigation.dispatch(DrawerActions.openDrawer());}}>
           <Image style={styles.image} source={require("../images/Bunny.png")} />
+        </TouchableOpacity>
         <View>
           <Text
             style={{

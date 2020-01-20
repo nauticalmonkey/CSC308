@@ -46,9 +46,6 @@ const TabNavigator = createBottomTabNavigator(
           <Icon name="ios-search" color={tintColor} size={25} />
         )
       }
-    },
-    Draw_nagivator: {
-      screen: DrawNav
     }
   },
   {

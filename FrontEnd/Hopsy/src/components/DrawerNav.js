@@ -1,15 +1,18 @@
 import { createDrawerNavigator } from "react-navigation-drawer";
 import Settings from "../screens/SettingsScreen";
 import Profile from "../screens/ProfileScreen";
-import { createStackNavigator } from "react-navigation-stack";
 
-const DrawNavigator =  createDrawerNavigator({
+export default createDrawerNavigator({
   Profile: {
-    screen: Profile
+    screen: Profile,
+    navigationOptions: {
+      header : null
+    }
   },
   Settings:{
-    screen: Settings
+    screen: Settings,
+    navigationOptions: {
+      header : null
+    }
   },
 });
-
-export default createStackNavigator({ DrawNavigator }, { headerMode: "none" });
