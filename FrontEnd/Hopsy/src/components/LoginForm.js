@@ -13,7 +13,7 @@ import CustomButton from "./CustomButton";
 export default class LoginForm extends Component {
   state = {
     username: null,
-    password: null,
+    password: null
   };
   constructor(props) {
     super(props);
@@ -23,26 +23,26 @@ export default class LoginForm extends Component {
   _fetchData() {
     const { username, password } = this.state;
     if (username && password) {
-        fetch('http://localhost:8080/login?', {
-        method: 'POST',
+      fetch("http://localhost:8080/login?", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: username,
-          password: password,
-        }),
-      }).then((response) => response.json())
-        .then((responseJson) => {
-          if (responseJson == true)
-          {
+          password: password
+        })
+      })
+        .then(response => response.json())
+        .then(responseJson => {
+          if (responseJson == true) {
             this.props.navigation.navigate("Home");
           }
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 

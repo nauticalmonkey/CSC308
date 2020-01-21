@@ -7,17 +7,14 @@ import CustomButton from "../components/CustomButton";
 import { DrawerActions } from "react-navigation-drawer";
 
 export default class Test extends React.Component {
-
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header text={"Home"} />
-        <CustomButton
+        <Header
+          text={"Home"}
           onPress={() => {
-
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
-          text="Sign Up"
         />
       </SafeAreaView>
     );
