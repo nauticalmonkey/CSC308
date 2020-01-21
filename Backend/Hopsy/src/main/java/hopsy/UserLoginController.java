@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserLoginController {
 
-    @RequestMapping("/login")
-    public boolean /*HttpEntity*/ userLogin(@RequestBody String usr) {
-        JSONObject jsObj = new JSONObject(usr);
-        MongoClient usrMC = DBUtils.getusrMC();
-        MongoDatabase db = usrMC.getDatabase("Users");
-        MongoCollection<Document> dbCollection = db.getCollection("users");
+  @RequestMapping("/login")
+  public boolean userLogin(@RequestBody String usr) {
+    JSONObject jsObj = new JSONObject(usr);
+    MongoClient usrMC = DBUtils.getusrMC();
+    MongoDatabase db = usrMC.getDatabase("Users");
+    MongoCollection<Document> dbCollection = db.getCollection("users");
 
-        Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
+    Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
 
-        //return new ResponseEntity(HttpStatus.OK);
+    // return new ResponseEntity(HttpStatus.OK);
 
-        return (doc != null && doc.getString("password").equals(jsObj.get("password")));
-    }
+    return (doc != null && doc.getString("password").equals(jsObj.get("password")));
+  }
 }
