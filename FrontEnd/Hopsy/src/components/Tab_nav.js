@@ -1,17 +1,11 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-
-import { View, Text } from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
-
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
 import RecScreen from "../screens/RecommendationScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
-import DrawNav from "./DrawerNav"
-
 
 const TabNavigator = createBottomTabNavigator(
   {

@@ -13,7 +13,12 @@ import PreferenceScreen from "../screens/PreferenceScreen";
 export default createStackNavigator({
   AgeVer: AgeVerificationScreen,
   TooYoung: TooYoungScreen,
-  Login: LoginScreen,
+  Login: {
+    screen: LoginScreen,
+    navigationOptions : {
+      gesturesEnabled: false
+    }
+  },
   SignUp: SignUpScreen,
   Preference: PreferenceScreen,
 });
