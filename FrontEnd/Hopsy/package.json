@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "npm test"
+    "test": "jest"
   },
   "dependencies": {
     "@react-native-community/segmented-control": "^1.0.2",
