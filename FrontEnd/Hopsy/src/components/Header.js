@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Icon from "react-native-vector-icons/Ionicons";
+
 
 class Header extends React.Component {
   render() {
@@ -14,10 +16,11 @@ class Header extends React.Component {
                 onPress();
               }}
             >
-              <Image
+              {/*<Image
                 style={styles.image}
                 source={require("../images/Bunny.png")}
-              />
+              />*/}
+              <Icon name="ios-list" color={"rgba(68, 126, 36, 1)"} size={40} />
             </TouchableOpacity>
           </View>
 
