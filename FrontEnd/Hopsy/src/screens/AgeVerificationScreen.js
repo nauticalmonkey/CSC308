@@ -1,16 +1,8 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  StatusBar,
-  Dimensions
-} from "react-native";
+import { ScrollView, StyleSheet, AsyncStorage } from "react-native";
+import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 
 import CustomButton from "../components/CustomButton";
-import { Platform } from "@unimodules/core";
 
 const window = Dimensions.get("window");
 const screenHeight = window.height;
