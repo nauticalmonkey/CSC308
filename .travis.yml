@@ -3,3 +3,4 @@ matrix:
     - language: node_js
       node_js:
         - "9"
+        script: .travis/ci_node.sh
