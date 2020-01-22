@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
-
 import { View, SafeAreaView, Text } from "react-native";
 import Header from "../components/Header";
-import CustomButton from "../components/CustomButton";
 
 export default class ProfileScreen extends React.Component {
   static navigationOptiosn = {
