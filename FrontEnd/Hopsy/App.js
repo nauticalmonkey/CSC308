@@ -38,7 +38,8 @@ const Draw = createDrawerNavigator({
     screen: Main,
     navigationOptions: {
       header : null,
-      drawerLabel: <Hidden />
+      drawerLabel: <Hidden />,
+      drawerLockMode: 'locked-closed'
     }
   },
   Main_tabs: {
