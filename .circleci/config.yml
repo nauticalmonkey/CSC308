@@ -1,10 +1,22 @@
+version: 2
 jobs:
   build:
-    working_directory: ~/CSC308/FrontEnd/Hopsy
     docker:
-      - image: circleci/node:9
+      - image: circleci/node:12.13.0
     steps:
       - checkout
-      - run:
-          name: Run Tests
-          command: npm test
+      - run: npm install
+      - run: npm build
+  test:
+    docker:
+      - image: circleci/node:12.13.0
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
