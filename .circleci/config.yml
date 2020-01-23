@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm install jest-junit jest-cli jest
-      - run: npm test -- --bail --ci
+      - run: npm test 
 workflows:
   version: 2
   build_and_test:
