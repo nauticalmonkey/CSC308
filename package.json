@@ -40,7 +40,18 @@
   "devDependencies": {
     "babel-preset-expo": "^7.1.0",
     "jest-expo": "^35.0.0",
-    "react-native-dotenv": "^0.2.0"
+    "react-native-dotenv": "^0.2.0",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-es2016": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.1",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
   },
   "jest": {
     "preset": "jest-expo/universal"
