@@ -53,3 +53,59 @@ exports[`renders correctly 1`] = `
   />
 </div>
 `;
+
+exports[`renders correctly 2`] = `
+<div
+  className="css-view-1dbjc4n"
+  data-focusable={true}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "MozTransitionProperty": "opacity",
+      "MozUserSelect": "none",
+      "WebkitTransitionDuration": "0.15s",
+      "WebkitTransitionProperty": "opacity",
+      "WebkitUserSelect": "none",
+      "backgroundColor": "rgba(39,102,18,1.00)",
+      "borderBottomLeftRadius": "5px",
+      "borderBottomRightRadius": "5px",
+      "borderTopLeftRadius": "5px",
+      "borderTopRightRadius": "5px",
+      "cursor": "pointer",
+      "marginBottom": "20px",
+      "msTouchAction": "manipulation",
+      "msUserSelect": "none",
+      "paddingBottom": "10px",
+      "paddingLeft": "10px",
+      "paddingRight": "10px",
+      "paddingTop": "10px",
+      "touchAction": "manipulation",
+      "transitionDuration": "0.15s",
+      "transitionProperty": "opacity",
+      "userSelect": "none",
+    }
+  }
+  tabIndex="0"
+>
+  <div
+    className="css-text-901oao"
+    dir="auto"
+    style={
+      Object {
+        "color": "rgba(255,255,255,1.00)",
+        "fontSize": "20px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Test
+  </div>
+</div>
+`;
