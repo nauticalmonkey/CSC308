@@ -76,8 +76,8 @@ const Draw = createDrawerNavigator({
     screen: LoginScreen,
     navigationOptions: {
       header : null,
-      drawerLabel: <Hidden />
-    //drawerIcon : (<Icon name="ios-log-out" color={"rgba(68, 126, 36, 1)"} size={25} />),
+      drawerLabel: <Hidden />,
+      drawerLockMode: 'locked-closed'
     }
   }
 },{
