@@ -13,7 +13,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm test
+      - run: npm install jest-junit jest-cli jest
+      - run: npm test -- -vbail --ci
 workflows:
   version: 2
   build_and_test:
