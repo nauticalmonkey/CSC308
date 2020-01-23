@@ -15,7 +15,6 @@ jobs:
       - run: npm install
       - run: npm install jest-junit jest-cli jest
       - run: npm install @babel/plugin-proposal-class-properties --save-dev
-      - run: yarn add @babel/plugin-proposal-class-properties --dev
       - run: npm test 
 workflows:
   version: 2
