@@ -3,11 +3,12 @@ import { StyleSheet } from "react-native";
 import { View, SafeAreaView, Text } from "react-native";
 import Header from "../components/Header";
 import { DrawerActions } from "react-navigation-drawer";
-
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default class ProfileScreen extends React.Component {
   static navigationOptiosn = {
-    drawerLabel : "Profile"
+    drawerLabel : "Profile",
+    drawerIcon : (<Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />)
   }
   render() {
     return (

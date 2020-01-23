@@ -13,7 +13,7 @@ export default class SettingsScreen extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header text={"Profile"} 
+        <Header text={"Settings"} 
         onPress={() => {
           this.props.navigation.dispatch(DrawerActions.openDrawer());
         }}/>
