@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import CustomButton from "./CustomButton";
-
+import GLOBAL from '../../global'
 export default class SignUp extends Component {
   state = {
     fullname: null,
@@ -24,6 +24,7 @@ export default class SignUp extends Component {
 
   _fetchData() {
     const { username, password, fullname } = this.state;
+    GLOBAL.user = username;
 
     fetch("http://localhost:8080/create-account?", {
       method: "POST",

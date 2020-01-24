@@ -25,6 +25,7 @@ export default class LoginForm extends Component {
     const { username, password } = this.state;
     GLOBAL.user = username;
     console.log(GLOBAL.user);
+    
     if (username && password) {
       fetch("http://localhost:8080/login?", {
         method: "POST",

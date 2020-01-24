@@ -15,6 +15,7 @@ import Header from "../components/Header";
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
+import GLOBAL from '../../global'
 
 var beers = [
   {
@@ -50,6 +51,7 @@ var beers = [
     name: "Miller"
   }
 ];
+
 // backend stuff
 // username
 // arraylist of strings beers
@@ -74,13 +76,14 @@ class PreferenceScreen extends Component {
       selectedOriginOption
     } = this.state;
     if (selectedFlavorOption && selectedOriginOption && selectedItems) {
-      fetch("http://localhost:8080/preference?", {
+      fetch("http://localhost:8080//submit-tastes?", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          name: GLOBAL.user,
           flavor: selectedFlavorOption,
           origin: selectedOriginOption,
           beers: selectedItems
