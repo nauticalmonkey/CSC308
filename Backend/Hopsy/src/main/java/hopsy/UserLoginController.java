@@ -19,6 +19,8 @@ public class UserLoginController {
 
   @RequestMapping("/login")
   public boolean userLogin(@RequestBody String usr) {
+    System.out.println("ok");
+
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
     MongoDatabase db = usrMC.getDatabase("Users");

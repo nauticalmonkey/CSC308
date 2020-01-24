@@ -1,10 +1,12 @@
 package hopsy;
 
 import org.bson.Document;
+import org.json.JSONObject;
 
 public class User {
   private String email;
   private String password;
+  private String preferencesJSON;
 
   User(String email, String password) {
     this.email = email;
@@ -27,7 +29,15 @@ public class User {
     return password;
   }
 
+  public void setJson(String preferencesJSON) {this.preferencesJSON = preferencesJSON;}
+
+  public String getPreferencesJSON() {return preferencesJSON;}
+
   public Document toDoc() {
-    return new Document("email", this.email).append("password", this.password);
+    return new Document("email", this.email).append("password", this.password)
+            .append("preferences", this.preferencesJSON);
   }
+
+
+
 }
