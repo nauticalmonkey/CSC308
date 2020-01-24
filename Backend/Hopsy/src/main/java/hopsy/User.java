@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class User {
   private String email;
   private String password;
-  private JSONObject preferencesJSON;
+  private String preferencesJSON;
 
   User(String email, String password) {
     this.email = email;
@@ -29,13 +29,15 @@ public class User {
     return password;
   }
 
-  public void setJson(JSONObject preferencesJSON) {this.preferencesJSON = preferencesJSON;}
+  public void setJson(String preferencesJSON) {this.preferencesJSON = preferencesJSON;}
 
-  public JSONObject getPreferencesJSON() {return preferencesJSON;}
+  public String getPreferencesJSON() {return preferencesJSON;}
 
   public Document toDoc() {
     return new Document("email", this.email).append("password", this.password)
             .append("preferences", this.preferencesJSON);
   }
+
+
 
 }
