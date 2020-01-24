@@ -17,27 +17,40 @@ class AgeVerificationScreen extends Component {
     this._storeData = this._storeData.bind(this);
   }
 
-  async componentDidMount() {
-    this.setState({ loading: true });
-    // ask user for location
-  }
-
   _storeData = async () => {
-    console.log("BEFORE: " + (await AsyncStorage.getItem("AGECHECK")));
     await AsyncStorage.setItem("AGECHECK", "yes");
-
-    console.log(await AsyncStorage.getItem("AGECHECK"));
-    this.setState({ loading: false });
     this.props.navigation.replace("Login");
   };
 
+  _checkData = async () => {
+    if (this.mounted) {
+      try {
+        AsyncStorage.getItem("AGECHECK").then(response => {
+          this.setState({ loading: false });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  async componentDidMount() {
+    if (this.mounted) {
+      this.setState({ loading: true });
+      this._checkData();
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   render() {
-    const loading = this.state;
+    const { loading } = this.state;
     try {
       AsyncStorage.getItem("AGECHECK").then(value => {
         if (value == "yes") {
           this.props.navigation.replace("Login");
-          return null;
         }
       });
     } catch (error) {
