@@ -9,7 +9,7 @@ class DBUtils {
   private static MongoClient usrMC =
       new MongoClient(
           new MongoClientURI(
-              "mongodb+srv://42cleslie:hopsy69$@cluster0-gxgoh.mongodb.net/userdb?retryWrites=true&w=majority"));;
+              "mongodb+srv://42cleslie:password1234@cluster0-gxgoh.mongodb.net/userdb?retryWrites=true&w=majority"));;
 
   DBUtils() {}
 
