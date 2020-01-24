@@ -4,7 +4,8 @@ import {
   View,
   Text,
   Image,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  BackHandler
 } from "react-native";
 import LoginForm from "./LoginForm";
 

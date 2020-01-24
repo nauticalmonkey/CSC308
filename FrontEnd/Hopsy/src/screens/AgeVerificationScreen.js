@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, AsyncStorage } from "react-native";
+import {
+  StyleSheet,
+  AsyncStorage,
+  Console,
+  requireNativeComponent
+} from "react-native";
 import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 
 import CustomButton from "../components/CustomButton";
@@ -9,7 +14,31 @@ const screenHeight = window.height;
 const screenWidth = window.width;
 
 class AgeVerificationScreen extends Component {
+  constructor(props) {
+    super(props);
+    this._storeData = this._storeData.bind(this);
+  }
+
+  _storeData = async () => {
+    console.log("BEFORE: " + (await AsyncStorage.getItem("AGECHECK")));
+    await AsyncStorage.setItem("AGECHECK", "yes");
+
+    console.log(await AsyncStorage.getItem("AGECHECK"));
+
+    this.props.navigation.replace("Login");
+  };
+
   render() {
+    try {
+      AsyncStorage.getItem("AGECHECK").then(value => {
+        if (value == "yes") {
+          this.props.navigation.replace("Login");
+          return null;
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
     return (
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
@@ -25,7 +54,7 @@ class AgeVerificationScreen extends Component {
         <View style={styles.twinContainer}>
           <CustomButton
             style={styles.simpleYesButton}
-            onPress={() => this.props.navigation.navigate("Login")}
+            onPress={this._storeData}
             text="Yes"
           />
           <CustomButton

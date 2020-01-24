@@ -15,5 +15,5 @@ export default createStackNavigator({
   TooYoung: TooYoungScreen,
   Login: LoginScreen,
   SignUp: SignUpScreen,
-  Preference: PreferenceScreen,
+  Preference: PreferenceScreen
 });

@@ -205,7 +205,8 @@ class PreferenceScreen extends Component {
             <CustomButton
               text="Continue"
               onPress={() => {
-                alert("If I were a button how would you press me?");
+                this._fetchData();
+                this.props.navigation.navigate("Home");
               }}
             />
           </View>

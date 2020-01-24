@@ -23,7 +23,7 @@ customButton.propTypes = {
 
 const styles = StyleSheet.create({
   textStyle: {
-    fontSize: 20,
+    fontSize: 17,
     color: "#ffffff",
     textAlign: "center"
   },
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#276612",
     borderRadius: 5,
-    marginBottom: 20,
+    marginBottom: 20
   }
 });
 

@@ -14,8 +14,7 @@ export default class SignUp extends Component {
   state = {
     fullname: null,
     username: null,
-    password: null,
-
+    password: null
   };
 
   constructor(props) {
@@ -23,25 +22,20 @@ export default class SignUp extends Component {
     this._fetchData = this._fetchData.bind(this);
   }
 
-
-
   _fetchData() {
-
     const { username, password, fullname } = this.state;
 
-    fetch('http://localhost:8080/create-account?', {
-      method: 'POST',
+    fetch("http://localhost:8080/create-account?", {
+      method: "POST",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         name: username,
-        password: password,
-      }),
+        password: password
+      })
     });
-
-   
   }
 
   render() {
@@ -95,8 +89,8 @@ export default class SignUp extends Component {
 }
 
 SignUp.navigationOptions = {
-    header: null
-  };
+  header: null
+};
 
 // const apiUserData = 'http://localhost:8080/login';
 // async function getUserFromServer() {
@@ -159,7 +153,6 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     color: "#FFF",
-    fontWeight: "700",
     justifyContent: "center",
     alignItems: "center"
   }
