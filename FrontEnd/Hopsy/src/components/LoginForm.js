@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import CustomButton from "./CustomButton";
+import GLOBAL from '../../global'
 
 export default class LoginForm extends Component {
   state = {
@@ -22,6 +23,9 @@ export default class LoginForm extends Component {
 
   _fetchData() {
     const { username, password } = this.state;
+    GLOBAL.user = username;
+    console.log(GLOBAL.user);
+    
     if (username && password) {
       fetch("http://localhost:8080/login?", {
         method: "POST",
@@ -75,7 +79,7 @@ export default class LoginForm extends Component {
         <CustomButton
           onPress={this._fetchData}
           text="Login"
-          onPress={() => this.props.navigation.navigate("Home")}
+          //onPress={() => this.props.navigation.navigate("Home")}
         />
         <Text style={styles.signUp}>
           Don't have an account?

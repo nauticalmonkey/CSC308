@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@react-native-community/segmented-control": "^1.0.2",
+    "babel-core": "^6.26.3",
     "enzyme": "^3.11.0",
     "expo": "^35.0.0",
     "jest-serializer-enzyme": "^1.0.0",
+    "node-libs-react-native": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-dom": "^16.8.3",
@@ -28,6 +30,7 @@
     "react-native-segmented-control": "^1.1.0",
     "react-native-slider": "^0.11.0",
     "react-native-styled-dialogs": "^1.0.0",
+    "react-native-sync-localstorage": "0.0.3",
     "react-native-web": "^0.11.7",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",
@@ -38,7 +41,7 @@
     "rn-bottom-drawer": "^1.4.3"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.1.0",
+    "babel-preset-expo": "^8.0.0",
     "jest-expo": "^35.0.0",
     "react-native-dotenv": "^0.2.0"
   },

@@ -20,5 +20,5 @@ export default createStackNavigator({
     }
   },
   SignUp: SignUpScreen,
-  Preference: PreferenceScreen,
+  Preference: PreferenceScreen
 });
