@@ -14,6 +14,9 @@ const screenHeight = window.height;
 const screenWidth = window.width;
 
 class AgeVerificationScreen extends Component {
+  state = {
+    loading: false
+  };
   constructor(props) {
     super(props);
     this._storeData = this._storeData.bind(this);
