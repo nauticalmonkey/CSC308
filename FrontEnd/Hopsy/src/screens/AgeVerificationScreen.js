@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  AsyncStorage,
-  Console,
-  requireNativeComponent,
-  SafeAreaView,
-  ActivityIndicator
-} from "react-native";
+import { StyleSheet, AsyncStorage } from "react-native";
 import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 
 import CustomButton from "../components/CustomButton";
