@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - run: cd FrontEnd
+      - run: cd Hopsy
       - run: npm install
       - run: npm install jest-junit jest-cli jest
       - run: npm install @babel/plugin-proposal-class-properties --save-dev
