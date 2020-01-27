@@ -12,11 +12,6 @@ jobs:
       - image: circleci/node:12.13.0
     steps:
       - checkout
-      - run: cd FrontEnd/Hopsy
-      - run: npm install
-      - run: npm install jest-junit jest-cli jest
-      - run: npm install @babel/plugin-proposal-class-properties --save-dev
-      - run: yarn add @babel/plugin-proposal-class-properties -D
       - run: cd FrontEnd/Hopsy/src/__tests__
       - run: npm test 
 workflows:
