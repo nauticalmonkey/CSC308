@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-native-community/segmented-control": "^1.0.2",
     "babel-core": "^6.26.3",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "enzyme": "^3.11.0",
     "expo": "^35.0.0",
     "jest-serializer-enzyme": "^1.0.0",
