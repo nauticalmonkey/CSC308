@@ -12,7 +12,7 @@ jobs:
       - image: circleci/node:12.13.0
     steps:
       - checkout
-      - run: cd FrontEnd/Hopsy/src/__tests__
+      - run: cd FrontEnd/Hopsy
       - run: npm test 
 workflows:
   version: 2
