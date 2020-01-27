@@ -8,7 +8,7 @@ jobs:
       - run: npm install
       - run: npm build
   test:
-    working_directory: ~/__tests__
+    working_directory: ~/Hopsy
     docker:
       - image: circleci/node:12.13.0
     steps:
