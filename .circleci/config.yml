@@ -8,12 +8,11 @@ jobs:
       - run: npm install
       - run: npm build
   test:
-    working_directory: ~/Hopsy
+    working_directory: ~/FrontEnd/Hopsy
     docker:
       - image: circleci/node:12.13.0
     steps:
       - checkout
-      - run: cd FrontEnd/Hopsy
       - run: npm install
       - run: npm test 
 workflows:
