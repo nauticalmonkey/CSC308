@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - run: cd FrontEnd/Hopsy
+      - run: npm install
       - run: npm test 
 workflows:
   version: 2
