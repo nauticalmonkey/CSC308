@@ -15,7 +15,7 @@ import Header from "../components/Header";
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
-import GLOBAL from '../../global'
+import GLOBAL from "../../global";
 
 var beers = [
   {
@@ -69,6 +69,7 @@ class PreferenceScreen extends Component {
     };
   }
 
+  // backend data fetch
   _fetchData() {
     const {
       selectedItems,
