@@ -14,7 +14,7 @@ import static com.mongodb.client.model.Filters.eq;
 @RestController
 public class TasteSubmissionController {
 
-  @RequestMapping("/submit-tastes")
+  @RequestMapping("/submit-tastes") //endpoint for taste submission
   public boolean formSubmission(@RequestBody String form) {
     System.out.println(form);
 

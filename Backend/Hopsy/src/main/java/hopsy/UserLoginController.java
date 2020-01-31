@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserLoginController {
 
   @RequestMapping("/login")
-  public boolean userLogin(@RequestBody String usr) {
+  public boolean userLogin(@RequestBody String usr) { //validate a user against the db
     System.out.println("ok");
 
     JSONObject jsObj = new JSONObject(usr);
