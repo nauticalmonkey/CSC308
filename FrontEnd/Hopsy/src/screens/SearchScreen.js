@@ -18,7 +18,7 @@ import _ from "lodash";
 import CustomButton from "../components/CustomButton";
 import DATA from "./beers.json";
 
-export default class Search extends React.Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
 
@@ -31,6 +31,15 @@ export default class Search extends React.Component {
       modalVisible: false
     };
   }
+
+  // _fetchData() {
+  //   return fetch('http://localhost:8080/get-beerDB?')
+  //     .then((response) => console.log((response)))
+      
+  //     .catch((error) => {
+  //       console.error(error);
+  //   });
+  // }
 
   componentDidMount() {
     this.makeRemoteRequest();
