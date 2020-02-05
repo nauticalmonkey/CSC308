@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^8.0.0",
+    "detox": "^15.1.4",
     "jest-expo": "^35.0.0",
     "react-native-dotenv": "^0.2.0"
   },

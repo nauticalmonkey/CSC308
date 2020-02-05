@@ -6,11 +6,18 @@ import org.json.JSONObject;
 public class User {
   private String email;
   private String password;
+  private String fullname;
   private String preferencesJSON;
 
-  User(String email, String password) {
+  // User(String email, String password) {
+  //   this.email = email;
+  //   this.password = password;
+  // }
+
+  User(String email, String password, String fullname) {
     this.email = email;
     this.password = password;
+    this.fullname = fullname;
   }
 
   public void setEmail(String email) {
@@ -35,7 +42,7 @@ public class User {
 
   public Document toDoc() {
     return new Document("email", this.email).append("password", this.password)
-            .append("preferences", this.preferencesJSON);
+            .append("preferences", this.preferencesJSON).append("fullname" , this.fullname);
   }
 
 
