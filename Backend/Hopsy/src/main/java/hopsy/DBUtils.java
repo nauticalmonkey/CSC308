@@ -17,7 +17,7 @@ class DBUtils {
     return usrMC;
   }
 
-  static boolean insertDoc(MongoCollection<Document> collection, Document doc) {
+  static boolean insertDoc(MongoCollection<Document> collection, Document doc) { //insert a doc into the db
     try {
       collection.insertOne(doc);
     } catch (MongoException ex) {
