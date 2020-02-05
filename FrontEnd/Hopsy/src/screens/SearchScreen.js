@@ -16,7 +16,6 @@ import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
 
 import CustomButton from "../components/CustomButton";
-import DATA from "./beers.json";
 
 export default class Search extends Component {
   constructor(props) {
@@ -24,29 +23,38 @@ export default class Search extends Component {
 
     this.state = {
       query: "",
-      data: DATA,
-      fullData: DATA,
-      currentBeer: DATA[0],
+      data: "",
+      fullData: "",
+      currentBeer: "",
       isFetching: false,
       modalVisible: false
     };
   }
 
-  // _fetchData() {
-  //   return fetch('http://localhost:8080/get-beerDB?')
-  //     .then((response) => console.log((response)))
-      
-  //     .catch((error) => {
-  //       console.error(error);
-  //   });
-  // }
+  _fetchData() {
+    return fetch('http://localhost:8080/get-beerDB?')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          data: responseJson,
+          fullData: responseJson,
+          currentBeer: responseJson[0],
+        }, function(){
+        });
 
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
+  
   componentDidMount() {
     this.makeRemoteRequest();
   }
 
   makeRemoteRequest = () => {
-    // this.setState({ data: DATA });
+    this._fetchData();
   };
 
   renderHeader = () => {
@@ -101,26 +109,6 @@ export default class Search extends Component {
           value={this.state.query}
           lightTheme={true}
         />
-
-        {/* <List containerStyle={styles.flatview}>
-          {
-            this.state.data.map( (item) => (
-
-              <ListItem>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.updateButton();
-                  }}
-                >
-                  <View style={styles.modal}>
-                    <Text style = {styles.text}>Close Modal</Text>
-                  </View>
-                </TouchableOpacity>
-              </ListItem>
-
-            ))
-          }
-        </List> */}
 
         <FlatList
           data={this.state.data}

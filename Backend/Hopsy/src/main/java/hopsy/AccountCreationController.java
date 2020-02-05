@@ -19,7 +19,7 @@ public class AccountCreationController {
     MongoDatabase db = usrMC.getDatabase("Users");
     MongoCollection<Document> dbCollection = db.getCollection("users");
 
-    User theUser = new User(jsObj.get("name").toString(), jsObj.get("password").toString());
+    User theUser = new User(jsObj.get("name").toString(), jsObj.get("password").toString(), jsObj.get("fullname").toString());
     Document doc = theUser.toDoc();
     DBUtils.insertDoc(dbCollection, doc);
 

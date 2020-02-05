@@ -29,9 +29,9 @@ public class BeerDBController {
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase("BeerDB");
         MongoCollection<Document> dbCollection = db.getCollection("beers");
-
+        System.out.println("gimme data");
         Document doc = dbCollection.find().first();
-
+        
         return doc.getString("beers");
     }
 }

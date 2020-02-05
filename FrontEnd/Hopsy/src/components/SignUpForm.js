@@ -34,7 +34,8 @@ export default class SignUp extends Component {
       },
       body: JSON.stringify({
         name: username,
-        password: password
+        password: password,
+        fullname: fullname
       })
     });
   }
