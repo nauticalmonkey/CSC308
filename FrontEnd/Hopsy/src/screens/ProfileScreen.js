@@ -22,8 +22,7 @@ export default class ProfileScreen extends React.Component {
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
           <Text style={styles.profileName}>Robert Middleton</Text>
         </View>
-        <ScrollView scrollEventThrottle={16}>
-          <View style={{ flex: 1}}>
+          <View style={{ flex: 1, marginTop: -300}}>
             <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
                 Your top 5 favorite beers!
             </Text>
@@ -43,7 +42,6 @@ export default class ProfileScreen extends React.Component {
               </ScrollView>
             </View>
           </View>
-      </ScrollView>
       </SafeAreaView>
     );
   }
@@ -51,7 +49,7 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     paddingTop: Expo.Constants.statusBarHeight
   },
   listContainer: {
