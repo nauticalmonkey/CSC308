@@ -26,7 +26,7 @@ export default class SignUp extends Component {
     const { username, password, fullname } = this.state;
     GLOBAL.user = username;
 
-    fetch("http://localhost:8080/create-account?", {
+    fetch("http://44640e6a.ngrok.io/create-account?", {
       method: "POST",
       headers: {
         Accept: "application/json",
