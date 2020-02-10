@@ -19,12 +19,6 @@ class Hidden extends React.Component {
   }
 }
 
-// logout()
-// {
-//   props.navigation.navigate("Logout");
-
-// }
-
 const CustomDrawerComponent = (props) =>{
   return(
     <SafeAreaView style={{flex : 1}}>
