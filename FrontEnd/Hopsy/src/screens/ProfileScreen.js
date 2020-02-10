@@ -32,9 +32,7 @@ export default class ProfileScreen extends React.Component {
     .then((response) => response.text())
       .then((responseJson) => {
         this.setState({
-          
           fullname: responseJson,
-           
         }, function() {
         })
       })
