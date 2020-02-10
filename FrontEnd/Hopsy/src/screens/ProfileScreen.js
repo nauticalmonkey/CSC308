@@ -18,7 +18,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   _fetchData() {
-    return fetch('http://localhost:8080/GetUserProfile?',
+    return fetch('http://44640e6a.ngrok.io/GetUserProfile?',
     {
         method: "POST",
         headers: {
@@ -31,7 +31,7 @@ export default class ProfileScreen extends React.Component {
     })  
     .then(response => {
       this.setState({
-        fullname: response.text(),
+        fullname: JSON.parse(response),
       }, function() {
       })
     })
