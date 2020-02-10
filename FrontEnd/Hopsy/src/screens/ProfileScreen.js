@@ -4,16 +4,23 @@ import { View, SafeAreaView, Text, ScrollView } from "react-native";
 import Header from "../components/Header";
 import { DrawerActions } from "react-navigation-drawer";
 import Icon from "react-native-vector-icons/Ionicons";
+<<<<<<< HEAD
 import HorizontalList from "../components/ProfilePage/HorizontalList";
+=======
+import Constants from "expo-constants";
+>>>>>>> test/components
 
 export default class ProfileScreen extends React.Component {
   static navigationOptiosn = {
-    drawerLabel : "Profile",
-    drawerIcon : (<Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />)
-  }
+    drawerLabel: "Profile",
+    drawerIcon: (
+      <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />
+    )
+  };
   render() {
     return (
       <SafeAreaView style={styles.container}>
+<<<<<<< HEAD
         <Header text={"Profile"} 
         onPress={() => {
           this.props.navigation.dispatch(DrawerActions.openDrawer());
@@ -44,6 +51,14 @@ export default class ProfileScreen extends React.Component {
             </View>
           </View>
       </ScrollView>
+=======
+        <Header
+          text={"Profile"}
+          onPress={() => {
+            this.props.navigation.dispatch(DrawerActions.openDrawer());
+          }}
+        />
+>>>>>>> test/components
       </SafeAreaView>
     );
   }
@@ -51,6 +66,7 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+<<<<<<< HEAD
     flex: 2,
     paddingTop: Expo.Constants.statusBarHeight
   },
@@ -71,5 +87,9 @@ const styles = StyleSheet.create({
     paddingTop: 65,
     fontSize: 25,
     fontWeight: '600'
+=======
+    flex: 1,
+    paddingTop: Constants.statusBarHeight
+>>>>>>> test/components
   }
 });

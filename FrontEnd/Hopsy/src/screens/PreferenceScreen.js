@@ -11,11 +11,12 @@ import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
 import Header from "../components/Header";
+import Constants from "expo-constants";
 
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
-import GLOBAL from '../../global'
+import GLOBAL from "../../global";
 
 var beers = [
   {
@@ -52,11 +53,6 @@ var beers = [
   }
 ];
 
-// backend stuff
-// username
-// arraylist of strings beers
-// string flavor
-// string origin
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -231,7 +227,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: screenHeight,
     width: screenWidth,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   },
   sub: {
     padding: 20

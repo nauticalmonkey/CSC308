@@ -3,54 +3,99 @@
 exports[`renders correctly 1`] = `
 <div
   className="css-view-1dbjc4n"
-  data-focusable={true}
-  onKeyDown={[Function]}
-  onKeyUp={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "MozTransitionProperty": "opacity",
-      "MozUserSelect": "none",
-      "WebkitTransitionDuration": "0.15s",
-      "WebkitTransitionProperty": "opacity",
-      "WebkitUserSelect": "none",
-      "backgroundColor": "rgba(39,102,18,1.00)",
-      "borderBottomLeftRadius": "5px",
-      "borderBottomRightRadius": "5px",
-      "borderTopLeftRadius": "5px",
-      "borderTopRightRadius": "5px",
-      "cursor": "pointer",
-      "marginBottom": "20px",
-      "msTouchAction": "manipulation",
-      "msUserSelect": "none",
-      "paddingBottom": "10px",
-      "paddingLeft": "10px",
-      "paddingRight": "10px",
-      "paddingTop": "10px",
-      "touchAction": "manipulation",
-      "transitionDuration": "0.15s",
-      "transitionProperty": "opacity",
-      "userSelect": "none",
-    }
-  }
-  tabIndex="0"
 >
   <div
-    className="css-text-901oao"
-    dir="auto"
+    className="css-view-1dbjc4n"
     style={
       Object {
-        "color": "rgba(255,255,255,1.00)",
-        "fontSize": "20px",
-        "textAlign": "center",
+        "WebkitAlignItems": "center",
+        "WebkitBoxAlign": "center",
+        "WebkitBoxDirection": "normal",
+        "WebkitBoxOrient": "horizontal",
+        "WebkitBoxPack": "center",
+        "WebkitFlexDirection": "row",
+        "WebkitJustifyContent": "center",
+        "alignItems": "center",
+        "borderBottomColor": "rgba(233,233,233,1.00)",
+        "borderBottomWidth": "0.5px",
+        "flexDirection": "row",
+        "height": "65px",
+        "justifyContent": "center",
+        "msFlexAlign": "center",
+        "msFlexDirection": "row",
+        "msFlexPack": "center",
+        "paddingBottom": "10px",
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+        "paddingTop": "10px",
       }
     }
-  />
+  >
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "left": "0px",
+          "paddingLeft": "15px",
+          "position": "absolute",
+        }
+      }
+    >
+      <div
+        className="css-cursor-18t94o4 css-view-1dbjc4n"
+        data-focusable={true}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onKeyUp={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        role="button"
+        style={
+          Object {
+            "cursor": "pointer",
+            "msTouchAction": "manipulation",
+            "touchAction": "manipulation",
+          }
+        }
+        tabIndex="0"
+      >
+        <div
+          className="css-view-1dbjc4n"
+          data-focusable={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-text-901oao"
+            dir="auto"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-view-1dbjc4n"
+    >
+      <div
+        className="css-text-901oao"
+        dir="auto"
+        style={
+          Object {
+            "color": "rgba(0,0,0,1.00)",
+            "fontSize": "24px",
+            "verticalAlign": "middle",
+          }
+        }
+      />
+    </div>
+  </div>
 </div>
 `;
 
@@ -100,12 +145,184 @@ exports[`renders correctly 2`] = `
     style={
       Object {
         "color": "rgba(255,255,255,1.00)",
-        "fontSize": "20px",
+        "fontSize": "17px",
         "textAlign": "center",
       }
     }
   >
     Test
+  </div>
+</div>
+`;
+
+exports[`renders correctly 3`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "paddingBottom": "20px",
+      "paddingLeft": "20px",
+      "paddingRight": "20px",
+      "paddingTop": "20px",
+    }
+  }
+>
+  <input
+    autoCapitalize="none"
+    autoComplete="on"
+    autoCorrect="off"
+    className="css-textinput-1cwyjr8 r-placeholderTextColor-12fyw16"
+    data-focusable={true}
+    dir="auto"
+    enterkeyhint="next"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onSelect={[Function]}
+    placeholder="email"
+    readOnly={false}
+    spellCheck={false}
+    style={
+      Object {
+        "backgroundColor": "rgba(68,126,36,0.60)",
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px",
+        "color": "rgba(255,255,255,1.00)",
+        "height": "50px",
+        "marginBottom": "20px",
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+      }
+    }
+    type="email"
+  />
+  <input
+    autoCapitalize="sentences"
+    autoComplete="on"
+    autoCorrect="on"
+    className="css-textinput-1cwyjr8 r-placeholderTextColor-12fyw16"
+    data-focusable={true}
+    dir="auto"
+    enterkeyhint="go"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onSelect={[Function]}
+    placeholder="password"
+    readOnly={false}
+    spellCheck={true}
+    style={
+      Object {
+        "backgroundColor": "rgba(68,126,36,0.60)",
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px",
+        "color": "rgba(255,255,255,1.00)",
+        "height": "50px",
+        "marginBottom": "20px",
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+      }
+    }
+    type="password"
+  />
+  <div
+    className="css-view-1dbjc4n"
+    data-focusable={true}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "MozTransitionProperty": "opacity",
+        "MozUserSelect": "none",
+        "WebkitTransitionDuration": "0.15s",
+        "WebkitTransitionProperty": "opacity",
+        "WebkitUserSelect": "none",
+        "backgroundColor": "rgba(39,102,18,1.00)",
+        "borderBottomLeftRadius": "5px",
+        "borderBottomRightRadius": "5px",
+        "borderTopLeftRadius": "5px",
+        "borderTopRightRadius": "5px",
+        "cursor": "pointer",
+        "marginBottom": "20px",
+        "msTouchAction": "manipulation",
+        "msUserSelect": "none",
+        "paddingBottom": "10px",
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+        "paddingTop": "10px",
+        "touchAction": "manipulation",
+        "transitionDuration": "0.15s",
+        "transitionProperty": "opacity",
+        "userSelect": "none",
+      }
+    }
+    tabIndex="0"
+  >
+    <div
+      className="css-text-901oao"
+      dir="auto"
+      style={
+        Object {
+          "color": "rgba(255,255,255,1.00)",
+          "fontSize": "17px",
+          "textAlign": "center",
+        }
+      }
+    >
+      Login
+    </div>
+  </div>
+  <div
+    className="css-text-901oao"
+    dir="auto"
+    style={
+      Object {
+        "WebkitAlignItems": "center",
+        "WebkitBoxAlign": "center",
+        "WebkitBoxPack": "center",
+        "WebkitJustifyContent": "center",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": "20px",
+        "marginTop": "10px",
+        "msFlexAlign": "center",
+        "msFlexPack": "center",
+        "textAlign": "center",
+      }
+    }
+  >
+    Don't have an account?
+    <span
+      className="css-text-901oao css-textHasAncestor-16my406"
+      data-focusable={true}
+      dir="auto"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "color": "rgba(44,130,201,1.00)",
+          "cursor": "pointer",
+        }
+      }
+      tabIndex="0"
+    >
+       
+      Sign up
+    </span>
   </div>
 </div>
 `;
