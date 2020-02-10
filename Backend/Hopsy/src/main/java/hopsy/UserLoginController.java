@@ -32,4 +32,20 @@ public class UserLoginController {
 
     return (doc != null && doc.getString("password").equals(jsObj.get("password")));
   }
+
+  @RequestMapping("/GetUserProfile")
+  public String getFullName(@RequestBody String usr) { //validate a user against the db
+    System.out.println("Get user data");
+
+    JSONObject jsObj = new JSONObject(usr);
+    MongoClient usrMC = DBUtils.getusrMC();
+    MongoDatabase db = usrMC.getDatabase("Users");
+    MongoCollection<Document> dbCollection = db.getCollection("users");
+
+    Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("username").toString());
+
+    // return new ResponseEntity(HttpStatus.OK);
+    System.out.println(doc.getString("fullname"));
+    return doc.getString("fullname");
+  }
 }
