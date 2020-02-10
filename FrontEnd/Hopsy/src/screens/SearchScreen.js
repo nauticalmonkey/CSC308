@@ -32,7 +32,7 @@ export default class Search extends Component {
   }
 
   _fetchData() {
-    return fetch('http://localhost:8080/get-beerDB?')
+    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
