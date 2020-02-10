@@ -219,6 +219,7 @@ exports[`home renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }
@@ -299,6 +300,7 @@ exports[`map renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }
@@ -395,6 +397,7 @@ exports[`preference renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }
@@ -993,7 +996,7 @@ exports[`profile renders correctly 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
+      "flex": 2,
       "paddingTop": 20,
     }
   }
@@ -1055,6 +1058,7 @@ exports[`profile renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }
@@ -1064,6 +1068,317 @@ exports[`profile renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+        "paddingTop": 45,
+      }
+    }
+  >
+    <Text />
+    <Text
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "fontSize": 25,
+          "fontWeight": "600",
+          "justifyContent": "center",
+          "paddingTop": 65,
+        }
+      }
+    >
+      Robert Middleton
+    </Text>
+  </View>
+  <RCTScrollView
+    scrollEventThrottle={16}
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 24,
+              "paddingHorizontal": 20,
+            }
+          }
+        >
+          Your top 5 favorite beers!
+        </Text>
+        <View
+          style={
+            Object {
+              "height": 130,
+              "marginTop": 20,
+            }
+          }
+        >
+          <RCTScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={true}
+          >
+            <View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "#FFFF",
+                    "borderWidth": 0.5,
+                    "height": 130,
+                    "marginLeft": 20,
+                    "width": 130,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 2,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "alignItems": "center",
+                        "flex": 1,
+                        "height": null,
+                        "resizeMode": "contain",
+                        "width": null,
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignContent": "center",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                      "paddingLeft": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <Text>
+                    Hopsy
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "#FFFF",
+                    "borderWidth": 0.5,
+                    "height": 130,
+                    "marginLeft": 20,
+                    "width": 130,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 2,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "alignItems": "center",
+                        "flex": 1,
+                        "height": null,
+                        "resizeMode": "contain",
+                        "width": null,
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignContent": "center",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                      "paddingLeft": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <Text>
+                    Hopsy
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "#FFFF",
+                    "borderWidth": 0.5,
+                    "height": 130,
+                    "marginLeft": 20,
+                    "width": 130,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 2,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "alignItems": "center",
+                        "flex": 1,
+                        "height": null,
+                        "resizeMode": "contain",
+                        "width": null,
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignContent": "center",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                      "paddingLeft": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <Text>
+                    Hopsy
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "#FFFF",
+                    "borderWidth": 0.5,
+                    "height": 130,
+                    "marginLeft": 20,
+                    "width": 130,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 2,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "alignItems": "center",
+                        "flex": 1,
+                        "height": null,
+                        "resizeMode": "contain",
+                        "width": null,
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignContent": "center",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                      "paddingLeft": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <Text>
+                    Hopsy
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "#FFFF",
+                    "borderWidth": 0.5,
+                    "height": 130,
+                    "marginLeft": 20,
+                    "width": 130,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "flex": 2,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "alignContent": "center",
+                        "alignItems": "center",
+                        "flex": 1,
+                        "height": null,
+                        "resizeMode": "contain",
+                        "width": null,
+                      }
+                    }
+                  />
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignContent": "center",
+                      "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                      "paddingLeft": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <Text>
+                    Hopsy
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -1133,6 +1448,7 @@ exports[`recommendation renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }
@@ -1211,6 +1527,7 @@ exports[`search renders correctly 1`] = `
             Object {
               "color": "#000",
               "fontSize": 24,
+              "fontWeight": "600",
               "textAlignVertical": "center",
             }
           }

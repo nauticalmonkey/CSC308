@@ -17,13 +17,9 @@ import _ from "lodash";
 
 import CustomButton from "../components/CustomButton";
 
-<<<<<<< HEAD
-export default class Search extends Component {
-=======
 import Constants from "expo-constants";
 
 export default class Search extends React.Component {
->>>>>>> test/components
   constructor(props) {
     super(props);
 
@@ -38,23 +34,23 @@ export default class Search extends React.Component {
   }
 
   _fetchData() {
-    return fetch('http://localhost:8080/get-beerDB?')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          data: responseJson,
-          fullData: responseJson,
-          currentBeer: responseJson[0],
-        }, function(){
-        });
-
+    return fetch("http://localhost:8080/get-beerDB?")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            data: responseJson,
+            fullData: responseJson,
+            currentBeer: responseJson[0]
+          },
+          function() {}
+        );
       })
-      .catch((error) =>{
+      .catch(error => {
         console.error(error);
       });
   }
 
-  
   componentDidMount() {
     this.makeRemoteRequest();
   }

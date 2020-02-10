@@ -5,15 +5,16 @@ import LoginForm from "../components/LoginForm";
 import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import SignUpForm from "../components/SignUpForm";
+import HorizontalList from "../components/ProfilePage/HorizontalList";
 
 import renderer from "react-test-renderer";
 
-test("renders correctly", () => {
+test("header renders correctly", () => {
   const tree = renderer.create(<Header />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test("renders correctly", () => {
+test("custom button renders correctly", () => {
   const tree = renderer
     .create(
       <CustomButton
@@ -27,7 +28,7 @@ test("renders correctly", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders correctly", () => {
+test("login form renders correctly", () => {
   const tree = renderer
     .create(
       <LoginForm
@@ -40,7 +41,7 @@ test("renders correctly", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders correctly", () => {
+test("segmented controls renders correctly", () => {
   const beers = [
     {
       id: 1,
@@ -94,7 +95,7 @@ test("renders correctly", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders correctly", () => {
+test("dropdown renders correctly", () => {
   const beers = [
     {
       id: 1,
@@ -169,7 +170,7 @@ test("renders correctly", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders correctly", () => {
+test("sign up renders correctly", () => {
   const tree = renderer
     .create(
       <SignUpForm
@@ -179,5 +180,10 @@ test("renders correctly", () => {
       />
     )
     .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("horizonal list renders correctly", () => {
+  const tree = renderer.create(<HorizontalList />).toJSON();
   expect(tree).toMatchSnapshot();
 });
