@@ -1,40 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "borderBottomColor": "#E9E9E9",
-      "borderBottomWidth": 0.5,
-      "flexDirection": "column",
-      "height": 65,
-      "justifyContent": "center",
-      "padding": 10,
-    }
-  }
->
-  <Image
-    source={1}
+<View>
+  <View
     style={
       Object {
-        "alignSelf": "flex-start",
-        "height": 50,
-        "marginLeft": 25,
-        "position": "absolute",
-        "width": 50,
+        "alignItems": "center",
+        "borderBottomColor": "#E9E9E9",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "height": 65,
+        "justifyContent": "center",
+        "padding": 10,
       }
     }
-  />
-  <View>
-    <Text
+  >
+    <View
       style={
         Object {
-          "color": "#000",
-          "fontSize": 24,
+          "left": 0,
+          "paddingLeft": 15,
+          "position": "absolute",
         }
       }
-    />
+    >
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+        </View>
+      </RNGestureHandlerButton>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 24,
+            "textAlignVertical": "center",
+          }
+        }
+      />
+    </View>
   </View>
 </View>
 `;
@@ -63,12 +91,429 @@ exports[`renders correctly 2`] = `
     style={
       Object {
         "color": "#ffffff",
-        "fontSize": 20,
+        "fontSize": 17,
         "textAlign": "center",
       }
     }
   >
     Test
   </Text>
+</View>
+`;
+
+exports[`renders correctly 3`] = `
+<View
+  style={
+    Object {
+      "padding": 20,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    keyboardType="email-address"
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="email"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="password"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="go"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#276612",
+        "borderRadius": 5,
+        "marginBottom": 20,
+        "opacity": 1,
+        "padding": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 17,
+          "textAlign": "center",
+        }
+      }
+    >
+      Login
+    </Text>
+  </View>
+  <Text
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginTop": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    Don't have an account?
+    <Text
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "rgba(44, 130, 201, 1)",
+        }
+      }
+    >
+       
+      Sign up
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`renders correctly 4`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#276612",
+        "borderColor": "#aee74a",
+        "borderRadius": 15,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#276612",
+            "opacity": 1,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+          },
+          Object {
+            "flex": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderBottomLeftRadius": 14,
+          "borderTopLeftRadius": 14,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sweet
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Mild
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Strong
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderRightColor": "#aee74a",
+          "borderRightWidth": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Fruity
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderBottomRightRadius": 14,
+          "borderTopRightRadius": 14,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Blonde
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders correctly 5`] = `
+<View
+  keyboardShouldPersist="always"
+  style={
+    Object {
+      "padding": 5,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    placeholder="Bud Light"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderColor": "#ccc",
+        "borderRadius": 15,
+        "borderWidth": 1,
+        "padding": 12,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value="Modelo"
+  />
 </View>
 `;

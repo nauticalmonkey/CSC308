@@ -508,3 +508,112 @@ exports[`renders correctly 5`] = `
   />
 </View>
 `;
+
+exports[`renders correctly 6`] = `
+<View
+  style={
+    Object {
+      "height": 100,
+      "padding": 20,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="full name"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    keyboardType="email-address"
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="email"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="password"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="go"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#276612",
+        "borderRadius": 5,
+        "marginBottom": 20,
+        "opacity": 1,
+        "padding": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 17,
+          "textAlign": "center",
+        }
+      }
+    >
+      Sign Up
+    </Text>
+  </View>
+</View>
+`;

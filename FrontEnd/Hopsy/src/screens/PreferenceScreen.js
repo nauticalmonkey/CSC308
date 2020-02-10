@@ -15,7 +15,7 @@ import Header from "../components/Header";
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
-import GLOBAL from '../../global'
+import GLOBAL from "../../global";
 
 var beers = [
   {
@@ -52,11 +52,6 @@ var beers = [
   }
 ];
 
-// backend stuff
-// username
-// arraylist of strings beers
-// string flavor
-// string origin
 class PreferenceScreen extends Component {
   constructor() {
     super();
