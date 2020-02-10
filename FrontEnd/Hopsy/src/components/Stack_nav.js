@@ -15,7 +15,7 @@ export default createStackNavigator({
   TooYoung: TooYoungScreen,
   Login: {
     screen: LoginScreen,
-    navigationOptions : {
+    navigationOptions: {
       gesturesEnabled: false
     }
   },

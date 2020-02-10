@@ -18,6 +18,8 @@ import _ from "lodash";
 import CustomButton from "../components/CustomButton";
 import DATA from "./beers.json";
 
+import Constants from "expo-constants";
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -270,6 +272,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   }
 });

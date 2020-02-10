@@ -16,6 +16,7 @@ import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { DrawerActions } from "react-navigation-drawer";
+import Constants from "expo-constants";
 
 const maptheme = require("./maptheme.json");
 const URL =
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   },
   mapStyle: {
     flex: 1
