@@ -17,17 +17,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserLoginController {
 
-    @RequestMapping("/login")
-    public boolean /*HttpEntity*/ userLogin(@RequestBody String usr) {
-        JSONObject jsObj = new JSONObject(usr);
-        MongoClient usrMC = DBUtils.getusrMC();
-        MongoDatabase db = usrMC.getDatabase("Users");
-        MongoCollection<Document> dbCollection = db.getCollection("users");
+  @RequestMapping("/login")
+  public boolean userLogin(@RequestBody String usr) { //validate a user against the db
+    System.out.println("login");
 
-        Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
+    JSONObject jsObj = new JSONObject(usr);
+    MongoClient usrMC = DBUtils.getusrMC();
+    MongoDatabase db = usrMC.getDatabase("Users");
+    MongoCollection<Document> dbCollection = db.getCollection("users");
 
-        //return new ResponseEntity(HttpStatus.OK);
+    Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
 
-        return (doc != null && doc.getString("password").equals(jsObj.get("password")));
-    }
+    // return new ResponseEntity(HttpStatus.OK);
+
+    return (doc != null && doc.getString("password").equals(jsObj.get("password")));
+  }
+
+  @RequestMapping("/GetUserProfile")
+  public String getFullName(@RequestBody String usr) { //validate a user against the db
+    System.out.println("Get user data");
+
+    JSONObject jsObj = new JSONObject(usr);
+    MongoClient usrMC = DBUtils.getusrMC();
+    MongoDatabase db = usrMC.getDatabase("Users");
+    MongoCollection<Document> dbCollection = db.getCollection("users");
+
+    Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("username").toString());
+
+    // return new ResponseEntity(HttpStatus.OK);
+    System.out.println(doc.getString("fullname"));
+    return doc.getString("fullname");
+  }
 }

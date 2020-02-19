@@ -9,11 +9,12 @@ import {
 } from "react-native";
 
 import CustomButton from "./CustomButton";
+import GLOBAL from '../../global'
 
 export default class LoginForm extends Component {
   state = {
     username: null,
-    password: null,
+    password: null
   };
   constructor(props) {
     super(props);
@@ -22,27 +23,30 @@ export default class LoginForm extends Component {
 
   _fetchData() {
     const { username, password } = this.state;
+    GLOBAL.user = username;
+    console.log(GLOBAL.user);
+    
     if (username && password) {
-        fetch('http://localhost:8080/login?', {
-        method: 'POST',
+      fetch("http://44640e6a.ngrok.io/login?", {
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: username,
-          password: password,
-        }),
-      }).then((response) => response.json())
-        .then((responseJson) => {
-          if (responseJson == true)
-          {
+          password: password
+        })
+      })
+        .then(response => response.json())
+        .then(responseJson => {
+          if (responseJson == true) {
             this.props.navigation.navigate("Home");
           }
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 
@@ -75,6 +79,7 @@ export default class LoginForm extends Component {
         <CustomButton
           onPress={this._fetchData}
           text="Login"
+          //onPress={() => this.props.navigation.navigate("Home")}
         />
         <Text style={styles.signUp}>
           Don't have an account?

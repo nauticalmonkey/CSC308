@@ -1,10 +1,6 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-
-import { View, Text } from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
-
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
 import RecScreen from "../screens/RecommendationScreen";
@@ -54,26 +50,6 @@ const TabNavigator = createBottomTabNavigator(
       inactiveTintColor: "#939393",
       showLabel: false,
       style: { marginBottom: 0, backgroundColor: "rgba(68, 126, 36, 1)" }
-      /*style: {
-      backgroundColor: "rgba(68, 126, 36, 1)",
-      marginBottom: 0,
-    },
-    labelStyle:{
-      activeTintColor: 'white',
-      inactiveTintColor: 'gray',
-      alignContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      marginBottom: 25,
-    },
-    tabStyle:{
-      width: 40,
-      height: 60,
-      scaleY: 20,
-      alignContent: 'center',
-      alignItems: 'center',
-      showLabel: false
-    }*/
     }
   }
 );

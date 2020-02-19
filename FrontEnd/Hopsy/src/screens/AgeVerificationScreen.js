@@ -1,49 +1,91 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  StatusBar,
-  Dimensions
-} from "react-native";
+import { StyleSheet, AsyncStorage } from "react-native";
+import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 
 import CustomButton from "../components/CustomButton";
-import { Platform } from "@unimodules/core";
 
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
 
 class AgeVerificationScreen extends Component {
+  state = {
+    loading: false
+  };
+  constructor(props) {
+    super(props);
+    this._storeData = this._storeData.bind(this);
+  }
+
+  _storeData = async () => {
+    await AsyncStorage.setItem("AGECHECK", "yes");
+    this.props.navigation.replace("Login");
+  };
+
+  _checkData = async () => {
+    if (this.mounted) {
+      try {
+        AsyncStorage.getItem("AGECHECK").then(response => {
+          this.setState({ loading: false });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  async componentDidMount() {
+    if (this.mounted) {
+      this.setState({ loading: true });
+      this._checkData();
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logo}
-            source={require("../images/Bunny.png")}
-          ></Image>
-          <Text style={styles.title}>Hopsy</Text>
-          <Text style={styles.subtitle}>A simpler way to enjoy beer.</Text>
-          <Text style={styles.bigText}>Are you over 21?</Text>
+    const { loading } = this.state;
+    try {
+      AsyncStorage.getItem("AGECHECK").then(value => {
+        if (value == "yes") {
+          this.props.navigation.replace("Login");
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    if (loading) {
+      return null;
+    } else {
+      return (
+        <View style={styles.container}>
+          <StatusBar barStyle="dark-content" />
+          <View style={styles.logoContainer}>
+            <Image
+              style={styles.logo}
+              source={require("../images/Bunny.png")}
+            ></Image>
+            <Text style={styles.title}>Hopsy</Text>
+            <Text style={styles.subtitle}>A simpler way to enjoy beer.</Text>
+            <Text style={styles.bigText}>Are you over 21?</Text>
+          </View>
+          <View style={styles.twinContainer}>
+            <CustomButton
+              style={styles.simpleYesButton}
+              onPress={this._storeData}
+              text="Yes"
+            />
+            <CustomButton
+              style={styles.simpleNoButton}
+              onPress={() => this.props.navigation.navigate("TooYoung")}
+              text="No"
+            />
+          </View>
         </View>
-        <View style={styles.twinContainer}>
-          <CustomButton
-            style={styles.simpleYesButton}
-            onPress={() => this.props.navigation.navigate("Login")}
-            text="Yes"
-          />
-          <CustomButton
-            style={styles.simpleNoButton}
-            onPress={() => this.props.navigation.navigate("TooYoung")}
-            text="No"
-          />
-        </View>
-      </View>
-    );
+      );
+    }
   }
 }
 

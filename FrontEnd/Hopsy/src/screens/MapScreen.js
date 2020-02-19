@@ -15,6 +15,7 @@ import { MAP_API_KEY } from "react-native-dotenv";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { DrawerActions } from "react-navigation-drawer";
 
 const maptheme = require("./maptheme.json");
 const URL =
@@ -97,7 +98,12 @@ export default class MapScreen extends React.Component {
       return (
         <View style={styles.container}>
           <SafeAreaView />
-          <Header text={"Breweries"} />
+          <Header
+            text={"Breweries"}
+            onPress={() => {
+              this.props.navigation.dispatch(DrawerActions.openDrawer());
+            }}
+          />
           <MapView
             ref={map => (this.map = map)}
             style={styles.mapStyle}

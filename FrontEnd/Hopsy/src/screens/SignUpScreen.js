@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import SignUpForm from "../components/SignUpForm";
 
+
 export default class SignUpScreen extends Component {
   render() {
     return (
