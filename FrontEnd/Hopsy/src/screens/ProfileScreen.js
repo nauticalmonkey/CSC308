@@ -31,7 +31,7 @@ export default class ProfileScreen extends React.Component {
     })  
     .then(response => {
       this.setState({
-        fullname: response.text(),
+        fullname: JSON.parse(response),
       }, function() {
       })
     })
