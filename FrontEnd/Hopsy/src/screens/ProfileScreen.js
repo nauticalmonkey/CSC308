@@ -9,7 +9,7 @@ import GLOBAL from '../../global';
 
 export default class ProfileScreen extends React.Component {
   state = {
-    fullname: "No",
+    fullname: "",
   };
   
   static navigationOptiosn = {
@@ -18,7 +18,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   _fetchData() {
-    return fetch('http://localhost:8080/GetUserProfile?',
+    return fetch('http://44640e6a.ngrok.io/GetUserProfile?',
     {
         method: "POST",
         headers: {
@@ -33,14 +33,15 @@ export default class ProfileScreen extends React.Component {
       this.setState({
         fullname: JSON.parse(response),
       }, function() {
-      })
+      });
     })
     .catch((error) =>{
       console.error(error);
     });
-
   }
 
+
+  
   componentDidMount() {
     this._fetchData();
   }
@@ -54,8 +55,7 @@ export default class ProfileScreen extends React.Component {
         }}/>
         <View style={styles.profileHeader}>
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
-          {/*<Text style={styles.profileName}>fullname</Text>*/}
-          <Text>{this.state.fullname}</Text>
+          <Text style={styles.profileName}>{this.state.fullname}</Text>
         </View>
 
           <View style={{ flex: 1, marginTop: 10}}>
