@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountCreationController {
 
   @RequestMapping("/create-account") //endpoint for account creation
-  public boolean userLogin(@RequestBody String usr) {
+  public boolean createAccount(@RequestBody String usr) {
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
     MongoDatabase db = usrMC.getDatabase("Users");
