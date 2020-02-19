@@ -34,17 +34,16 @@ export default class Search extends React.Component {
   }
 
   _fetchData() {
-    return fetch("http://localhost:8080/get-beerDB?")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState(
-          {
-            data: responseJson,
-            fullData: responseJson,
-            currentBeer: responseJson[0]
-          },
-          function() {}
-        );
+    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          data: responseJson,
+          fullData: responseJson,
+          currentBeer: responseJson[0],
+        }, function(){
+        });
+
       })
       .catch(error => {
         console.error(error);

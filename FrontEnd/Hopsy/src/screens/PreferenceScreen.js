@@ -72,7 +72,7 @@ class PreferenceScreen extends Component {
       selectedOriginOption
     } = this.state;
     if (selectedFlavorOption && selectedOriginOption && selectedItems) {
-      fetch("http://localhost:8080//submit-tastes?", {
+      fetch("https://44640e6a.ngrok.io//submit-tastes?", {
         method: "POST",
         headers: {
           Accept: "application/json",

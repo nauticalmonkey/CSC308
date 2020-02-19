@@ -6,14 +6,47 @@ import { DrawerActions } from "react-navigation-drawer";
 import Icon from "react-native-vector-icons/Ionicons";
 import HorizontalList from "../components/ProfilePage/HorizontalList";
 import Constants from "expo-constants";
+import GLOBAL from '../../global';
 
 export default class ProfileScreen extends React.Component {
-  static navigationOptiosn = {
-    drawerLabel: "Profile",
-    drawerIcon: (
-      <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />
-    )
+  state = {
+    fullname: "",
   };
+  
+  static navigationOptiosn = {
+    drawerLabel : null,
+    drawerIcon : (<Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />)
+  }
+
+  _fetchData() {
+    return fetch('http://44640e6a.ngrok.io/GetUserProfile?',
+    {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: GLOBAL.user,
+        })
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          fullname: responseJson,
+        }, function() {
+        })
+      })
+    .catch((error) =>{
+      console.error(error);
+    });
+
+  }
+
+  componentDidMount() {
+    this._fetchData();
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -25,12 +58,11 @@ export default class ProfileScreen extends React.Component {
         />
         <View style={styles.profileHeader}>
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
-          <Text style={styles.profileName}>Robert Middleton</Text>
+          <Text style={styles.profileName}>{this.state.fullname}</Text>
         </View>
-        <ScrollView scrollEventThrottle={16}>
-          <View style={{ flex: 1 }}>
-            <Text style={{ fontSize: 24, paddingHorizontal: 20 }}>
-              Your top 5 favorite beers!
+          <View style={{ flex: 1, marginTop: 10}}>
+            <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
+                Your top 5 favorite beers!
             </Text>
             <View style={styles.listContainer}>
               <ScrollView
@@ -60,7 +92,26 @@ export default class ProfileScreen extends React.Component {
               </ScrollView>
             </View>
           </View>
-        </ScrollView>
+          <View style={{ flex: 1, marginTop: 10}}>
+            <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
+                Your top 5 favorite breweries!
+            </Text>
+            <View style={styles.listContainer}>
+              <ScrollView horizontal={true}
+                  showsHorizontalScrollIndicator={true}>
+                <HorizontalList imageUri={require('../images/Bunny.png')}
+                    name="Hopsy"/>
+                <HorizontalList imageUri={require('../images/Bunny.png')}
+                    name="Hopsy"/>
+                <HorizontalList imageUri={require('../images/Bunny.png')}
+                    name="Hopsy"/>
+                <HorizontalList imageUri={require('../images/Bunny.png')}
+                    name="Hopsy"/>
+                <HorizontalList imageUri={require('../images/Bunny.png')}
+                    name="Hopsy"/>
+              </ScrollView>
+            </View>
+          </View>
       </SafeAreaView>
     );
   }
@@ -68,7 +119,7 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     paddingTop: Constants.statusBarHeight
   },
   listContainer: {
