@@ -13,17 +13,12 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import GLOBAL from './global';
 
+
 class Hidden extends React.Component {
   render() {
     return null;
   }
 }
-
-// logout()
-// {
-//   props.navigation.navigate("Logout");
-
-// }
 
 const CustomDrawerComponent = (props) =>{
   return(
