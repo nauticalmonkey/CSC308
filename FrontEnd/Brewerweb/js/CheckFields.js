@@ -23,21 +23,21 @@ function validateForm(e) {
 	// Flag variable:
 	var error = false;
 
-	// Validate the first name:
+	// Validate the first name checking for names a-z more than 2 char:
 	if (/^[A-Z \.\-']{2,20}$/i.test(firstName.value)) {
 		removeErrorMessage('firstName');
 	} else {
 		addErrorMessage('firstName', 'Please enter your first name.');
 		error = true;
 	}
-	//validate the last name bullet 13
+	//validate the last name just as first name
 	if (/^[A-Z \.\-']{2,20}$/i.test(lastName.value)) {
 		removeErrorMessage('lastName');
 	} else {
 		addErrorMessage('lastName', 'Please enter your last name.');
 		error = true;
 	}
-	// Validate the email address:
+	// Validate the email address checking for word characters seperated by an @
 	if (/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/.test(email.value)) {
 		removeErrorMessage('email');
 	} else {
@@ -45,14 +45,14 @@ function validateForm(e) {
 		error = true;
 	}
 	
-	// Validate the phone number:
+	// Validate the phone number checking for numbers in the  form ###-###-####
 	if (/\d{3}[ \-\.]?\d{3}[ \-\.]?\d{4}/.test(phone.value)) {
 		removeErrorMessage('phone');
 	} else {
 		addErrorMessage('phone', 'Please enter your phone number.');
 		error = true;
 	}
-	//validate the city bullet 13
+	//validate the city just like names
 	if (/^[A-Z \.\-']{2,20}$/i.test(city.value)) {
 		removeErrorMessage('city');
 	} else {
@@ -68,7 +68,7 @@ function validateForm(e) {
 		error = true;
 	}
 	
-	// Validate the zip code:
+	// Validate the zip checking for 5 numbers with optional 4 following
 	if (/^\d{5}(-\d{4})?$/.test(zip.value)) {
 		removeErrorMessage('zip');
 	} else {
