@@ -4,7 +4,7 @@ script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #script: mvn -f ~/Backend/Hopsy/pom.xml
 #script: mvn test -B
 
-secure: "IwI/puJMXAEjC+FLP3C6C4/S9gcEzwxvKEqemCj7SBa28b1WvDVuQyJsFJy4ad7sCYraOacIn1eEtiG1RCubiifcidvASH2XEQ+nuNdop/R7138bb4E/NgZEh9I6zSH3HHs6tVwoamZ+QATlDwadnvDrTjgb4v0sshrnTZcg7Yb0a8lHMlPtyv8UDTCz+tJUudNFgoYYX4OdizdJc/kebtdKTJUZEGCCKc6Hc4/3Rzj7RtbsZTvJfsihshF5kxpEt3Ftv9W63MRZkftj5KTWkuZkovL8oFqQGpk62LLTtlhy0k8041jQQzZ0en1M4xNaPki/GvNoqAk931+ilngduDRcUvA1f8yWuE+J2uYqWy6u6RyEFLRqxXuzm23jTTazy/1YmioztLkharcekPbCwVOiAobAonI16sWd/GUJR0gxxNuVESWrkErrsd12xVVWgTwFgH1qMPzFygSj7S8u50BeEQO6QtvLDgAvjIMnLR2UQSMCrxPnZFrz9CszZO5QAutqtMDyGD9TN8qMkVDWlt9yDNwHQRIPlV0GR8UZD0MW5k7HqJBM1SMmZK4ysSStQubUnf7DqbS2icz9g8Fv37v8hhtKuNl1XGSomUYw6ObHcyC7+HLAC5mMfPxbjnoR63+vuhsdH8w4Vlz011MQZxvPhuR/k79mKZ3pE86rGUo="
+secure: "bdToiUApcs6HJQ5LgscfDQEKGNfm5FNXBzqfPCIRl8dMwgUQ8RLfwzlRWHbOYBPtrIYPtOu/cpOK3SWYf7wKDgcw1wMisDzpHDCWuwRUlcNX2NQaz3E5lwfzUNpddNyFo2cJOXulMNYWXPj5KuSfpcE1IDdjFE8pm4+t9uXt3bAVZsPYQ0U95qPJEwmGE5QBfMYLUp+za6bhwIe0tQEWqY21OIg+FflGp0GqaCjt9O29JsfWCySP4M5fwrB3G76S056IPFJpgpsG6V812QNmOzCo+UreMVwPtpmyKlNRH7LYBMH2FTG3jBOltyYeOG9F2rA7no+GR9Ht5i+7qhBA6oKhTqKTBiVXxhnJ31ygNXWn3RW3Udu5x4OgOoa1/ex+QB3gaELiiKVGWIYLhAPemg9HV/1fnywU+If+r6likQfyQwsQUYyCs9B6HL0KcQw95QlAdOF9JO0d2mCrrAqGFOje3syk7pYrLggysuMssdA4fF2OMDQ7huv5FNejAHLHdYOQKBen1Yf69VL5+W3LqNb1wdAKTTMTrn6yzHXmFDax+VrtflCkke+o8V6OWzEMt3oRt0V0Zx8sfkFELda3kvxhMcRt9C8dKDeCgQzSAOw6QHbSA0AQNVBlokjBd62CLRSBpNPUixpPpicK3wGHOAyrzSAfEIYV1vssJpxFQZQ="
 addons:
   sonarcloud:
     organization: "beerisgood"
@@ -13,4 +13,4 @@ addons:
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  #- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
