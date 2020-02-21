@@ -1,5 +1,5 @@
 language: java
-before_install: cd /Backend/Hopsy/
+before_install: cd Backend/Hopsy/
 script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script: mvn -f ~/Backend/Hopsy/pom.xml
 
