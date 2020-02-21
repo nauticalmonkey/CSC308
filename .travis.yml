@@ -1,4 +1,4 @@
 language: java
-Directory: java
+Directory: CSC308/Backend/Hopsy/src/test/java/
 mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 mvn test -B
