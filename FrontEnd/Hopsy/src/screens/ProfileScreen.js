@@ -32,7 +32,6 @@ export default class ProfileScreen extends React.Component {
     .then(response => {
       this.setState({
         fullname: JSON.parse(response),
-      }, function() {
       });
     })
     .catch((error) =>{
@@ -41,7 +40,7 @@ export default class ProfileScreen extends React.Component {
   }
 
 
-  
+
   componentDidMount() {
     this._fetchData();
   }
