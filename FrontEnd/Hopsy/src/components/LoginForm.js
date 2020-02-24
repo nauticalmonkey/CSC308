@@ -27,7 +27,7 @@ export default class LoginForm extends Component {
     console.log(GLOBAL.user);
     
     if (username && password) {
-      fetch("http://44640e6a.ngrok.io/login?", {
+      fetch(GLOBAL.dblink + "login?", {
         method: "POST",
         headers: {
           Accept: "application/json",

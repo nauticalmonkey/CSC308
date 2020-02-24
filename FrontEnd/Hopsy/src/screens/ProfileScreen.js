@@ -18,7 +18,7 @@ export default class ProfileScreen extends React.Component {
   }
 
   _fetchData() {
-    return fetch('http://44640e6a.ngrok.io/GetUserProfile?',
+    return fetch(GLOBAL.dblink + 'GetUserProfile?',
     {
         method: "POST",
         headers: {

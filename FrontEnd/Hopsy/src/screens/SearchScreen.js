@@ -14,6 +14,7 @@ import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
+import GLOBAL from '../../global';
 
 import CustomButton from "../components/CustomButton";
 
@@ -32,7 +33,7 @@ export default class Search extends Component {
   }
 
   _fetchData() {
-    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
+    return fetch(GLOBAL.dblink + 'get-beerDB?')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
