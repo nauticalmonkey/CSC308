@@ -47,6 +47,7 @@ public class UserLoginController {
 
     // return new ResponseEntity(HttpStatus.OK);
     System.out.println(doc.getString("fullname"));
+    System.out.println("Returning: " + doc.getString("fullname"));
     return doc.getString("fullname");
   }
 }
