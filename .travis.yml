@@ -4,13 +4,13 @@ script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #script: mvn -f ~/Backend/Hopsy/pom.xml
 script: mvn test -B
 
-#secure: "bdToiUApcs6HJQ5LgscfDQEKGNfm5FNXBzqfPCIRl8dMwgUQ8RLfwzlRWHbOYBPtrIYPtOu/cpOK3SWYf7wKDgcw1wMisDzpHDCWuwRUlcNX2NQaz3E5lwfzUNpddNyFo2cJOXulMNYWXPj5KuSfpcE1IDdjFE8pm4+t9uXt3bAVZsPYQ0U95qPJEwmGE5QBfMYLUp+za6bhwIe0tQEWqY21OIg+FflGp0GqaCjt9O29JsfWCySP4M5fwrB3G76S056IPFJpgpsG6V812QNmOzCo+UreMVwPtpmyKlNRH7LYBMH2FTG3jBOltyYeOG9F2rA7no+GR9Ht5i+7qhBA6oKhTqKTBiVXxhnJ31ygNXWn3RW3Udu5x4OgOoa1/ex+QB3gaELiiKVGWIYLhAPemg9HV/1fnywU+If+r6likQfyQwsQUYyCs9B6HL0KcQw95QlAdOF9JO0d2mCrrAqGFOje3syk7pYrLggysuMssdA4fF2OMDQ7huv5FNejAHLHdYOQKBen1Yf69VL5+W3LqNb1wdAKTTMTrn6yzHXmFDax+VrtflCkke+o8V6OWzEMt3oRt0V0Zx8sfkFELda3kvxhMcRt9C8dKDeCgQzSAOw6QHbSA0AQNVBlokjBd62CLRSBpNPUixpPpicK3wGHOAyrzSAfEIYV1vssJpxFQZQ="
-#addons:
-#  sonarcloud:
-#    organization: "beerisgood"
-#    token:
- #     secure: "**************************" # encrypted value of your token
+secure: "bdToiUApcs6HJQ5LgscfDQEKGNfm5FNXBzqfPCIRl8dMwgUQ8RLfwzlRWHbOYBPtrIYPtOu/cpOK3SWYf7wKDgcw1wMisDzpHDCWuwRUlcNX2NQaz3E5lwfzUNpddNyFo2cJOXulMNYWXPj5KuSfpcE1IDdjFE8pm4+t9uXt3bAVZsPYQ0U95qPJEwmGE5QBfMYLUp+za6bhwIe0tQEWqY21OIg+FflGp0GqaCjt9O29JsfWCySP4M5fwrB3G76S056IPFJpgpsG6V812QNmOzCo+UreMVwPtpmyKlNRH7LYBMH2FTG3jBOltyYeOG9F2rA7no+GR9Ht5i+7qhBA6oKhTqKTBiVXxhnJ31ygNXWn3RW3Udu5x4OgOoa1/ex+QB3gaELiiKVGWIYLhAPemg9HV/1fnywU+If+r6likQfyQwsQUYyCs9B6HL0KcQw95QlAdOF9JO0d2mCrrAqGFOje3syk7pYrLggysuMssdA4fF2OMDQ7huv5FNejAHLHdYOQKBen1Yf69VL5+W3LqNb1wdAKTTMTrn6yzHXmFDax+VrtflCkke+o8V6OWzEMt3oRt0V0Zx8sfkFELda3kvxhMcRt9C8dKDeCgQzSAOw6QHbSA0AQNVBlokjBd62CLRSBpNPUixpPpicK3wGHOAyrzSAfEIYV1vssJpxFQZQ="
+addons:
+  sonarcloud:
+    organization: "beerisgood"
+    token:
+    secure: "**************************" # encrypted value of your token
 
-#script:
+script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  #- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
