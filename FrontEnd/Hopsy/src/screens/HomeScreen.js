@@ -56,10 +56,10 @@ export default class Test extends React.Component {
               <Text style={styles.name}>{post.name}</Text>
               <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
             </View>
-            <Icon name="ios-more" size={24} color="#737888"/>
+            {/*<Icon name="ios-more" size={24} color="#737888"/>*/}
           </View>
           <Text style={styles.post}>{post.text}</Text>
-          <Image source={post.image} style={styles.postImage} resizeMode="cover"/>
+          <Image source={post.image} style={styles.postImage} resizeMode="contain"/>
           <View style={{flexDirection: "row"}}>
             <Icon name="ios-heart-empty" size={24} color="#737888" style={{marginRight: 16}}/>
             <Icon name="ios-chatboxes" size={24} color="#737888" style={{marginRight: 16}}/>
