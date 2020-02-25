@@ -14,12 +14,7 @@ class Header extends React.Component {
             <TouchableOpacity
               onPress={() => {
                 onPress();
-              }}
-            >
-              {/*<Image
-                style={styles.image}
-                source={require("../images/Bunny.png")}
-              />*/}
+              }}>
               <Icon name="ios-list" color={"rgba(68, 126, 36, 1)"} size={40} />
             </TouchableOpacity>
           </View>
@@ -47,7 +42,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     padding: 10,
-    justifyContent: "center"
+    justifyContent: "center",
+    shadowColor: "#454D68",
+    shadowOffset: {height: 5},
+    shadowRadius: 40,
+    shadowOpacity: 0.4,
+    zIndex: 10
   },
   touchable: {
     position: "absolute",
