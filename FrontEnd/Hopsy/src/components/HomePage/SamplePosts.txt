@@ -1,0 +1,36 @@
+posts = [{
+    id: "1",
+    name: "SLO Brew",
+    text:
+        "Polyvision concert this weekend!",
+    timestamp: Date.now(),
+    avatar: require("../../images/Bunny.png"),
+    image: require("../../images/Bunny.png")
+  },
+  {
+    id: "2",
+    name: "Bull's Tavern",
+    text:
+        "Bull sweat now 50% off!!!",
+    timestamp: Date.now(),
+    avatar: require("../../images/Bunny.png"),
+    image: require("../../images/Bunny.png")
+  },
+  {
+    id: "3",
+    name: "Bald Eagle Brewing",
+    text:
+        "Bald Eagle Grand Opening this weekend!",
+    timestamp: Date.now(),
+    avatar: require("../../images/Bunny.png"),
+    image: require("../../images/Bunny.png")
+  },
+  {
+    id: "4",
+    name: "Golden Coast Brewing",
+    text:
+        "25% off all beer this week only!",
+    timestamp: Date.now(),
+    avatar: require("../../images/Bunny.png"),
+    image: require("../../images/Bunny.png")
+  }];
