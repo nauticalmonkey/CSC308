@@ -11,7 +11,7 @@ import moment from 'moment';
 export default class Test extends React.Component {
   renderPosts = post =>{
     return(
-      <View style={styles.feedItem}>
+      <SafeAreaView style={styles.feedItem}>
         <Image source={post.avatar} style={styles.avatar} resizeMode="contain"/>
         <View style={{flex : 1}}>
           <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
@@ -28,7 +28,7 @@ export default class Test extends React.Component {
             <Icon name="ios-chatboxes" size={24} color="#737888" style={{marginRight: 16}}/>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   };
 
@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Expo.Constants.statusBarHeight,
+    marginBottom: 65
   },
   feed:{
     marginHorizontal:16
