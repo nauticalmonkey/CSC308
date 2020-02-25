@@ -12,7 +12,7 @@ export default class Test extends React.Component {
   renderPosts = post =>{
     return(
       <View style={styles.feedItem}>
-        <Image source={post.avatar} style={styles.avatar}/>
+        <Image source={post.avatar} style={styles.avatar} resizeMode="contain"/>
         <View style={{flex : 1}}>
           <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
             <View>
@@ -115,9 +115,9 @@ const styles = StyleSheet.create({
     marginVertical: 8
   },
   avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 45,
+    height: 45,
+    borderRadius: 5,
     marginRight: 16
   },
   name: {
