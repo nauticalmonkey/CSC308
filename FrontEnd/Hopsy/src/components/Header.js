@@ -3,7 +3,6 @@ import { View, StyleSheet, Image, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
 
-
 class Header extends React.Component {
   render() {
     const { text, onPress } = this.props;
@@ -42,12 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     padding: 10,
-    justifyContent: "center",
-    shadowColor: "#454D68",
-    shadowOffset: {height: 5},
-    shadowRadius: 40,
-    shadowOpacity: 0.4,
-    zIndex: 10
+    justifyContent: "center"
   },
   touchable: {
     position: "absolute",

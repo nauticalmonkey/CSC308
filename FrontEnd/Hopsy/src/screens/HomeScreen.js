@@ -8,6 +8,51 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { FlatList } from "react-native-gesture-handler";
 import moment from 'moment';
 
+export default class Test extends React.Component {
+  renderPosts = post =>{
+    return(
+      <View style={styles.feedItem}>
+        <Image source={post.avatar} style={styles.avatar}/>
+        <View style={{flex : 1}}>
+          <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+            <View>
+              <Text style={styles.name}>{post.name}</Text>
+              <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
+            </View>
+            {/*<Icon name="ios-more" size={24} color="#737888"/>*/}
+          </View>
+          <Text style={styles.post}>{post.text}</Text>
+          <Image source={post.image} style={styles.postImage} resizeMode="contain"/>
+          <View style={{flexDirection: "row"}}>
+            <Icon name="ios-heart-empty" size={24} color="#737888" style={{marginRight: 16}}/>
+            <Icon name="ios-chatboxes" size={24} color="#737888" style={{marginRight: 16}}/>
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Header
+          text={"Home"}
+          onPress={() => {
+            this.props.navigation.dispatch(DrawerActions.openDrawer());
+          }}
+        />
+        <View styles={styles.con}>
+          <FlatList style={styles.feed}
+            data = {posts}
+            renderItem={({item})=>this.renderPosts(item)}
+            keyExtractor={item=>item.id}
+            showsVerticalScrollIndicator={false}/>
+        </View>
+      </SafeAreaView>
+    );
+  }
+}
+
 posts = [{
   id: "1",
   name: "SLO Brew",
@@ -44,52 +89,6 @@ posts = [{
   avatar: require("../images/Bunny.png"),
   image: require("../images/Bunny.png")
 }];
-
-export default class Test extends React.Component {
-  renderPosts = post =>{
-    return(
-      <View style={styles.feedItem}>
-        <Image source={post.avatar} style={styles.avatar}/>
-        <View style={{flex : 1}}>
-          <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-            <View>
-              <Text style={styles.name}>{post.name}</Text>
-              <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
-            </View>
-            {/*<Icon name="ios-more" size={24} color="#737888"/>*/}
-          </View>
-          <Text style={styles.post}>{post.text}</Text>
-          <Image source={post.image} style={styles.postImage} resizeMode="contain"/>
-          <View style={{flexDirection: "row"}}>
-            <Icon name="ios-heart-empty" size={24} color="#737888" style={{marginRight: 16}}/>
-            <Icon name="ios-chatboxes" size={24} color="#737888" style={{marginRight: 16}}/>
-          </View>
-
-        </View>
-      </View>
-    );
-  };
-
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <Header
-          text={"Home"}
-          onPress={() => {
-            this.props.navigation.dispatch(DrawerActions.openDrawer());
-          }}
-        />
-        <View styles={styles.con}>
-          <FlatList style={styles.feed}
-            data = {posts}
-            renderItem={({item})=>this.renderPosts(item)}
-            keyExtractor={item=>item.id}
-            showsVerticalScrollIndicator={false}/>
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   bigRedText: {
