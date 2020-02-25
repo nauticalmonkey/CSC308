@@ -14,7 +14,7 @@ class Header extends React.Component {
               onPress={() => {
                 onPress();
               }}>
-              <Icon name="ios-list" color={"rgba(68, 126, 36, 1)"} size={40} />
+              <Icon name="ios-list" color={"rgba(68, 126, 36, 1)"} size={30} />
             </TouchableOpacity>
           </View>
 
