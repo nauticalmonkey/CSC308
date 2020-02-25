@@ -4,12 +4,12 @@ script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #script: mvn -f ~/Backend/Hopsy/pom.xml
 script: mvn test -B
 
-secure: "RvcjeuLA+eAu7NGuk45dfVfwVqSfW/3/kdAGqn8ZYwVb7LAQTmhx4ZiMNHMFianBhK6uCSSsiG9P9wOBElAWssH9rK2tiY2hyMPqCnTclQvhoSto1D+qlgR3i64SOFlmnAHdyDvI7ewvL7XBUSUADxs1vManH1qnrNgwLIzMd+rYIJ3/MtQB/D0MwIY1aTGZqyeSKWFg2pv1Mnqo4Kvhr0eGvDBsEvJV7avsqut3SAAXpn0ylKr6LGh84Cbni7bDLG3yzzOx99ikkIwNuHn0ZTWhg7aUj+Nz4rVW23lZcp6Wb9IQ9CFkbhUtv/azpFu0KPvd4VJEuumgdlVwIN5o9QAcO8JeAJFUXGNybVnWM55NVtOFwEdxm6wvcyrWvfxJUpcMLkEFD8XaiFklmo5iwJjCs/oLqjRTmXjP6AubIgsLHuXm//Cx37ELX/tEIb0G0kC1xjUpjiESM6+k/JG/mnGQ/7hHPRrU516sqwPPYPqcQE69COVuFM33w5gr1F6IY2RnkMbp8eml/zMLDyTzIFKn/0AH2LvH1XGle2hu0qy2x0DpqiOrt1ZwoxFmJbCR/PaO8B4Wsd1uugnp/qS3mcYVHt7zut9pCbiHyLu6cdfcTbhO6+B2dZapnyluL2mPanWTw7g1Vyw3tgzrzHC0GpfiEoXNYQ88w5DZkKy3evA="
 addons:
   sonarcloud:
     organization: "beerisgood"
     token:
-      secure: "**************************" # encrypted value of your token
+      secure: "RvcjeuLA+eAu7NGuk45dfVfwVqSfW/3/kdAGqn8ZYwVb7LAQTmhx4ZiMNHMFianBhK6uCSSsiG9P9wOBElAWssH9rK2tiY2hyMPqCnTclQvhoSto1D+qlgR3i64SOFlmnAHdyDvI7ewvL7XBUSUADxs1vManH1qnrNgwLIzMd+rYIJ3/MtQB/D0MwIY1aTGZqyeSKWFg2pv1Mnqo4Kvhr0eGvDBsEvJV7avsqut3SAAXpn0ylKr6LGh84Cbni7bDLG3yzzOx99ikkIwNuHn0ZTWhg7aUj+Nz4rVW23lZcp6Wb9IQ9CFkbhUtv/azpFu0KPvd4VJEuumgdlVwIN5o9QAcO8JeAJFUXGNybVnWM55NVtOFwEdxm6wvcyrWvfxJUpcMLkEFD8XaiFklmo5iwJjCs/oLqjRTmXjP6AubIgsLHuXm//Cx37ELX/tEIb0G0kC1xjUpjiESM6+k/JG/mnGQ/7hHPRrU516sqwPPYPqcQE69COVuFM33w5gr1F6IY2RnkMbp8eml/zMLDyTzIFKn/0AH2LvH1XGle2hu0qy2x0DpqiOrt1ZwoxFmJbCR/PaO8B4Wsd1uugnp/qS3mcYVHt7zut9pCbiHyLu6cdfcTbhO6+B2dZapnyluL2mPanWTw7g1Vyw3tgzrzHC0GpfiEoXNYQ88w5DZkKy3evA="
+
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
