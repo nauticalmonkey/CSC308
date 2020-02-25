@@ -124,7 +124,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: "500",
-    color: "#454D65"
+    color: "#454D65",
+    marginTop: 10
   },
   timestamp: {
     fontSize: 11,
