@@ -36,6 +36,7 @@ public class UserLoginController {
   @RequestMapping("/GetUserProfile")
   public String getFullName(@RequestBody String usr) { //validate a user against the db
     System.out.println("Get user data");
+    System.out.println(usr);
 
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
@@ -46,6 +47,7 @@ public class UserLoginController {
 
     // return new ResponseEntity(HttpStatus.OK);
     System.out.println(doc.getString("fullname"));
+    System.out.println("Returning: " + doc.getString("fullname"));
     return doc.getString("fullname");
   }
 }
