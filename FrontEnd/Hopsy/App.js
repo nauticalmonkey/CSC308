@@ -12,6 +12,8 @@ import LoginScreen from "./src/components/Login";
 import Icon from "react-native-vector-icons/Ionicons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import GLOBAL from './global';
+import { NativeModules } from "react-native";
+
 
 
 class Hidden extends React.Component {
@@ -35,8 +37,9 @@ const CustomDrawerComponent = (props) =>{
 
         <TouchableOpacity style={styles.logoutbutton} onPress={
             () => {
+              NativeModules.DevSettings.reload();
               props.navigation.navigate("Logout");
-              GLOBAL.user = null
+              GLOBAL.user = null;
             }
           }>
           <Icon name="ios-log-out" color={"rgba(68, 126, 36, 1)"} size={25} />
