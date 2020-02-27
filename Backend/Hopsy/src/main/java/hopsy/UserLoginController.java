@@ -44,6 +44,7 @@ public class UserLoginController {
   @RequestMapping("/GetUserProfile")
   public String getFullName(@RequestBody String usr) { //validate a user against the db
     System.out.println("Get user data");
+    System.out.println(usr);
 
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
@@ -88,22 +89,26 @@ public class UserLoginController {
         }
     }
 
+    responseJSON.put("fullname", doc.getString("fullname"));
+    
+
     System.out.println(lines);
-    for (int i = 1; i < lines.size(); i++)
+    System.out.println(lines.get(0));
+    System.out.println(lines.get(3));
+
+    
+    responseJSON.put(lines.get(0), lines.get(3));
+    for (int i = 4; i < lines.size(); i += 4)
     {
-      if ((i % 4 ) == 0)
-        System.out.println(i + " " + lines.get(i - 1));
-      
-      if ((i % 5 ) == 0)
-        System.out.println(i + " " + lines.get(i - 1));
-      // if (i % 3 != 0 && i % 4 != 0)
-      // {
-      //   lines.remove(i);
-      // }
+      String name = lines.get(i).substring(8, lines.get(i).length() - 1);
+      String url = lines.get(i + 3).substring(7, lines.get(i + 3).length() - 2);
+      System.out.println(i + " " + name);
+      System.out.println((i + 3) + " " + url);
+
+      responseJSON.put(name, url);
     }
-    System.out.println(lines);
 
-
+    System.out.println(responseJSON);
 
     List<String> beersToAdd = new ArrayList<String>();
     for (String beer : beerString.split(","))
@@ -121,8 +126,7 @@ public class UserLoginController {
 
     //System.out.println(beerdoc.get("beers"));
 
-    responseJSON.put("fullname", doc.getString("fullname"));
-    //responseJSON.put("beerstart", value)
+    
     
     // return new ResponseEntity(HttpStatus.OK);
     System.out.println(doc.getString("fullname"));
