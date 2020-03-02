@@ -16,7 +16,7 @@ public class TasteSubmissionController {
 
   @RequestMapping("/submit-tastes") //endpoint for taste submission
   public boolean formSubmission(@RequestBody String form) {
-    System.out.println(form);
+    if (form == null) return false;
 
     JSONObject json = new JSONObject(form);
 
@@ -33,6 +33,8 @@ public class TasteSubmissionController {
   }
 
   public String getForm(String name) {
+    if (name == null) return "";
+
     MongoClient usrMC = DBUtils.getusrMC();
     MongoDatabase db = usrMC.getDatabase("Users");
     MongoCollection<Document> dbCollection = db.getCollection("users");
