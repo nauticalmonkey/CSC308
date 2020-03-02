@@ -40,8 +40,7 @@ public class AccountCreationController {
     BasicDBObject dbObject = new BasicDBObject();
     dbObject.put("email", email);
     FindIterable<Document> fi = collection.find(dbObject);
-    if (fi.first() == null) return false;
-    return true;
+    return fi.first() != null;
   }
 
 }
