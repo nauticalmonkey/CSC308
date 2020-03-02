@@ -14,7 +14,7 @@ public class UserLoginController {
 
   @RequestMapping("/login")
   public boolean userLogin(@RequestBody String usr) { //validate a user against the db
-    System.out.println("login");
+    if (usr == null) return false;
 
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
@@ -28,8 +28,7 @@ public class UserLoginController {
 
   @RequestMapping("/GetUserProfile")
   public String getFullName(@RequestBody String usr) { //validate a user against the db
-    System.out.println("Get user data");
-    System.out.println(usr);
+    if (usr == null) return "";
 
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();

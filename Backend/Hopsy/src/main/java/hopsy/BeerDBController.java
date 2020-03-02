@@ -14,6 +14,8 @@ public class BeerDBController {
 
     @RequestMapping("/create-beerDB")
     public static boolean createDB(@RequestBody String beers) {
+        if (beers == null) return false;
+
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase("BeerDB");
         MongoCollection<Document> dbCollection = db.getCollection("beers");
