@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BeerDBController {
-    public BeerDBController(){}
 
     @RequestMapping("/create-beerDB")
     public static boolean createDB(@RequestBody String beers) {
@@ -18,16 +17,16 @@ public class BeerDBController {
 
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase("BeerDB");
-        MongoCollection<Document> dbCollection = db.getCollection("beers");
+        MongoCollection<Document> dbCollection = db.getCollection("beers"); //referencing correct db collection
 
         Document doc = new Document("beers", beers);
-        DBUtils.insertDoc(dbCollection, doc);
+        DBUtils.insertDoc(dbCollection, doc); //inserting the beers
 
         return true;
     }
 
     @RequestMapping("/get-beerDB")
-    public static String getBeerDB() {
+    public static String getBeerDB() { //gets the beer info
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase("BeerDB");
         MongoCollection<Document> dbCollection = db.getCollection("beers");
