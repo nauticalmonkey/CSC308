@@ -8,17 +8,22 @@ import HorizontalList from "../components/ProfilePage/HorizontalList";
 import GLOBAL from '../../global';
 
 export default class ProfileScreen extends React.Component {
-  state = {
-    fullname: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullname: "",
+      data: [],
+      list: []
+    };
+  }
   
   static navigationOptiosn = {
     drawerLabel : null,
     drawerIcon : (<Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={10} />)
   }
 
-  _fetchData() {
-    return fetch(GLOBAL.dblink + 'GetUserProfile?',
+  _fetchNameData() {
+    return fetch(GLOBAL.dblink + 'GetUserProfileName?',
     {
         method: "POST",
         headers: {
@@ -42,17 +47,48 @@ export default class ProfileScreen extends React.Component {
 
   }
 
+  _fetchBeerData()
+  {
+    return fetch(GLOBAL.dblink + 'GetUserProfileBeer?',
+    {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: GLOBAL.user,
+        })
+    })  
+    .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          data: responseJson,
+        }, function(){
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
   componentDidMount() {
-    this._fetchData();
+    this._fetchNameData();
+    this._fetchBeerData();
   }
 
   render() {
+    // console.log(Object.entries(this.state.data));
+    // console.log(Object.entries(this.state.data).length);
     return (
       <SafeAreaView style={styles.container}>
         <Header text={"Profile"} 
         onPress={() => {
           this.props.navigation.dispatch(DrawerActions.openDrawer());
         }}/>
+        
+        
+
         <View style={styles.profileHeader}>
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
           <Text style={styles.profileName}>{this.state.fullname}</Text>
@@ -60,12 +96,18 @@ export default class ProfileScreen extends React.Component {
 
           <View style={{ flex: 1, marginTop: 10}}>
             <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
-                Your top 5 favorite beers!
+                Your top {Object.entries(this.state.data).length} favorite beers!
             </Text>
             <View style={styles.listContainer}>
               <ScrollView horizontal={true}
                   showsHorizontalScrollIndicator={true}>
-                <HorizontalList imageUri={require('../images/Bunny.png')}
+
+            {Object.entries(this.state.data).map(([name, url]) => {
+                      return (
+                        <HorizontalList key={name} name={name} imageUri={{uri: url}} />
+                      )
+            })}
+                {/* <HorizontalList imageUri={require('../images/Bunny.png')}
                     name="Hopsy"/>
                 <HorizontalList imageUri={require('../images/Bunny.png')}
                     name="Hopsy"/>
@@ -74,7 +116,7 @@ export default class ProfileScreen extends React.Component {
                 <HorizontalList imageUri={require('../images/Bunny.png')}
                     name="Hopsy"/>
                 <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/>
+                    name="Hopsy"/> */}
               </ScrollView>
             </View>
           </View>

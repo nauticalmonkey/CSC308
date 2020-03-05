@@ -41,8 +41,8 @@ export default class Search extends Component {
           fullData: responseJson,
           currentBeer: responseJson[0],
         }, function(){
+          
         });
-
       })
       .catch((error) =>{
         console.error(error);
@@ -89,6 +89,7 @@ export default class Search extends Component {
       return item.name.toLowerCase().includes(formattedSearch);
     });
     this.setState({ query: formattedSearch, data });
+    console.log(data);
   };
 
   toggleModal(visible, beer) {

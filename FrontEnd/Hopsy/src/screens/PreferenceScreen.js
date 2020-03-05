@@ -20,7 +20,7 @@ import GLOBAL from '../../global'
 var beers = [
   {
     id: 1,
-    name: "Coors"
+    name: "Coors Original"
   },
   {
     id: 2,
@@ -28,27 +28,23 @@ var beers = [
   },
   {
     id: 3,
-    name: "Modelo"
+    name: "Guinness Draught"
   },
   {
     id: 4,
-    name: "Guiness"
+    name: "Corona Extra"
   },
   {
     id: 5,
-    name: "Corona"
-  },
-  {
-    id: 6,
     name: "Heineken"
   },
   {
-    id: 7,
+    id: 6,
     name: "Bud Light"
   },
   {
-    id: 8,
-    name: "Miller"
+    id: 7,
+    name: "Miller Lite"
   }
 ];
 
