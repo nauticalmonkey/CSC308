@@ -25,7 +25,10 @@ public class Web {
                 max = v;
             }
         }
-        return beer;
+        if (beer.equals(""))
+            return "Pacifico";
+        else
+            return beer;
     }
 
 
@@ -39,6 +42,7 @@ public class Web {
 
         for ( String beer : u.liked ) {
             cur = beers.get(beer);
+            if(cur == null || cur.relations == null) continue;
             for( Map.Entry<String, Beer> entry : cur.relations.entrySet() ) {
                 String k = entry.getKey();
                 Beer v = entry.getValue();
@@ -96,6 +100,7 @@ public class Web {
             return false;
         }
         for (String likedBeer : u.liked) {
+            if (beers.get(likedBeer) == null || beers.get(likedBeer).relations.get(beer) == null) continue;
             beers.get(likedBeer).relations.get(beer).liked++;
             beers.get(beer).relations.get(likedBeer).liked++;
         }
@@ -111,6 +116,7 @@ public class Web {
             return false;
         }
         for (String likedBeer : u.liked) {
+            if(beers.get(likedBeer) == null || beers.get(likedBeer).relations.get(beer) == null) continue;
             beers.get(likedBeer).relations.get(beer).disliked++;
         }
         return true;

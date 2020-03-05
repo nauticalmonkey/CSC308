@@ -1,5 +1,13 @@
 package Recommendation;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,7 +38,7 @@ public class Driver {
 
 
         Web web2 = new Web();
-        populateWeb(web2);
+        //populateWeb(web2);
 
         System.out.println("\n" + web2.recommendBeer(web2.getUser("1")) + "\n");
         web2.visualizeAccuracy(web2.getUser("1"));
@@ -40,24 +48,65 @@ public class Driver {
 
     }
 
-    public static void populateWeb(Web w) {
-        List<String> lst = new ArrayList<>();
-        List<User> users = new ArrayList<>();
-        Random random = new Random();
+    public static void populateWeb(Web w, MongoCollection<Document> usrC, MongoCollection<Document> beerC) {
+        ArrayList<String> beers = getBeers(beerC);
+        ArrayList<String> usersEmails = getEmails(usrC);
 
-        for ( int i = 0; i < 20; i++ ) { //change to number of beers in the db, use names
-            w.addBeer(Integer.toString(i));
+        for (String beer : beers) {
+            w.addBeer(beer);
         }
 
-        for ( int i = 0; i < 100; i++ ) { //change to number of users in db
-            String name = Integer.toString(i);
-            w.addUser(name);
-            for ( int j = 0; j < 10; j++) { //change to number of like beers per user
-                w.getUser(name).likeBeer(Integer.toString(random.nextInt(20)));
+        for (String usr : usersEmails){
+            w.addUser(usr);
+            ArrayList<String> likes = getLikes(usrC, usr);
+            ArrayList<String> dislikes = getDislikes(usrC, usr);
+            for (String like : likes) {
+                if (!like.equals("first"))
+                    w.getUser(usr).likeBeer(like);
             }
-            for ( int j = 0; j < 10; j++) { //change to number of disliked
-                w.getUser(name).dislikeBeer(Integer.toString(random.nextInt(20)));
+            for (String dislike : dislikes) {
+                if (!dislike.equals("first"))
+                    w.getUser(usr).dislikeBeer(dislike);
             }
         }
+    }
+
+    private static ArrayList<String> getBeers(MongoCollection<Document> bmc) {
+        Document doc = bmc.find().first();
+        JSONArray jarr = new JSONArray(doc.getString("beers"));
+        ArrayList<String> beerArr = new ArrayList<>();
+
+        for (int i = 0; i < jarr.length(); i++) {
+            beerArr.add(jarr.getJSONObject(i).getString("name"));
+        }
+
+        return beerArr;
+    }
+
+    private static ArrayList<String> getEmails(MongoCollection<Document> umc) {
+        ArrayList<String> emails = new ArrayList<>();
+        FindIterable<Document> docs = umc.find();
+
+        for (Document doc : docs) {
+            emails.add(doc.getString("email"));
+        }
+
+        return emails;
+    }
+
+    private static ArrayList<String> getLikes(MongoCollection<Document> umc, String email) {
+        BasicDBObject dbObject = new BasicDBObject();
+        dbObject.put("email", email);
+        Document doc = umc.find(dbObject).first();
+
+        return (ArrayList<String>) doc.get("likes");
+    }
+
+    private static ArrayList<String> getDislikes(MongoCollection<Document> umc, String email) {
+        BasicDBObject dbObject = new BasicDBObject();
+        dbObject.put("email", email);
+        Document doc = umc.find(dbObject).first();
+
+        return (ArrayList<String>) doc.get("dislikes");
     }
 }
