@@ -141,6 +141,8 @@ const styles = StyleSheet.create({
     width: undefined,
     height: 150,
     borderRadius: 5,
-    marginVertical: 16
+    marginVertical: 16,
+    alignContent: "center",
+    alignItems: "center"
   }
 });

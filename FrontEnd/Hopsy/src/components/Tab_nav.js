@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "../screens/HomeScreen";
@@ -6,6 +7,8 @@ import MapScreen from "../screens/MapScreen";
 import RecScreen from "../screens/RecommendationScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
+import FavoritesScreen from "../screens/FavoritesScreen";
+import Meme from "../images/map-outline.png"
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -22,6 +25,17 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="ios-compass" color={tintColor} size={25} />
+        )
+      }
+    },
+    Favorites: {
+      screen: FavoritesScreen,
+      navigationOptions: {
+        /*tabBarIcon: ({ tintColor }) => (
+          <Icon name="ios-beer" color={tintColor} size={45} />
+        )*/
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="md-beer" color={tintColor} size={35} />
         )
       }
     },
