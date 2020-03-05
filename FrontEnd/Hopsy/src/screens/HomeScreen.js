@@ -19,7 +19,6 @@ export default class Test extends React.Component {
               <Text style={styles.name}>{post.name}</Text>
               <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
             </View>
-            {/*<Icon name="ios-more" size={24} color="#737888"/>*/}
           </View>
           <Text style={styles.post}>{post.text}</Text>
           <Image source={post.image} style={styles.postImage} resizeMode="contain"/>
@@ -141,6 +140,8 @@ const styles = StyleSheet.create({
     width: undefined,
     height: 150,
     borderRadius: 5,
-    marginVertical: 16
+    marginVertical: 16,
+    alignContent: "center",
+    alignItems: "center"
   }
 });
