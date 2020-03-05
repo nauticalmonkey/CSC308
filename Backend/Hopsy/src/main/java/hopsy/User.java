@@ -1,18 +1,11 @@
 package hopsy;
 
 import org.bson.Document;
-import org.json.JSONObject;
-
 public class User {
   private String email;
   private String password;
   private String fullname;
   private String preferencesJSON;
-
-  // User(String email, String password) {
-  //   this.email = email;
-  //   this.password = password;
-  // }
 
   User(String email, String password, String fullname) {
     this.email = email;
