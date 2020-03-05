@@ -6,6 +6,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,6 +68,34 @@ public class LikeController {
 
         //check if its in the list, add if not, remove from disliked if its there, return true or false
         return addToDisliked(dbCollection, email, beer, liked, disliked);
+    }
+
+    @RequestMapping("/getLiked")
+    public ArrayList<String> sendLiked(@RequestBody String email) {
+        if (email == null) return null;
+
+        JSONObject jsObj = new JSONObject(email);
+        MongoClient usrMC = DBUtils.getusrMC();
+        MongoDatabase db = usrMC.getDatabase("Users");
+        MongoCollection<Document> dbCollection = db.getCollection("users");
+
+        String stEmail = jsObj.getString("email");
+
+        return getLiked(dbCollection, stEmail);
+    }
+
+    @RequestMapping("/getDisliked")
+    public ArrayList<String> sendDisliked(@RequestBody String email) {
+        if (email == null) return null;
+
+        JSONObject jsObj = new JSONObject(email);
+        MongoClient usrMC = DBUtils.getusrMC();
+        MongoDatabase db = usrMC.getDatabase("Users");
+        MongoCollection<Document> dbCollection = db.getCollection("users");
+
+        String stEmail = jsObj.getString("email");
+
+        return getDisliked(dbCollection, stEmail);
     }
 
     private ArrayList<String> getLiked(MongoCollection<Document> mc, String email) {
