@@ -8,7 +8,6 @@ import RecScreen from "../screens/RecommendationScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import Meme from "../images/map-outline.png"
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -31,9 +30,6 @@ const TabNavigator = createBottomTabNavigator(
     Favorites: {
       screen: FavoritesScreen,
       navigationOptions: {
-        /*tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-beer" color={tintColor} size={45} />
-        )*/
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-beer" color={tintColor} size={35} />
         )
