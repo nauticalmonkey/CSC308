@@ -36,10 +36,10 @@ export default class ProfileScreen extends React.Component {
     })  
     .then((response) => response.text())
       .then((responseJson) => {
+        //Gets back a single string contatining the users full name
         this.setState({
           fullname: responseJson,
-        }, function() {
-        })
+        });
       })
     .catch((error) =>{
       console.error(error);
@@ -62,9 +62,9 @@ export default class ProfileScreen extends React.Component {
     })  
     .then((response) => response.json())
       .then((responseJson) => {
+        //Gets back a json with beername as key and image url as value
         this.setState({
           data: responseJson,
-        }, function(){
         });
       })
       .catch((error) =>{
@@ -78,8 +78,6 @@ export default class ProfileScreen extends React.Component {
   }
 
   render() {
-    // console.log(Object.entries(this.state.data));
-    // console.log(Object.entries(this.state.data).length);
     return (
       <SafeAreaView style={styles.container}>
         <Header text={"Profile"} 
@@ -107,16 +105,6 @@ export default class ProfileScreen extends React.Component {
                         <HorizontalList key={name} name={name} imageUri={{uri: url}} />
                       )
             })}
-                {/* <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/>
-                <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/>
-                <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/>
-                <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/>
-                <HorizontalList imageUri={require('../images/Bunny.png')}
-                    name="Hopsy"/> */}
               </ScrollView>
             </View>
           </View>
