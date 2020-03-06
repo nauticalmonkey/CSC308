@@ -15,39 +15,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BeerDBController {
-    public BeerDBController(){}
+    private static final String database = "BeerDB";
+    private static final String brs = "beers";
 
     @RequestMapping("/create-beerDB")
     public static boolean createDB(@RequestBody String beers) {
-        MongoClient usrMC = DBUtils.getusrMC();
-        MongoDatabase db = usrMC.getDatabase("BeerDB");
-        MongoCollection<Document> dbCollection = db.getCollection("beers");
+        if (beers == null) return false;
 
-        Document doc = new Document("beers", beers);
-        DBUtils.insertDoc(dbCollection, doc);
+        MongoClient usrMC = DBUtils.getusrMC();
+        MongoDatabase db = usrMC.getDatabase(database);
+        MongoCollection<Document> dbCollection = db.getCollection(brs); //referencing correct db collection
+
+        Document doc = new Document(brs, beers);
+        DBUtils.insertDoc(dbCollection, doc); //inserting the beers
 
         return true;
     }
 
     @RequestMapping("/get-beerDB")
-    public static String getBeerDB() {
+    public static String getBeerDB() { //gets the beer info
         MongoClient usrMC = DBUtils.getusrMC();
-        MongoDatabase db = usrMC.getDatabase("BeerDB");
-        MongoCollection<Document> dbCollection = db.getCollection("beers");
+        MongoDatabase db = usrMC.getDatabase(database);
+        MongoCollection<Document> dbCollection = db.getCollection(brs);
         System.out.println("gimme data");
         Document doc = dbCollection.find().first();
-        // JSONArray ja = (JSONArray) doc.get("beers");
-        // Iterator itr2 = ja.iterator(); 
-        // while (itr2.hasNext())  
-        // { 
-        //     itr1 = ((Map) itr2.next()).entrySet().iterator(); 
-        //     while (itr1.hasNext()) { 
-        //         Map.Entry pair = itr1.next(); 
-        //         System.out.println(pair.getKey() + " : " + pair.getValue()); 
-        //     } 
-        // }
+
+        if (doc == null) return null;
         
-        System.out.println(JSON.parse(doc.getString("beers")));
-        return doc.getString("beers");
+        return doc.getString(brs);
     }
 }

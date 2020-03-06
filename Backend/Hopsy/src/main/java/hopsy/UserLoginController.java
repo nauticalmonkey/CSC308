@@ -7,14 +7,9 @@ import com.mongodb.util.JSON;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.bson.Document;
-import org.json.HTTP;
 import org.json.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import static com.mongodb.client.model.Filters.eq;
 
@@ -27,7 +22,7 @@ public class UserLoginController {
 
   @RequestMapping("/login")
   public boolean userLogin(@RequestBody String usr) { //validate a user against the db
-    System.out.println("login");
+    if (usr == null) return false;
 
     JSONObject jsObj = new JSONObject(usr);
     MongoClient usrMC = DBUtils.getusrMC();
@@ -35,8 +30,6 @@ public class UserLoginController {
     MongoCollection<Document> dbCollection = db.getCollection("users");
 
     Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("name").toString());
-
-    // return new ResponseEntity(HttpStatus.OK);
 
     return (doc != null && doc.getString("password").equals(jsObj.get("password")));
   }
