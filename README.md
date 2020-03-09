@@ -34,6 +34,8 @@ https://docs.google.com/document/d/10wRFIB1uYkgsSdiZvX0hn5l35Vfa1HGzLJQowpLX4lU/
 
 ### Unit/Integration Tests:
 
+Code coverage report: http://users.csc.calpoly.edu/~nbaggett/hopsy/index.html
+
 ### Acceptance Testing:
 
 ### Continuous Integration:
