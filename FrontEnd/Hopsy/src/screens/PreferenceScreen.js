@@ -15,7 +15,7 @@ import Header from "../components/Header";
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
-import GLOBAL from '../../global'
+import GLOBAL from "../../global";
 
 var beers = [
   {
@@ -47,12 +47,6 @@ var beers = [
     name: "Miller Lite"
   }
 ];
-
-// backend stuff
-// username
-// arraylist of strings beers
-// string flavor
-// string origin
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -65,6 +59,7 @@ class PreferenceScreen extends Component {
     };
   }
 
+  // backend data fetch
   _fetchData() {
     const {
       selectedItems,
@@ -98,7 +93,15 @@ class PreferenceScreen extends Component {
   }
 
   render() {
-    const flavorOptions = ["Sweet", "Mild", "Strong", "Fruity", "Blonde"];
+    const flavorOptions = [
+      "Sweet",
+      "Mild",
+      "Strong",
+      "Fruity",
+      "Chocolate",
+      "Sours",
+      "Hoppy"
+    ];
     const originOptions = ["Domestic", "Local", "Import"];
 
     function setSelectedFlavorOption(selectedFlavorOption) {
@@ -121,9 +124,7 @@ class PreferenceScreen extends Component {
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
-              Beers you've tried
-            </Text>
+            <Text style={styles.subtext}>Beers you've tried</Text>
             <Fragment>
               <SearchableDropdown
                 multi={true}
@@ -163,9 +164,7 @@ class PreferenceScreen extends Component {
             </Fragment>
           </View>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Preferred flavor profile
-            </Text>
+            <Text style={styles.subtext}>Preferred flavor profile</Text>
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
@@ -180,9 +179,7 @@ class PreferenceScreen extends Component {
             />
           </View>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Origin
-            </Text>
+            <Text style={styles.subtext}>Origin</Text>
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
@@ -247,5 +244,10 @@ const styles = StyleSheet.create({
     borderColor: "#276612",
     borderWidth: 1,
     borderRadius: 15
+  },
+  subtext: {
+    paddingBottom: 10,
+    fontSize: 20,
+    color: "#276612"
   }
 });
