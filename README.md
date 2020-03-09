@@ -30,6 +30,8 @@ Then open the emulator of your choice with the Expo app installed.
 
 ### Testing strategy document:
 
+https://docs.google.com/document/d/10wRFIB1uYkgsSdiZvX0hn5l35Vfa1HGzLJQowpLX4lU/edit?usp=sharing
+
 ### Unit/Integration Tests:
 
 ### Acceptance Testing:
