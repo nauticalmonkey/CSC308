@@ -26,7 +26,7 @@ export default class SignUp extends Component {
     const { username, password, fullname } = this.state;
     GLOBAL.user = username;
 
-    fetch("http://44640e6a.ngrok.io/create-account?", {
+    fetch(GLOBAL.dblink + "create-account?", {
       method: "POST",
       headers: {
         Accept: "application/json",

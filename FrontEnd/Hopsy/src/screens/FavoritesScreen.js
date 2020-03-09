@@ -14,11 +14,10 @@ import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
-import GLOBAL from '../../global';
 
 import CustomButton from "../components/CustomButton";
 
-export default class Search extends Component {
+export default class FavoritesScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +32,7 @@ export default class Search extends Component {
   }
 
   _fetchData() {
-    return fetch(GLOBAL.dblink + 'get-beerDB?')
+    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -41,8 +40,8 @@ export default class Search extends Component {
           fullData: responseJson,
           currentBeer: responseJson[0],
         }, function(){
-          
         });
+
       })
       .catch((error) =>{
         console.error(error);
@@ -89,7 +88,6 @@ export default class Search extends Component {
       return item.name.toLowerCase().includes(formattedSearch);
     });
     this.setState({ query: formattedSearch, data });
-    console.log(data);
   };
 
   toggleModal(visible, beer) {

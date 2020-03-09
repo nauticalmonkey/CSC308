@@ -1,0 +1,15 @@
+language: java
+before_install: cd Backend/Hopsy/
+script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#script: mvn -f ~/Backend/Hopsy/pom.xml
+script: mvn test -B
+
+addons:
+  sonarcloud:
+    organization: "beerisgood"
+    token:
+       secure: "j3ox5nS0MfIkQrS1A5jmO9DHGuHlAVnnnNFUSbee7CflqcUIVV7v2dmE4VxqVwxgW39olh/4i9+3BuKvNrFVTjttsB/Se3qYEDvI92N+RQ+NupO2hRaD7nsv97M014i1MwH2df8v0Q7fmgeYGXVLV37CRDtlom3hUZu1QHcz/yGLMbDB08pUY2xbiFy8cvMDiY8zpY4tApaJ5Zu18UiLZxZH1HCNDz5x1DGvpLKTyRu0PVcXhcACQglzPL5ag75IMnt1qKOoeTfQtm2AQ3U9Jp4icXeFDWeS/1aYkzw2lE+q9xTdJ0oQU4xZjkrkp/dsmJqA+LctKBlAt7KprKs0J7zQY3tPZyjNvVdREvL+CuvHGfDLqiC8fl9jHkq6C+3URHCR9LboCXLLg1wWMm0lWoJlyEQAgYxq596mn26VfDLaGK5OKwHeb6CkfjPZgvavolX2Y1qX6M4ASPs2yWCB8VOvEb+0ekbMkh8ne1i356GIrk3js6rcM5KVMZw+6SMuASt8Z6qy0sowDivvPqU9QRDs2QvdT9QX5JX+OsQ8NLaSMDbTe2JCHX/FPdIIrZiJqTqNgzNB+336AGHOOoskC1RU7Urxk7ydE64vZmpdhSj+QFy5FW5zdRlWtJdCgMRN6LJrakUh1mX3/crJnoGp5ZUiwnWSLJ32hKnUP7hWQ2A="
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
