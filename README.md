@@ -24,6 +24,15 @@ expo start
 Then open the emulator of your choice with the Expo app installed.
 
 ### Back-end:
+To run the backend follow the following steps.
+
+Before cloning this repository be sure that you have a development environment that can support Java projects with Maven. Maven manages all dependencies for the backend and is essential for this project. 
+
+Go to https://www.mongodb.com/cloud/atlas and sign in using credentials provided by one of the Hopsy team members. Navigate to Network Access and add the IP address from which you will be running the backend to the list of whitelisted IPs. 
+
+Clone the repository into a suitable location on your local machine.
+
+Make sure you are connected to the internet, and then simply run the main method in Backend/Hopsy/src/main/java/hopsy/Application.java. 
 
 
 ## Testing
@@ -39,8 +48,6 @@ Code coverage report: http://users.csc.calpoly.edu/~nbaggett/hopsy/index.html
 ### Acceptance Testing:
 
 ### Continuous Integration:
-
-Link to our Travis CI: https://travis-ci.org/nauticalmonkey/CSC308/builds/660368647?utm_source=github_status&utm_medium=notification
 
 ## Code Analysis
 
