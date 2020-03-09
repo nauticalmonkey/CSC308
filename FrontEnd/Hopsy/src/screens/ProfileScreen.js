@@ -34,17 +34,15 @@ export default class ProfileScreen extends React.Component {
           username: GLOBAL.user,
         })
     })  
-    .then((response) => response.text())
-      .then((responseJson) => {
-        //Gets back a single string contatining the users full name
-        this.setState({
-          fullname: responseJson,
-        });
-      })
+    .then(response => {
+      this.setState({
+        fullname: JSON.parse(response),
+      }, function() {
+      });
+    })
     .catch((error) =>{
       console.error(error);
     });
-
   }
 
   _fetchBeerData()
