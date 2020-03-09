@@ -40,6 +40,8 @@ Code coverage report: http://users.csc.calpoly.edu/~nbaggett/hopsy/index.html
 
 ### Continuous Integration:
 
+Link to our Travis CI: https://travis-ci.org/nauticalmonkey/CSC308/builds/660368647?utm_source=github_status&utm_medium=notification
+
 ## Code Analysis
 
 ### Style guides:
