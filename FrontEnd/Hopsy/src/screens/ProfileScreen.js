@@ -25,26 +25,25 @@ export default class ProfileScreen extends React.Component {
   _fetchNameData() {
     return fetch(GLOBAL.dblink + 'GetUserProfileName?',
     {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: GLOBAL.user,
-        })
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: GLOBAL.user,
+      })
     })  
     .then((response) => response.text())
       .then((responseJson) => {
-        //Gets back a single string contatining the users full name
         this.setState({
           fullname: responseJson,
-        });
+        }, function() {
+        })
       })
     .catch((error) =>{
       console.error(error);
     });
-
   }
 
   _fetchBeerData()
@@ -78,7 +77,9 @@ export default class ProfileScreen extends React.Component {
   }
 
   render() {
+    console.log(this.state.data);
     return (
+     
       <SafeAreaView style={styles.container}>
         <Header text={"Profile"} 
         onPress={() => {
