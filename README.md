@@ -47,6 +47,10 @@ Code coverage report: http://users.csc.calpoly.edu/~nbaggett/hopsy/index.html
 
 ### Acceptance Testing:
 
+Acceptance testing specification document: https://docs.google.com/document/d/1tHCIRJKYk_H_iYVExhtswXe716gVt7wNEbK9pKXNBxc/edit?usp=sharing
+
+Unfortunately, we were unable to perform automated acceptance testing for our project because we use Expo to build our project. Had we known this when we began development, we would not have used Expo and would have just built a standard react-native project. Detox and other acceptance testing frameworks are not compatible with Expo and in order to perform automated acceptance testing we would need to refactor our entire project. To make up for this, we performed manual acceptance tests and the results of this can be viewed here: 
+
 ### Continuous Integration:
 
 ## Code Analysis
