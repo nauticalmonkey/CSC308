@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Modal,
   SafeAreaView,
   StyleSheet,
   Image,
-  RefreshControl
+  View,
+  Text,
 } from "react-native";
 import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
 
+import GLOBAL from '../../global';
 import CustomButton from "../components/CustomButton";
 
 export default class FavoritesScreen extends Component {
@@ -32,7 +29,7 @@ export default class FavoritesScreen extends Component {
   }
 
   _fetchData() {
-    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
+    return fetch(GLOBAL.dblink + 'get-beerDB?')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -57,157 +54,65 @@ export default class FavoritesScreen extends Component {
     this._fetchData();
   };
 
-  renderHeader = () => {
-    return (
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={this.state.query}
-        lightTheme={true}
-      />
-    );
-  };
-
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: "86%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "6%"
-        }}
-      />
-    );
-  };
-  //.toLowerCase.includes
-
-  updateSearch = text => {
-    const formattedSearch = text.toLowerCase();
-    const data = _.filter(this.state.fullData, item => {
-      return item.name.toLowerCase().includes(formattedSearch);
-    });
-    this.setState({ query: formattedSearch, data });
-  };
-
-  toggleModal(visible, beer) {
-    this.setState({ modalVisible: visible, currentBeer: beer });
-  }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Header
-          text={"Search"}
+          text={"We think you'll like this!"}
           onPress={() => {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={this.updateSearch}
-          value={this.state.query}
-          lightTheme={true}
-        />
-
-        <FlatList
-          data={this.state.data}
-          renderItem={({ item }) => (
-            <View style={styles.flatview}>
-              <Modal
-                animationType={"slide"}
-                transparent={false}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {
-                  console.log("Modal has been closed.");
-                }}
-              >
-                <View>
-                  <Image
-                    style={styles.image}
-                    source={{ uri: this.state.currentBeer.URL }}
-                  />
-                  <Text style={styles.modalText}>
-                    {this.state.currentBeer.name}
-                  </Text>
-                  <Text style={styles.modalText}>
-                    {"ABV: " + this.state.currentBeer.ABV + "%"}
-                  </Text>
-                  <Text style={styles.modalText}>
-                    {"Calories: " + this.state.currentBeer.calories}
-                  </Text>
-                </View>
-
-                <View style={styles.modalExit}>
-                  <CustomButton
-                    onPress={() => {
-                      this.toggleModal(
-                        !this.state.modalVisible,
-                        this.state.currentBeer
-                      );
-                    }}
-                    text="Back"
-                  />
-                </View>
-              </Modal>
-
-              <TouchableOpacity
-                onPress={() => {
-                  this.toggleModal(true, item);
-                }}
-              >
-                <View>
-                  <Image style={styles.thumb} source={{ uri: item.URL }} />
-                  <Text style={styles.name}>{item.name}</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
-          keyExtractor={item => item.name}
-          ItemSeparatorComponent={this.renderSeparator}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.isFetching}
-              onRefresh={() => setTimeout(() => {}, 100)}
-            />
-          }
-        />
+        <View style={styles.twinContainer}>
+          <CustomButton
+            // style={styles.simpleYesButton}
+            onPress={() => {console.log("yes")}}
+            text="Yes"
+          />
+          <CustomButton
+            // style={styles.simpleNoButton}
+            onPress={() => {console.log("no")}}
+            text="No"
+          />
+          <CustomButton
+            // style={styles.simpleNoButton}
+            onPress={() => {console.log("skip")}}
+            text="skip"
+          />
+        </View>
       </SafeAreaView>
     );
   }
 
-  onPress = () => {
-    this.setState({ collapsed: !this.state.collapsed });
-  };
 }
 
 const styles = StyleSheet.create({
-  bigRedText: {
-    fontSize: 30,
-    marginTop: 355,
-    fontWeight: "600",
-    color: "#000",
+  tributton: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "flex-end",
+  },
+  twinContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    margin: 50
+  },
+  simpleYesButton: {
+    height: 55,
+    //marginTop: 10,
+    width: 120,
     textAlign: "center",
     alignItems: "center",
     justifyContent: "center"
   },
-  flatview: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingLeft: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 2
-  },
-  thumb: {
-    flex: 1,
-    flexDirection: "row",
-    width: 50,
-    height: 50,
-    resizeMode: "contain"
+  simpleNoButton: {
+    height: 55,
+    width: 120,
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center"
+    //marginTop: 10
   },
   image: {
     width: 400,

@@ -94,7 +94,7 @@ export default class ProfileScreen extends React.Component {
 
           <View style={{ flex: 1, marginTop: 10}}>
             <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
-                Your top {Object.entries(this.state.data).length} favorite beers!
+                Your {Object.entries(this.state.data).length} liked beers!
             </Text>
             <View style={styles.listContainer}>
               <ScrollView horizontal={true}
