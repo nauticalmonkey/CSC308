@@ -11,6 +11,7 @@ import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
 import Header from "../components/Header";
+import Constants from "expo-constants";
 
 const window = Dimensions.get("window");
 const screenHeight = window.height;
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: screenHeight,
     width: screenWidth,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   },
   sub: {
     padding: 20

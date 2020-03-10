@@ -6,25 +6,52 @@ import Header from "../components/Header";
 import { DrawerActions } from "react-navigation-drawer";
 import Icon from "react-native-vector-icons/Ionicons";
 import { FlatList } from "react-native-gesture-handler";
-import moment from 'moment';
+import moment from "moment";
+import Constants from "expo-constants";
 
 export default class Test extends React.Component {
-  renderPosts = post =>{
-    return(
+  renderPosts = post => {
+    return (
       <SafeAreaView style={styles.feedItem}>
-        <Image source={post.avatar} style={styles.avatar} resizeMode="contain"/>
-        <View style={{flex : 1}}>
-          <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
+        <Image
+          source={post.avatar}
+          style={styles.avatar}
+          resizeMode="contain"
+        />
+        <View style={{ flex: 1 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}
+          >
             <View>
               <Text style={styles.name}>{post.name}</Text>
-              <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
+              <Text style={styles.timestamp}>
+                {moment(post.timestamp).fromNow()}
+              </Text>
             </View>
           </View>
           <Text style={styles.post}>{post.text}</Text>
-          <Image source={post.image} style={styles.postImage} resizeMode="contain"/>
-          <View style={{flexDirection: "row"}}>
-            <Icon name="ios-heart-empty" size={24} color="#737888" style={{marginRight: 16}}/>
-            <Icon name="ios-chatboxes" size={24} color="#737888" style={{marginRight: 16}}/>
+          <Image
+            source={post.image}
+            style={styles.postImage}
+            resizeMode="contain"
+          />
+          <View style={{ flexDirection: "row" }}>
+            <Icon
+              name="ios-heart-empty"
+              size={24}
+              color="#737888"
+              style={{ marginRight: 16 }}
+            />
+            <Icon
+              name="ios-chatboxes"
+              size={24}
+              color="#737888"
+              style={{ marginRight: 16 }}
+            />
           </View>
         </View>
       </SafeAreaView>
@@ -41,53 +68,53 @@ export default class Test extends React.Component {
           }}
         />
         <View styles={styles.con}>
-          <FlatList style={styles.feed}
-            data = {posts}
-            renderItem={({item})=>this.renderPosts(item)}
-            keyExtractor={item=>item.id}
-            showsVerticalScrollIndicator={false}/>
+          <FlatList
+            style={styles.feed}
+            data={posts}
+            renderItem={({ item }) => this.renderPosts(item)}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+          />
         </View>
       </SafeAreaView>
     );
   }
 }
 
-posts = [{
-  id: "1",
-  name: "SLO Brew",
-  text:
-      "Polyvision concert this weekend!",
-  timestamp: Date.now(),
-  avatar: require("../images/Bunny.png"),
-  image: require("../images/Bunny.png")
-},
-{
-  id: "2",
-  name: "Bull's Tavern",
-  text:
-      "Bull sweat now 50% off!!!",
-  timestamp: Date.now(),
-  avatar: require("../images/Bunny.png"),
-  image: require("../images/Bunny.png")
-},
-{
-  id: "3",
-  name: "Eagle Brewing",
-  text:
-      "Eagle Grand Opening this weekend!",
-  timestamp: Date.now(),
-  avatar: require("../images/Bunny.png"),
-  image: require("../images/Bunny.png")
-},
-{
-  id: "4",
-  name: "Golden Coast Brewing",
-  text:
-      "25% off all beer this week only!",
-  timestamp: Date.now(),
-  avatar: require("../images/Bunny.png"),
-  image: require("../images/Bunny.png")
-}];
+posts = [
+  {
+    id: "1",
+    name: "SLO Brew",
+    text: "Polyvision concert this weekend!",
+    timestamp: Date.now(),
+    avatar: require("../images/Bunny.png"),
+    image: require("../images/Bunny.png")
+  },
+  {
+    id: "2",
+    name: "Bull's Tavern",
+    text: "Bull sweat now 50% off!!!",
+    timestamp: Date.now(),
+    avatar: require("../images/Bunny.png"),
+    image: require("../images/Bunny.png")
+  },
+  {
+    id: "3",
+    name: "Eagle Brewing",
+    text: "Eagle Grand Opening this weekend!",
+    timestamp: Date.now(),
+    avatar: require("../images/Bunny.png"),
+    image: require("../images/Bunny.png")
+  },
+  {
+    id: "4",
+    name: "Golden Coast Brewing",
+    text: "25% off all beer this week only!",
+    timestamp: Date.now(),
+    avatar: require("../images/Bunny.png"),
+    image: require("../images/Bunny.png")
+  }
+];
 
 const styles = StyleSheet.create({
   bigRedText: {
@@ -101,11 +128,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     marginBottom: 65
   },
-  feed:{
-    marginHorizontal:16
+  feed: {
+    marginHorizontal: 16
   },
   feedItem: {
     backgroundColor: "#FFF",

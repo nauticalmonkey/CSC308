@@ -14,6 +14,7 @@ import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
+import Constants from "expo-constants";
 
 import CustomButton from "../components/CustomButton";
 
@@ -32,23 +33,23 @@ export default class FavoritesScreen extends Component {
   }
 
   _fetchData() {
-    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          data: responseJson,
-          fullData: responseJson,
-          currentBeer: responseJson[0],
-        }, function(){
-        });
-
+    return fetch("https://44640e6a.ngrok.io/get-beerDB?")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            data: responseJson,
+            fullData: responseJson,
+            currentBeer: responseJson[0]
+          },
+          function() {}
+        );
       })
-      .catch((error) =>{
+      .catch(error => {
         console.error(error);
       });
   }
 
-  
   componentDidMount() {
     this.makeRemoteRequest();
   }
@@ -267,6 +268,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   }
 });

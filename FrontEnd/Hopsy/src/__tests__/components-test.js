@@ -9,6 +9,39 @@ import HorizontalList from "../components/ProfilePage/HorizontalList";
 
 import renderer from "react-test-renderer";
 
+jest.mock("../components/CustomButton");
+jest.mock("../components/Header");
+
+jest.mock("../components/Header", () => {
+  const RealComponent = jest.requireActual("../components/Header");
+  const React = require("React");
+  class Header extends React.Component {
+    render() {
+      return React.createElement(
+        "../components/Header",
+        (text = "Help us get to know you")
+      );
+    }
+  }
+  Header.propTypes = RealComponent.propTypes;
+  return Header;
+});
+
+jest.mock("../components/CustomButton", () => {
+  const RealComponent = jest.requireActual("../components/CustomButton");
+  const React = require("React");
+  class CustomButton extends React.Component {
+    render() {
+      return React.createElement(
+        "../components/CustomButton",
+        (text = "Button Test")
+      );
+    }
+  }
+  CustomButton.propTypes = RealComponent.propTypes;
+  return CustomButton;
+});
+
 test("header renders correctly", () => {
   const tree = renderer.create(<Header />).toJSON();
   expect(tree).toMatchSnapshot();
