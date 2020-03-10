@@ -55,9 +55,6 @@ public class BeerDBController {
         Document doc = dbCollection.find().first();
 
         JSONObject jsObj = new JSONObject(beer);
-        System.out.println(jsObj.get("beer"));
-        
-
         JSONObject responseJSON = new JSONObject();
         JSONArray jarr = new JSONArray(doc.getString("beers"));
 
@@ -68,11 +65,8 @@ public class BeerDBController {
             responseJSON.put(beerName, beerImg);
         }
 
-        // System.out.println(responseJSON);
-
-
         if (doc == null) return null;
         
-        return beer;
+        return responseJSON.getString(jsObj.getString("beer"));
     }
 }
