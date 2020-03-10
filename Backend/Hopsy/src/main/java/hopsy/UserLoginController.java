@@ -50,7 +50,7 @@ public class UserLoginController {
 
   @RequestMapping("/GetUserProfileBeer")
   public String getFavBeers(@RequestBody String usr) { //validate a user against the db
-    System.out.println("Get user data");
+    System.out.println("Get user beer data");
     System.out.println(usr);
 
     JSONObject jsObj = new JSONObject(usr);
@@ -92,6 +92,7 @@ public class UserLoginController {
     {
       finalJSON.put(str, responseJSON.getString(str));
     }
+    // System.out.println(finalJSON);
 
     return finalJSON.toString();
   }

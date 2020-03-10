@@ -40,6 +40,7 @@ public class Web {
         Beer cur;
         int total = 0;
 
+        // System.out.println(u.liked);
         for ( String beer : u.liked ) {
             cur = beers.get(beer);
             if(cur == null || cur.relations == null) continue;
@@ -81,6 +82,7 @@ public class Web {
         String recom = recommendBeer(u);
         System.out.println("Among those who like " + recom + ":");
 
+        
         for ( String beer : u.liked ) {
             System.out.printf("%2s: ", beer);
             Beer cur = beers.get(recom).relations.get(beer);
