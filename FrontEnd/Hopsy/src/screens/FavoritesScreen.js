@@ -19,43 +19,77 @@ export default class FavoritesScreen extends Component {
     super(props);
 
     this.state = {
-      query: "",
-      data: "",
-      fullData: "",
-      currentBeer: "",
-      isFetching: false,
-      modalVisible: false
+      newRec: "",
+      newRecImg: ""
     };
   }
 
-  _fetchData() {
-    return fetch(GLOBAL.dblink + 'get-beerDB?')
-      .then((response) => response.json())
+  _fetchReccomendation() {
+    return fetch(GLOBAL.dblink + 'requestRecommendation?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+      })
+    })  
+    .then((response) => response.text())
       .then((responseJson) => {
         this.setState({
-          data: responseJson,
-          fullData: responseJson,
-          currentBeer: responseJson[0],
-        }, function(){
+          newRec: responseJson,
         });
-
       })
-      .catch((error) =>{
-        console.error(error);
-      });
+    .catch((error) =>{
+      console.error(error);
+    });
   }
 
-  
+  _fetchRecImage() {
+    return fetch(GLOBAL.dblink + 'get-beer-img?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        beer: this.state.newRec,
+      })
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          newRecImg: responseJson,
+        });
+      })
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
   componentDidMount() {
     this.makeRemoteRequest();
   }
 
-  makeRemoteRequest = () => {
-    this._fetchData();
+  makeRemoteRequest = async () => {
+    await this._fetchReccomendation();
+    await this._fetchRecImage();
   };
 
+  _renderRecImage() {
+    //Renders a white box while waiting to get beer image back
+    if (this.state.newRecImg == "")
+      return "https://www.ledr.com/colours/white.htm";
+    else
+      return this.state.newRecImg;
+  }
 
   render() {
+    console.log(this.state.newRec);
+    console.log(this.state.newRecImg);
     return (
       <SafeAreaView style={styles.container}>
         <Header
@@ -63,6 +97,10 @@ export default class FavoritesScreen extends Component {
           onPress={() => {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
+        />
+        <Image
+          style={styles.image}
+          source={{uri: this._renderRecImage()}}
         />
         <View style={styles.button}>
           <View style={styles.twinContainer}>

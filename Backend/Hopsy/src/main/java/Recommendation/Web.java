@@ -26,7 +26,7 @@ public class Web {
             }
         }
         if (beer.equals(""))
-            return "Pacifico";
+            return "Corona Extra";
         else
             return beer;
     }
