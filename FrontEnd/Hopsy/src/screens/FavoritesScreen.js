@@ -64,22 +64,24 @@ export default class FavoritesScreen extends Component {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <View style={styles.twinContainer}>
-          <CustomButton
-            // style={styles.simpleYesButton}
-            onPress={() => {console.log("yes")}}
-            text="Yes"
-          />
-          <CustomButton
-            // style={styles.simpleNoButton}
-            onPress={() => {console.log("no")}}
-            text="No"
-          />
-          <CustomButton
-            // style={styles.simpleNoButton}
-            onPress={() => {console.log("skip")}}
-            text="skip"
-          />
+        <View style={styles.button}>
+          <View style={styles.twinContainer}>
+            <CustomButton
+              // style={styles.simpleYesButton}
+              onPress={() => {console.log("I enjoyed this beer")}}
+              text="Yes"
+            />
+            <CustomButton
+              // style={styles.simpleNoButton}
+              onPress={() => {console.log("I disliked this beer")}}
+              text="No"
+            />
+            <CustomButton
+              // style={{opacity: 0.5}}
+              onPress={() => {console.log("Skip")}}
+              text="skip"
+            />
+          </View>
         </View>
       </SafeAreaView>
     );
@@ -93,26 +95,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-end",
   },
+  button: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    padding: 20
+  },
   twinContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 50
-  },
-  simpleYesButton: {
-    height: 55,
-    //marginTop: 10,
-    width: 120,
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  simpleNoButton: {
-    height: 55,
-    width: 120,
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center"
-    //marginTop: 10
+    flexDirection: "column"
   },
   image: {
     width: 400,
@@ -172,6 +162,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Expo.Constants.statusBarHeight,
+    flexDirection: 'column',
   }
 });
