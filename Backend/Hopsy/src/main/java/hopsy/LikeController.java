@@ -22,7 +22,6 @@ public class LikeController {
     @RequestMapping("/likebeer")
     public boolean likeBeer(@RequestBody String input) {
         if (input == null) return false;
-        System.out.println(input);
 
         JSONObject jsObj = new JSONObject(input);
         MongoClient usrMC = DBUtils.getusrMC();
