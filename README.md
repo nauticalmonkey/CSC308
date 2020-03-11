@@ -34,6 +34,9 @@ Clone the repository into a suitable location on your local machine.
 
 Make sure you are connected to the internet, and then simply run the main method in Backend/Hopsy/src/main/java/hopsy/Application.java. 
 
+### Web Site:
+hopsy website is located at https://hopsy.exponentialcomputers.com/ and does not need any specific setup to run. some portions of the website are located behind a password wall. Please email jevans27@calpoly.edu in order to get password to access these portions of the site. The code for the website is hosted on 1and1 with portions of it located on github.
+
 
 ## Testing
 
