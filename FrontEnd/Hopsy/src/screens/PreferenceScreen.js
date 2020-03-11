@@ -47,6 +47,9 @@ var beers = [
     name: "Miller Lite"
   }
 ];
+
+  
+
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -55,8 +58,22 @@ class PreferenceScreen extends Component {
       selectedIndexOrigin: 3,
       selectedFlavorOption: null,
       selectedOriginOption: null,
-      selectedItems: []
+      selectedItems: [],
+      beers: []
     };
+  }
+
+  _fetchBeerData() {
+    return fetch(GLOBAL.dblink + 'get-beerDB?')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          beers: responseJson
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
   }
 
   // backend data fetch
@@ -92,6 +109,12 @@ class PreferenceScreen extends Component {
     }
   }
 
+
+  componentDidMount() {
+    this._fetchBeerData();
+
+  }
+
   render() {
     const flavorOptions = [
       "Sweet",
@@ -117,14 +140,17 @@ class PreferenceScreen extends Component {
       });
       this.selectedOriginOption = selectedOriginOption;
     }
+    console.log(beers);
+    console.log(this.state.beers);
 
     return (
+      
       <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.sub}>
-            <Text style={styles.subtext}>Beers you've tried</Text>
+            <Text style={styles.subtext}>Beers you like</Text>
             <Fragment>
               <SearchableDropdown
                 multi={true}
@@ -137,13 +163,13 @@ class PreferenceScreen extends Component {
                 containerStyle={{ padding: 5 }}
                 onRemoveItem={(item, index) => {
                   const items = this.state.selectedItems.filter(
-                    sitem => sitem.id !== item.id
+                    sitem => sitem.URL !== item.URL
                   );
                   this.setState({ selectedItems: items });
                 }}
                 itemStyle={styles.beerstyle}
                 itemsContainerStyle={{ maxHeight: 140 }}
-                items={beers}
+                items={this.state.beers}
                 defaultIndex={2}
                 chip={true}
                 resetValue={false}

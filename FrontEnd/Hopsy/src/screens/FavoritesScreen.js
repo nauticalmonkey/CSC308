@@ -70,6 +70,37 @@ export default class FavoritesScreen extends Component {
     });
   }
 
+  _sendLike() {
+    return fetch(GLOBAL.dblink + 'likebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    // .then((response) => response.text())
+    //   .then((responseJson) => {
+    //     this.setState({
+    //       newRecImg: responseJson,
+    //     });
+    //   })
+    .catch((error) =>{
+      console.error(error);
+    });
+
+  }
+
+  _sendDislike() {
+
+
+
+  }
+
   componentDidMount() {
     this.makeRemoteRequest();
   }
@@ -106,7 +137,10 @@ export default class FavoritesScreen extends Component {
           <View style={styles.twinContainer}>
             <CustomButton
               // style={styles.simpleYesButton}
-              onPress={() => {console.log("I enjoyed this beer")}}
+              onPress={() => {
+                console.log("I enjoyed this beer");
+                this._sendLike();
+              }}
               text="Yes"
             />
             <CustomButton
