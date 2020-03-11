@@ -50,7 +50,7 @@ public class UserLoginController {
 
   @RequestMapping("/GetUserProfileBeer")
   public String getFavBeers(@RequestBody String usr) { //validate a user against the db
-    System.out.println("Get user data");
+    System.out.println("Get user beer data");
     System.out.println(usr);
 
     JSONObject jsObj = new JSONObject(usr);
@@ -64,6 +64,11 @@ public class UserLoginController {
 
     String prefString = prefdoc.getString("preferences");
     String beerString = prefString.substring(prefString.indexOf(BEERSFIELDNAME) + 5);
+
+    ArrayList<String> likedBeers = new ArrayList<String>();
+    // likedBeers = (ArrayList<String>) prefdoc.getString("likes");
+    likedBeers = (ArrayList<String>) prefdoc.get("likes");
+    System.out.println(likedBeers);
 
     MongoDatabase bdb = usrMC.getDatabase("BeerDB");
     MongoCollection<Document> beerDbCollection = bdb.getCollection("beers");
@@ -88,7 +93,7 @@ public class UserLoginController {
     }
 
     JSONObject finalJSON = new JSONObject();
-    for (String str : beersToAdd)
+    for (String str : likedBeers)
     {
       finalJSON.put(str, responseJSON.getString(str));
     }

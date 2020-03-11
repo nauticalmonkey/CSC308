@@ -13,49 +13,123 @@ import _ from "lodash";
 
 import GLOBAL from '../../global';
 import CustomButton from "../components/CustomButton";
+import ProfileScreen from "./ProfileScreen";
 
 export default class FavoritesScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      query: "",
-      data: "",
-      fullData: "",
-      currentBeer: "",
-      isFetching: false,
-      modalVisible: false
+      newRec: "",
+      newRecImg: ""
     };
   }
 
-  _fetchData() {
-    return fetch(GLOBAL.dblink + 'get-beerDB?')
-      .then((response) => response.json())
+  _fetchReccomendation() {
+    return fetch(GLOBAL.dblink + 'requestRecommendation?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+      })
+    })  
+    .then((response) => response.text())
       .then((responseJson) => {
         this.setState({
-          data: responseJson,
-          fullData: responseJson,
-          currentBeer: responseJson[0],
-        }, function(){
+          newRec: responseJson,
         });
-
       })
-      .catch((error) =>{
-        console.error(error);
-      });
+    .catch((error) =>{
+      console.error(error);
+    });
   }
 
-  
+  _fetchRecImage() {
+    return fetch(GLOBAL.dblink + 'get-beer-img?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        beer: this.state.newRec,
+      })
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          newRecImg: responseJson,
+        });
+      })
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
+  _sendLike() {
+    return fetch(GLOBAL.dblink + 'likebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    .catch((error) =>{
+      console.error(error);
+    });
+
+  }
+
+  _sendDislike() {
+    return fetch(GLOBAL.dblink + 'dislikebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    .catch((error) =>{
+      console.error(error);
+    });
+
+
+  }
+
   componentDidMount() {
     this.makeRemoteRequest();
   }
 
-  makeRemoteRequest = () => {
-    this._fetchData();
+  makeRemoteRequest = async () => {
+    await this._fetchReccomendation();
+    await this._fetchRecImage();
   };
 
+  _renderRecImage() {
+    //Renders a white box while waiting to get beer image back
+    if (this.state.newRecImg == "")
+      return "https://www.ledr.com/colours/white.htm";
+    else
+      return this.state.newRecImg;
+  }
 
   render() {
+    console.log(this.state.newRec);
+    console.log(this.state.newRecImg);
     return (
       <SafeAreaView style={styles.container}>
         <Header
@@ -64,22 +138,41 @@ export default class FavoritesScreen extends Component {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <View style={styles.twinContainer}>
-          <CustomButton
-            // style={styles.simpleYesButton}
-            onPress={() => {console.log("yes")}}
-            text="Yes"
+        <View style={styles.imagebox}>
+          <Text style={styles.modalText}>
+            {this.state.newRec}
+          </Text>
+          <Image
+            style={styles.image}
+            source={{uri: this._renderRecImage()}}
           />
-          <CustomButton
-            // style={styles.simpleNoButton}
-            onPress={() => {console.log("no")}}
-            text="No"
-          />
-          <CustomButton
-            // style={styles.simpleNoButton}
-            onPress={() => {console.log("skip")}}
-            text="skip"
-          />
+        </View>
+        <View style={styles.button}>
+          <View style={styles.twinContainer}>
+            <CustomButton
+              // style={styles.simpleYesButton}
+              onPress={() => {
+                console.log("I enjoyed this beer");
+                this._sendLike();
+                this.makeRemoteRequest();
+              }}
+              text="Yes"
+            />
+            <CustomButton
+              // style={styles.simpleNoButton}
+              onPress={() => {
+                console.log("I disliked this beer")
+                this._sendDislike();
+                this.makeRemoteRequest();
+              }}
+              text="No"
+            />
+            {/* <CustomButton
+              // style={{opacity: 0.5}}
+              onPress={() => {console.log("Skip")}}
+              text="skip"
+            /> */}
+          </View>
         </View>
       </SafeAreaView>
     );
@@ -88,67 +181,29 @@ export default class FavoritesScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  tributton: {
+  button: {
     flex: 1,
-    flexDirection: "row",
-    alignItems: "flex-end",
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    padding: 20
   },
   twinContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 50
+    flexDirection: "column"
   },
-  simpleYesButton: {
-    height: 55,
-    //marginTop: 10,
-    width: 120,
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  simpleNoButton: {
-    height: 55,
-    width: 120,
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center"
-    //marginTop: 10
+  imagebox:{
+    flex: 1,
+    flexDirection: 'column',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10
   },
   image: {
     width: 400,
     height: 400,
     top: "25%",
-    left: "1%",
-    justifyContent: "center",
-    alignItems: "center",
-    resizeMode: "contain"
-  },
-  modalText: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalName: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalABV: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalCalories: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalExit: {
-    alignItems: "center",
-    top: "25%",
-    backgroundColor: "#FFF"
+    resizeMode: "contain",
+    marginTop: 30
   },
   name: {
     flex: 8,
@@ -161,6 +216,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row"
   },
+  modalText: {
+    top: "25%",
+    fontSize: 30,
+    fontWeight: "300",
+    textAlign: "center",
+    marginTop: 20
+  },
   modal: {
     flex: 1,
     alignItems: "center",
@@ -172,6 +234,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Expo.Constants.statusBarHeight,
+    flexDirection: 'column',
   }
 });

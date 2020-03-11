@@ -224,7 +224,8 @@ const styles = StyleSheet.create({
     top: "25%",
     fontSize: 30,
     fontWeight: "300",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 20
   },
   modalName: {
     top: "25%",
