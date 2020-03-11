@@ -40,9 +40,13 @@ public class Driver {
         Web web2 = new Web();
         //populateWeb(web2);
 
-        System.out.println("\n" + web2.recommendBeer(web2.getUser("1")) + "\n");
-        web2.visualizeAccuracy(web2.getUser("1"));
-        web2.visualizePercentages(web2.generatePercentages(web2.getUser("1")));
+        // System.out.println(web2.getUser("1"));
+        if (web2.getUser("1") != null)
+        {
+            System.out.println("\n" + web2.recommendBeer(web2.getUser("1")) + "\n");
+            web2.visualizeAccuracy(web2.getUser("1"));
+            web2.visualizePercentages(web2.generatePercentages(web2.getUser("1")));
+        }
 
         int x = 0;
 

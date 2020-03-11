@@ -22,7 +22,6 @@ public class LikeController {
     @RequestMapping("/likebeer")
     public boolean likeBeer(@RequestBody String input) {
         if (input == null) return false;
-        System.out.println(input);
 
         JSONObject jsObj = new JSONObject(input);
         MongoClient usrMC = DBUtils.getusrMC();
@@ -98,7 +97,8 @@ public class LikeController {
         return getDisliked(dbCollection, stEmail);
     }
 
-    private ArrayList<String> getLiked(MongoCollection<Document> mc, String email) {
+
+    public ArrayList<String> getLiked(MongoCollection<Document> mc, String email) {
         BasicDBObject dbObject = new BasicDBObject();
         dbObject.put("email", email);
         FindIterable<Document> fi = mc.find(dbObject);

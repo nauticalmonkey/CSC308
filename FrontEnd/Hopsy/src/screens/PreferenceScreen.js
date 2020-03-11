@@ -48,6 +48,9 @@ var beers = [
     name: "Miller Lite"
   }
 ];
+
+  
+
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -56,8 +59,22 @@ class PreferenceScreen extends Component {
       selectedIndexOrigin: 3,
       selectedFlavorOption: null,
       selectedOriginOption: null,
-      selectedItems: []
+      selectedItems: [],
+      beers: []
     };
+  }
+
+  _fetchBeerData() {
+    return fetch(GLOBAL.dblink + 'get-beerDB?')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          beers: responseJson
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
   }
 
   // backend data fetch
@@ -93,6 +110,12 @@ class PreferenceScreen extends Component {
     }
   }
 
+
+  componentDidMount() {
+    this._fetchBeerData();
+
+  }
+
   render() {
     const flavorOptions = [
       "Sweet",
@@ -120,15 +143,16 @@ class PreferenceScreen extends Component {
     }
 
     return (
+      
       <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.sub}>
-            <Text style={styles.subtext}>Beers you've tried</Text>
+            <Text style={styles.subtext}>Beers you like</Text>
             <Fragment>
               <SearchableDropdown
-                multi={true}
+                multi={false}
                 selectedItems={this.state.selectedItems}
                 onItemSelect={item => {
                   const items = this.state.selectedItems;
@@ -144,7 +168,9 @@ class PreferenceScreen extends Component {
                 }}
                 itemStyle={styles.beerstyle}
                 itemsContainerStyle={{ maxHeight: 140 }}
-                items={beers}
+
+                //The line in question
+                items={this.state.beers}
                 defaultIndex={2}
                 chip={true}
                 resetValue={false}

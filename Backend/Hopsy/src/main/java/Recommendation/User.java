@@ -14,8 +14,6 @@ public class User {
 
     public boolean likeBeer(String name) {
         if ( !liked.contains(name) ) {
-            // order: important
-            //if (name == null) System.out.println("What");
             Web.likeBeer(this, name);
             liked.add(name);
             return true;

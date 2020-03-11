@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Modal,
   SafeAreaView,
   StyleSheet,
   Image,
-  RefreshControl
+  View,
+  Text,
 } from "react-native";
 import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
@@ -16,235 +12,192 @@ import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
 import Constants from "expo-constants";
 
+import GLOBAL from '../../global';
 import CustomButton from "../components/CustomButton";
+import ProfileScreen from "./ProfileScreen";
 
 export default class FavoritesScreen extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      query: "",
-      data: "",
-      fullData: "",
-      currentBeer: "",
-      isFetching: false,
-      modalVisible: false
+      newRec: "",
+      newRecImg: ""
     };
   }
 
-  _fetchData() {
-    return fetch("https://44640e6a.ngrok.io/get-beerDB?")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState(
-          {
-            data: responseJson,
-            fullData: responseJson,
-            currentBeer: responseJson[0]
-          },
-          function() {}
-        );
+  _fetchReccomendation() {
+    return fetch(GLOBAL.dblink + 'requestRecommendation?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
       })
-      .catch(error => {
-        console.error(error);
-      });
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          newRec: responseJson,
+        });
+      })
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
+  _fetchRecImage() {
+    return fetch(GLOBAL.dblink + 'get-beer-img?',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        beer: this.state.newRec,
+      })
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          newRecImg: responseJson,
+        });
+      })
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
+  _sendLike() {
+    return fetch(GLOBAL.dblink + 'likebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    .catch((error) =>{
+      console.error(error);
+    });
+  }
+
+  _sendDislike() {
+    return fetch(GLOBAL.dblink + 'dislikebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    .catch((error) =>{
+      console.error(error);
+    });
+
+
   }
 
   componentDidMount() {
     this.makeRemoteRequest();
   }
 
-  makeRemoteRequest = () => {
-    this._fetchData();
+  makeRemoteRequest = async () => {
+    await this._fetchReccomendation();
+    await this._fetchRecImage();
   };
 
-  renderHeader = () => {
-    return (
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={this.state.query}
-        lightTheme={true}
-      />
-    );
-  };
-
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: "86%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "6%"
-        }}
-      />
-    );
-  };
-  //.toLowerCase.includes
-
-  updateSearch = text => {
-    const formattedSearch = text.toLowerCase();
-    const data = _.filter(this.state.fullData, item => {
-      return item.name.toLowerCase().includes(formattedSearch);
-    });
-    this.setState({ query: formattedSearch, data });
-  };
-
-  toggleModal(visible, beer) {
-    this.setState({ modalVisible: visible, currentBeer: beer });
+  _renderRecImage() {
+    //Renders a white box while waiting to get beer image back
+    if (this.state.newRecImg == "")
+      return "https://www.ledr.com/colours/white.htm";
+    else
+      return this.state.newRecImg;
   }
 
   render() {
+    console.log(this.state.newRec);
+    console.log(this.state.newRecImg);
     return (
       <SafeAreaView style={styles.container}>
         <Header
-          text={"Search"}
+          text={"We think you'll like this!"}
           onPress={() => {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={this.updateSearch}
-          value={this.state.query}
-          lightTheme={true}
-        />
-
-        <FlatList
-          data={this.state.data}
-          renderItem={({ item }) => (
-            <View style={styles.flatview}>
-              <Modal
-                animationType={"slide"}
-                transparent={false}
-                visible={this.state.modalVisible}
-                onRequestClose={() => {
-                  console.log("Modal has been closed.");
-                }}
-              >
-                <View>
-                  <Image
-                    style={styles.image}
-                    source={{ uri: this.state.currentBeer.URL }}
-                  />
-                  <Text style={styles.modalText}>
-                    {this.state.currentBeer.name}
-                  </Text>
-                  <Text style={styles.modalText}>
-                    {"ABV: " + this.state.currentBeer.ABV + "%"}
-                  </Text>
-                  <Text style={styles.modalText}>
-                    {"Calories: " + this.state.currentBeer.calories}
-                  </Text>
-                </View>
-
-                <View style={styles.modalExit}>
-                  <CustomButton
-                    onPress={() => {
-                      this.toggleModal(
-                        !this.state.modalVisible,
-                        this.state.currentBeer
-                      );
-                    }}
-                    text="Back"
-                  />
-                </View>
-              </Modal>
-
-              <TouchableOpacity
-                onPress={() => {
-                  this.toggleModal(true, item);
-                }}
-              >
-                <View>
-                  <Image style={styles.thumb} source={{ uri: item.URL }} />
-                  <Text style={styles.name}>{item.name}</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
-          keyExtractor={item => item.name}
-          ItemSeparatorComponent={this.renderSeparator}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.isFetching}
-              onRefresh={() => setTimeout(() => {}, 100)}
+        <View style={styles.imagebox}>
+          <Text style={styles.modalText}>
+            {this.state.newRec}
+          </Text>
+          <Image
+            style={styles.image}
+            source={{uri: this._renderRecImage()}}
+          />
+        </View>
+        <View style={styles.button}>
+          <View style={styles.twinContainer}>
+            <CustomButton
+              onPress={() => {
+                console.log("I enjoyed this beer");
+                this._sendLike();
+                this.makeRemoteRequest();
+              }}
+              text="Yes"
             />
-          }
-        />
+            <CustomButton
+              onPress={() => {
+                console.log("I disliked this beer")
+                this._sendDislike();
+                this.makeRemoteRequest();
+              }}
+              text="No"
+            />
+            
+          </View>
+        </View>
       </SafeAreaView>
     );
   }
 
-  onPress = () => {
-    this.setState({ collapsed: !this.state.collapsed });
-  };
 }
 
 const styles = StyleSheet.create({
-  bigRedText: {
-    fontSize: 30,
-    marginTop: 355,
-    fontWeight: "600",
-    color: "#000",
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  flatview: {
+  button: {
     flex: 1,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingLeft: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 2
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    padding: 20
   },
-  thumb: {
+  twinContainer: {
+    flexDirection: "column"
+  },
+  imagebox:{
     flex: 1,
-    flexDirection: "row",
-    width: 50,
-    height: 50,
-    resizeMode: "contain"
+    flexDirection: 'column',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10
   },
   image: {
     width: 400,
     height: 400,
     top: "25%",
-    left: "1%",
-    justifyContent: "center",
-    alignItems: "center",
-    resizeMode: "contain"
-  },
-  modalText: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalName: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalABV: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalCalories: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalExit: {
-    alignItems: "center",
-    top: "25%",
-    backgroundColor: "#FFF"
+    resizeMode: "contain",
+    marginTop: 30
   },
   name: {
     flex: 8,
@@ -257,6 +210,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row"
   },
+  modalText: {
+    top: "25%",
+    fontSize: 30,
+    fontWeight: "300",
+    textAlign: "center",
+    marginTop: 20
+  },
   modal: {
     flex: 1,
     alignItems: "center",
@@ -268,6 +228,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight,
+    flexDirection: 'column',
   }
 });

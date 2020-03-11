@@ -7,7 +7,6 @@ public class TestLoginController {
 
   @Test
   public void testLogin() {
-    //assertEquals("hey", "hey");
     UserLoginController ulc = new UserLoginController();
     assertTrue(ulc.userLogin("{\"name\" : \"johnsmith@gmail.com\", \"password\" : \"admin420\"}"));
   }

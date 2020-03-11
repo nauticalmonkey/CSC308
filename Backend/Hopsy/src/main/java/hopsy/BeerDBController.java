@@ -9,6 +9,7 @@ import com.mongodb.util.JSON;
 
 import org.bson.Document;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,11 +38,33 @@ public class BeerDBController {
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase(database);
         MongoCollection<Document> dbCollection = db.getCollection(brs);
-        System.out.println("gimme data");
         Document doc = dbCollection.find().first();
 
         if (doc == null) return null;
         
         return doc.getString(brs);
+    }
+
+    @RequestMapping("/get-beer-img")
+    public static String getBeerImage(@RequestBody String beer) { //gets the beer image from name
+        MongoClient usrMC = DBUtils.getusrMC();
+        MongoDatabase db = usrMC.getDatabase(database);
+        MongoCollection<Document> dbCollection = db.getCollection(brs);
+        Document doc = dbCollection.find().first();
+
+        JSONObject jsObj = new JSONObject(beer);
+        JSONObject responseJSON = new JSONObject();
+        JSONArray jarr = new JSONArray(doc.getString("beers"));
+
+        for (int i = 0; i < jarr.length(); i++) 
+        {
+            String beerName = jarr.getJSONObject(i).getString("name");
+            String beerImg = jarr.getJSONObject(i).getString("URL");
+            responseJSON.put(beerName, beerImg);
+        }
+
+        if (doc == null) return null;
+        
+        return responseJSON.getString(jsObj.getString("beer"));
     }
 }

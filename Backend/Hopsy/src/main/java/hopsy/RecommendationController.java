@@ -33,6 +33,8 @@ public class RecommendationController {
 
         Driver.populateWeb(web, userDbCollection, beerDbCollection);
 
-        return web.recommendBeer(web.getUser(stEmail));
+        String beerRec = web.recommendBeer(web.getUser(stEmail));
+
+        return beerRec;
     }
 }

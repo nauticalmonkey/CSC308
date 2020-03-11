@@ -26,27 +26,26 @@ export default class ProfileScreen extends React.Component {
   };
 
   _fetchNameData() {
-    return fetch(GLOBAL.dblink + "GetUserProfileName?", {
+    return fetch(GLOBAL.dblink + 'GetUserProfileName?',
+    {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username: GLOBAL.user
+        username: GLOBAL.user,
       })
-    })
-      .then(response => {
-        this.setState(
-          {
-            fullname: JSON.parse(response)
-          },
-          function() {}
-        );
+    })  
+    .then((response) => response.text())
+      .then((responseJson) => {
+        this.setState({
+          fullname: responseJson,
+        });
       })
-      .catch(error => {
-        console.error(error);
-      });
+    .catch((error) =>{
+      console.error(error);
+    });
   }
 
   _fetchBeerData() {
@@ -77,37 +76,35 @@ export default class ProfileScreen extends React.Component {
     this._fetchBeerData();
   }
 
+  
   render() {
     return (
+     
       <SafeAreaView style={styles.container}>
-        <Header
-          text={"Profile"}
-          onPress={() => {
-            this.props.navigation.dispatch(DrawerActions.openDrawer());
-          }}
-        />
-
+        <Header text={"Profile"} 
+        onPress={() => {
+          this.props.navigation.dispatch(DrawerActions.openDrawer());
+        }}/>
         <View style={styles.profileHeader}>
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
           <Text style={styles.profileName}>{this.state.fullname}</Text>
         </View>
 
-        <View style={{ flex: 1, marginTop: 10 }}>
-          <Text style={{ fontSize: 24, paddingHorizontal: 20 }}>
-            Your top {Object.entries(this.state.data).length} favorite beers!
-          </Text>
-          <View style={styles.listContainer}>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
-              {Object.entries(this.state.data).map(([name, url]) => {
-                return (
-                  <HorizontalList
-                    key={name}
-                    name={name}
-                    imageUri={{ uri: url }}
-                  />
-                );
-              })}
-            </ScrollView>
+          <View style={{ flex: 1, marginTop: 10}}>
+            <Text style={{ fontSize: 24,  paddingHorizontal: 20 }}>
+                Your {Object.entries(this.state.data).length} liked beers!
+            </Text>
+            <View style={styles.listContainer}>
+              <ScrollView horizontal={true}
+                  showsHorizontalScrollIndicator={true}>
+
+            {Object.entries(this.state.data).map(([name, url]) => {
+                      return (
+                        <HorizontalList key={name} name={name} imageUri={{uri: url}} />
+                      )
+            })}
+              </ScrollView>
+            </View>
           </View>
         </View>
         <View style={{ flex: 1, marginTop: 10 }}>

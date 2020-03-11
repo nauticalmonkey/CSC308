@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.JSONArray;
+
 @RestController
 public class UserLoginController {
 
@@ -48,7 +50,7 @@ public class UserLoginController {
 
   @RequestMapping("/GetUserProfileBeer")
   public String getFavBeers(@RequestBody String usr) { //validate a user against the db
-    System.out.println("Get user data");
+    System.out.println("Get user beer data");
     System.out.println(usr);
 
     JSONObject jsObj = new JSONObject(usr);
@@ -56,71 +58,46 @@ public class UserLoginController {
     MongoDatabase db = usrMC.getDatabase("Users");
     MongoCollection<Document> dbCollection = db.getCollection("users");
 
-    Document doc = DBUtils.findDoc(dbCollection, "email", jsObj.get("username").toString());
-
-    
+    Document prefdoc = DBUtils.findDoc(dbCollection, "email", jsObj.get("username").toString());
     JSONObject responseJSON = new JSONObject();
     String BEERSFIELDNAME = "beers";
-    String prefString = doc.getString("preferences");
+
+    String prefString = prefdoc.getString("preferences");
     String beerString = prefString.substring(prefString.indexOf(BEERSFIELDNAME) + 5);
 
-    MongoDatabase beersDB = usrMC.getDatabase("BeerDB");
-    MongoCollection<Document> beerDBCollection = beersDB.getCollection("beers");
-    Document beerdoc = beerDBCollection.find().first();
+    ArrayList<String> likedBeers = new ArrayList<String>();
+    // likedBeers = (ArrayList<String>) prefdoc.getString("likes");
+    likedBeers = (ArrayList<String>) prefdoc.get("likes");
+    System.out.println(likedBeers);
 
-    String beerDBSTR = beerdoc.get("beers").toString();
+    MongoDatabase bdb = usrMC.getDatabase("BeerDB");
+    MongoCollection<Document> beerDbCollection = bdb.getCollection("beers");
+    Document doc = beerDbCollection.find().first();
 
-    HashMap<String, String> nameToImgMap = new HashMap<String, String>();
-    List<String> beersnames = new ArrayList<String>();
-    List<String> lines = new ArrayList<String>();
-    String line = "";
-    for (int i = 0; i < beerDBSTR.length(); i++)
+    JSONArray jarr = new JSONArray(doc.getString("beers"));
+
+    for (int i = 0; i < jarr.length(); i++) 
     {
-        if (beerDBSTR.charAt(i) != '\n')
-        {
-          line += beerDBSTR.charAt(i);
-        }
-        else
-        {
-          if (line.trim().length() > 3)
-            lines.add(line.trim().replaceAll(",", ""));
-          line = "";
-        }
+        String beerName = jarr.getJSONObject(i).getString("name");
+        String beerImg = jarr.getJSONObject(i).getString("URL");
+        responseJSON.put(beerName, beerImg);
     }
-
-    responseJSON.put("fullname", doc.getString("fullname"));
-    responseJSON.put(lines.get(0), lines.get(3));
-    for (int i = 4; i < lines.size(); i += 4)
-    {
-      String name = lines.get(i).substring(8, lines.get(i).length() - 1);
-      String url = lines.get(i + 3).substring(7, lines.get(i + 3).length() - 2);
-      // System.out.println(i + " " + name);
-      // System.out.println((i + 3) + " " + url);
-
-      responseJSON.put(name, url);
-    }
-
 
     List<String> beersToAdd = new ArrayList<String>();
     for (String beer : beerString.split(","))
     {
       if (beer.contains("name"))
       {
-        beersToAdd.add(beer.substring(beer.indexOf("name") + 7, beer.length() - 2));
+        beersToAdd.add(beer.substring(beer.indexOf("name") + 7, beer.length() - 1));
       }
-        
     }
-    String last = beersToAdd.get(beersToAdd.size() - 1);
-    beersToAdd.set(beersToAdd.size() - 1, last.substring(0, last.length() - 2));
 
     JSONObject finalJSON = new JSONObject();
-    for (String str : beersToAdd)
+    for (String str : likedBeers)
     {
       finalJSON.put(str, responseJSON.getString(str));
     }
 
-    // System.out.println(finalJSON);
     return finalJSON.toString();
-    // return doc.getString("fullname");
   }
 }
