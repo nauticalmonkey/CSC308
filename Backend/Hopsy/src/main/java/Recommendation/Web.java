@@ -48,7 +48,6 @@ public class Web {
         if (validRecs.size() != 0)
         {
             fallBackRec = validRecs.get((int) (Math.random() * validRecs.size()));
-            System.out.println(fallBackRec);
         }
         
         return fallBackRec;

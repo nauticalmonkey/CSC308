@@ -38,7 +38,6 @@ public class BeerDBController {
         MongoClient usrMC = DBUtils.getusrMC();
         MongoDatabase db = usrMC.getDatabase(database);
         MongoCollection<Document> dbCollection = db.getCollection(brs);
-        System.out.println("gimme data");
         Document doc = dbCollection.find().first();
 
         if (doc == null) return null;

@@ -150,7 +150,6 @@ export default class FavoritesScreen extends Component {
         <View style={styles.button}>
           <View style={styles.twinContainer}>
             <CustomButton
-              // style={styles.simpleYesButton}
               onPress={() => {
                 console.log("I enjoyed this beer");
                 this._sendLike();
@@ -159,7 +158,6 @@ export default class FavoritesScreen extends Component {
               text="Yes"
             />
             <CustomButton
-              // style={styles.simpleNoButton}
               onPress={() => {
                 console.log("I disliked this beer")
                 this._sendDislike();
@@ -167,11 +165,7 @@ export default class FavoritesScreen extends Component {
               }}
               text="No"
             />
-            {/* <CustomButton
-              // style={{opacity: 0.5}}
-              onPress={() => {console.log("Skip")}}
-              text="skip"
-            /> */}
+            
           </View>
         </View>
       </SafeAreaView>
