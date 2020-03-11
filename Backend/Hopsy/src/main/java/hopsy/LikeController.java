@@ -99,7 +99,7 @@ public class LikeController {
     }
 
 
-    private ArrayList<String> getLiked(MongoCollection<Document> mc, String email) {
+    public ArrayList<String> getLiked(MongoCollection<Document> mc, String email) {
         BasicDBObject dbObject = new BasicDBObject();
         dbObject.put("email", email);
         FindIterable<Document> fi = mc.find(dbObject);

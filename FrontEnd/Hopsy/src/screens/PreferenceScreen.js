@@ -140,8 +140,6 @@ class PreferenceScreen extends Component {
       });
       this.selectedOriginOption = selectedOriginOption;
     }
-    console.log(beers);
-    console.log(this.state.beers);
 
     return (
       
@@ -153,7 +151,7 @@ class PreferenceScreen extends Component {
             <Text style={styles.subtext}>Beers you like</Text>
             <Fragment>
               <SearchableDropdown
-                multi={true}
+                multi={false}
                 selectedItems={this.state.selectedItems}
                 onItemSelect={item => {
                   const items = this.state.selectedItems;

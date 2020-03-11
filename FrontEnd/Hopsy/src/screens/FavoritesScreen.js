@@ -83,12 +83,6 @@ export default class FavoritesScreen extends Component {
         beer: this.state.newRec,
       })
     })  
-    // .then((response) => response.text())
-    //   .then((responseJson) => {
-    //     this.setState({
-    //       newRecImg: responseJson,
-    //     });
-    //   })
     .catch((error) =>{
       console.error(error);
     });
@@ -96,7 +90,21 @@ export default class FavoritesScreen extends Component {
   }
 
   _sendDislike() {
-
+    return fetch(GLOBAL.dblink + 'dislikebeer',
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: GLOBAL.user,
+        beer: this.state.newRec,
+      })
+    })  
+    .catch((error) =>{
+      console.error(error);
+    });
 
 
   }
@@ -129,10 +137,15 @@ export default class FavoritesScreen extends Component {
             this.props.navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <Image
-          style={styles.image}
-          source={{uri: this._renderRecImage()}}
-        />
+        <View style={styles.imagebox}>
+          <Text style={styles.modalText}>
+            {this.state.newRec}
+          </Text>
+          <Image
+            style={styles.image}
+            source={{uri: this._renderRecImage()}}
+          />
+        </View>
         <View style={styles.button}>
           <View style={styles.twinContainer}>
             <CustomButton
@@ -140,19 +153,24 @@ export default class FavoritesScreen extends Component {
               onPress={() => {
                 console.log("I enjoyed this beer");
                 this._sendLike();
+                this.makeRemoteRequest();
               }}
               text="Yes"
             />
             <CustomButton
               // style={styles.simpleNoButton}
-              onPress={() => {console.log("I disliked this beer")}}
+              onPress={() => {
+                console.log("I disliked this beer")
+                this._sendDislike();
+                this.makeRemoteRequest();
+              }}
               text="No"
             />
-            <CustomButton
+            {/* <CustomButton
               // style={{opacity: 0.5}}
               onPress={() => {console.log("Skip")}}
               text="skip"
-            />
+            /> */}
           </View>
         </View>
       </SafeAreaView>
@@ -162,11 +180,6 @@ export default class FavoritesScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  tributton: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "flex-end",
-  },
   button: {
     flex: 1,
     flexDirection: 'column',
@@ -176,41 +189,20 @@ const styles = StyleSheet.create({
   twinContainer: {
     flexDirection: "column"
   },
+  imagebox:{
+    flex: 1,
+    flexDirection: 'column',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10
+  },
   image: {
     width: 400,
     height: 400,
     top: "25%",
-    left: "1%",
-    justifyContent: "center",
-    alignItems: "center",
-    resizeMode: "contain"
-  },
-  modalText: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalName: {
-    top: "25%",
-    fontSize: 30,
-    fontWeight: "300",
-    textAlign: "center"
-  },
-  modalABV: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalCalories: {
-    top: "25%",
-    fontSize: 30,
-    textAlign: "center"
-  },
-  modalExit: {
-    alignItems: "center",
-    top: "25%",
-    backgroundColor: "#FFF"
+    resizeMode: "contain",
+    marginTop: 30
   },
   name: {
     flex: 8,
@@ -222,6 +214,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     flex: 1,
     flexDirection: "row"
+  },
+  modalText: {
+    top: "25%",
+    fontSize: 30,
+    fontWeight: "300",
+    textAlign: "center"
   },
   modal: {
     flex: 1,

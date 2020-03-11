@@ -65,8 +65,6 @@ public class BeerDBController {
             responseJSON.put(beerName, beerImg);
         }
 
-        System.out.println(responseJSON); 
-
         if (doc == null) return null;
         
         return responseJSON.getString(jsObj.getString("beer"));
