@@ -61,6 +61,7 @@ In order to set up Travis CI one needs to have a GitHub account and also have pe
 Getting Started:
 
 Begin by going to `Travis-ci.com` and sign in with your GitHub account. After accepting the terms and giving Travis CI permissions to your repository, proceed by adding `.travis.yml` file to Git. After pushing this file, a build test should occur automatically and should either fail or pass. Configuring the `.travis.yml` file allows the user to customize what the CI server should run any time a change is made on GitHub. In our case `language: java` allows us to run the backend automatically. This file must then be configured to select the correct working directory and thus be able to run tests automatically. 
+Travis CI intergration can be found here: https://travis-ci.org/github/nauticalmonkey/CSC308
 
 The official guide can be found here: https://docs.travis-ci.com/user/tutorial/
 
