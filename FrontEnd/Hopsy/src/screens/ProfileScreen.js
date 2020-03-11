@@ -75,8 +75,8 @@ export default class ProfileScreen extends React.Component {
     this._fetchBeerData();
   }
 
+  
   render() {
-    console.log(this.state.data);
     return (
      
       <SafeAreaView style={styles.container}>
@@ -85,8 +85,6 @@ export default class ProfileScreen extends React.Component {
           this.props.navigation.dispatch(DrawerActions.openDrawer());
         }}/>
         
-        
-
         <View style={styles.profileHeader}>
           <Icon name="ios-contact" color={"rgba(68, 126, 36, 1)"} size={150} />
           <Text style={styles.profileName}>{this.state.fullname}</Text>

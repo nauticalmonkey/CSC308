@@ -28,7 +28,6 @@ public class AccountCreationController {
 
     if (userExists(dbCollection, jsObj.get("name").toString())) return false; //does the email already exist?
 
-
     User theUser = new User(jsObj.get("name").toString(), jsObj.get("password").toString(), jsObj.get("fullname").toString());
     Document doc = theUser.toDoc();
     DBUtils.insertDoc(dbCollection, doc);

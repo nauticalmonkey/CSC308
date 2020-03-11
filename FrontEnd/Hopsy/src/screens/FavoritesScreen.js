@@ -13,6 +13,7 @@ import _ from "lodash";
 
 import GLOBAL from '../../global';
 import CustomButton from "../components/CustomButton";
+import ProfileScreen from "./ProfileScreen";
 
 export default class FavoritesScreen extends Component {
   constructor(props) {
@@ -219,7 +220,8 @@ const styles = StyleSheet.create({
     top: "25%",
     fontSize: 30,
     fontWeight: "300",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 20
   },
   modal: {
     flex: 1,
