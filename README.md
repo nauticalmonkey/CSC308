@@ -71,4 +71,10 @@ Back End Style Guide: https://google.github.io/styleguide/javaguide.html
 
 ### SonarCloud:
 
+Getting Started:
+
+Navigate to `sonarcloud.io` and sign in with your GitHub account. From there you will see a prompt to analyze code which will then enable you to select a given repository to analyze. 
+SonarCloud can be configured to run automatically any time Travis CI runs the code. 
+Here is a guide to configure Travis CI with Sonarcloud: https://docs.travis-ci.com/user/sonarcloud/
+
 Here is a link to our SonarCloud report: https://github.com/nauticalmonkey/CSC308/wiki/Static-Code-Analysis
