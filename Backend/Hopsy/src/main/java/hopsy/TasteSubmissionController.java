@@ -39,7 +39,7 @@ public class TasteSubmissionController {
     JSONArray jarr = (JSONArray) json.get("beers");
     if (jarr != null) {
       for (int i = 0; i < jarr.length(); i++) {
-        beers.add(jarr.getString(i));
+        beers.add(jarr.getJSONObject(i).getString("name"));
       }
     }
 

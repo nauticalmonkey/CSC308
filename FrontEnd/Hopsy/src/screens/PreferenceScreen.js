@@ -163,12 +163,14 @@ class PreferenceScreen extends Component {
                 containerStyle={{ padding: 5 }}
                 onRemoveItem={(item, index) => {
                   const items = this.state.selectedItems.filter(
-                    sitem => sitem.URL !== item.URL
+                    sitem => sitem.id !== item.id
                   );
                   this.setState({ selectedItems: items });
                 }}
                 itemStyle={styles.beerstyle}
                 itemsContainerStyle={{ maxHeight: 140 }}
+
+                //The line in question
                 items={this.state.beers}
                 defaultIndex={2}
                 chip={true}
