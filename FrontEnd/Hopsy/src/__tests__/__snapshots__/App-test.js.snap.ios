@@ -1,40 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "borderBottomColor": "#E9E9E9",
-      "borderBottomWidth": 0.5,
-      "flexDirection": "column",
-      "height": 65,
-      "justifyContent": "center",
-      "padding": 10,
-    }
-  }
->
-  <Image
-    source={1}
+<View>
+  <View
     style={
       Object {
-        "alignSelf": "flex-start",
-        "height": 50,
-        "marginLeft": 25,
-        "position": "absolute",
-        "width": 50,
+        "alignItems": "center",
+        "borderBottomColor": "#E9E9E9",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "height": 65,
+        "justifyContent": "center",
+        "padding": 10,
       }
     }
-  />
-  <View>
-    <Text
+  >
+    <View
       style={
         Object {
-          "color": "#000",
-          "fontSize": 24,
+          "left": 0,
+          "paddingLeft": 15,
+          "position": "absolute",
         }
       }
-    />
+    >
+      <RNGestureHandlerButton
+        collapsable={false}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        rippleColor={0}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+        </View>
+      </RNGestureHandlerButton>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 24,
+            "fontWeight": "600",
+            "textAlignVertical": "center",
+          }
+        }
+      />
+    </View>
   </View>
 </View>
 `;
@@ -63,7 +92,7 @@ exports[`renders correctly 2`] = `
     style={
       Object {
         "color": "#ffffff",
-        "fontSize": 20,
+        "fontSize": 17,
         "textAlign": "center",
       }
     }

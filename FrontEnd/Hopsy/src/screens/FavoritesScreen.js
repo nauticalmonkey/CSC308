@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
+import Constants from "expo-constants";
 
 import GLOBAL from '../../global';
 import CustomButton from "../components/CustomButton";
@@ -87,7 +88,6 @@ export default class FavoritesScreen extends Component {
     .catch((error) =>{
       console.error(error);
     });
-
   }
 
   _sendDislike() {
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     flexDirection: 'column',
   }
 });
