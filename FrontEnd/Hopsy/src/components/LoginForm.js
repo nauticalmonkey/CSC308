@@ -27,7 +27,7 @@ export default class LoginForm extends Component {
     console.log(GLOBAL.user);
     
     if (username && password) {
-      fetch("http://44640e6a.ngrok.io/login?", {
+      fetch(GLOBAL.dblink + "login?", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -79,7 +79,6 @@ export default class LoginForm extends Component {
         <CustomButton
           onPress={this._fetchData}
           text="Login"
-          //onPress={() => this.props.navigation.navigate("Home")}
         />
         <Text style={styles.signUp}>
           Don't have an account?

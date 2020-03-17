@@ -1,0 +1,584 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`custom button renders correctly 1`] = `
+<../components/CustomButton
+  0="B"
+  1="u"
+  10="t"
+  2="t"
+  3="t"
+  4="o"
+  5="n"
+  6=" "
+  7="T"
+  8="e"
+  9="s"
+/>
+`;
+
+exports[`dropdown renders correctly 1`] = `
+<View
+  keyboardShouldPersist="always"
+  style={
+    Object {
+      "padding": 5,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onChangeText={[Function]}
+    onFocus={[Function]}
+    placeholder="Bud Light"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderColor": "#ccc",
+        "borderRadius": 15,
+        "borderWidth": 1,
+        "padding": 12,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value="Modelo"
+  />
+</View>
+`;
+
+exports[`header renders correctly 1`] = `
+<../components/Header
+  0="H"
+  1="e"
+  10="t"
+  11=" "
+  12="t"
+  13="o"
+  14=" "
+  15="k"
+  16="n"
+  17="o"
+  18="w"
+  19=" "
+  2="l"
+  20="y"
+  21="o"
+  22="u"
+  3="p"
+  4=" "
+  5="u"
+  6="s"
+  7=" "
+  8="g"
+  9="e"
+/>
+`;
+
+exports[`horizonal list renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderColor": "#FFFF",
+      "borderWidth": 0.5,
+      "height": 130,
+      "marginLeft": 20,
+      "width": 130,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 2,
+      }
+    }
+  >
+    <Image
+      style={
+        Object {
+          "alignContent": "center",
+          "alignItems": "center",
+          "flex": 1,
+          "height": null,
+          "resizeMode": "contain",
+          "width": null,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignContent": "center",
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 10,
+        "paddingTop": 10,
+      }
+    }
+  >
+    <Text />
+  </View>
+</View>
+`;
+
+exports[`login form renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "padding": 20,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    keyboardType="email-address"
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="email"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="password"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="go"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <../components/CustomButton
+    0="B"
+    1="u"
+    10="t"
+    2="t"
+    3="t"
+    4="o"
+    5="n"
+    6=" "
+    7="T"
+    8="e"
+    9="s"
+  />
+  <Text
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 20,
+        "marginTop": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    Don't have an account?
+    <Text
+      onPress={[Function]}
+      style={
+        Object {
+          "color": "rgba(44, 130, 201, 1)",
+        }
+      }
+    >
+       
+      Sign up
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`segmented controls renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#276612",
+        "borderColor": "#aee74a",
+        "borderRadius": 15,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "overflow": "hidden",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Object {
+            "backgroundColor": "#276612",
+            "opacity": 1,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+          },
+          Object {
+            "flex": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderBottomLeftRadius": 14,
+          "borderTopLeftRadius": 14,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Sweet
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Mild
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Strong
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderRightColor": "#aee74a",
+          "borderRightWidth": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Fruity
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Array [
+          Array [
+            Object {
+              "backgroundColor": "#276612",
+              "opacity": 1,
+              "paddingBottom": 5,
+              "paddingTop": 5,
+            },
+            Object {
+              "flex": 1,
+            },
+          ],
+          Object {
+            "borderLeftColor": "#aee74a",
+            "borderLeftWidth": 1,
+          },
+        ],
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "borderBottomRightRadius": 14,
+          "borderTopRightRadius": 14,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "textAlign": "center",
+          },
+          Object {},
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+    >
+      Blonde
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`sign up renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 100,
+      "padding": 20,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="full name"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    keyboardType="email-address"
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="email"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="next"
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="password"
+    placeholderTextColor="#FFF"
+    rejectResponderTermination={true}
+    returnKeyType="go"
+    secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "rgba(68, 126, 36, 0.6)",
+        "borderRadius": 5,
+        "color": "#FFF",
+        "height": 50,
+        "marginBottom": 20,
+        "paddingHorizontal": 10,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <../components/CustomButton
+    0="B"
+    1="u"
+    10="t"
+    2="t"
+    3="t"
+    4="o"
+    5="n"
+    6=" "
+    7="T"
+    8="e"
+    9="s"
+  />
+</View>
+`;

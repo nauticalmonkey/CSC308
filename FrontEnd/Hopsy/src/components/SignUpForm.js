@@ -26,7 +26,7 @@ export default class SignUp extends Component {
     const { username, password, fullname } = this.state;
     GLOBAL.user = username;
 
-    fetch("http://44640e6a.ngrok.io/create-account?", {
+    fetch(GLOBAL.dblink + "create-account?", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -93,40 +93,6 @@ export default class SignUp extends Component {
 SignUp.navigationOptions = {
   header: null
 };
-
-// const apiUserData = 'http://localhost:8080/login';
-// async function getUserFromServer() {
-//   try {
-//     let response = await fetch(apiUserData)
-//     let responseJson = await response.json;
-//     return responseJson.data;
-//   } catch (error) {
-
-//   }
-// }
-
-// fetch("https://localhost:8080/login", {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     name: 'one',
-//     pswrd: 'two',
-//   }),
-// });
-
-// function getData() {
-//   return fetch('http://localhost:8080/login')
-//     .then((response) => response.json())
-//     .then((responseJson) => {
-//       return responseJson.movies;
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// }
 
 const styles = StyleSheet.create({
   container: {

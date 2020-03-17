@@ -11,16 +11,17 @@ import SearchableDropdown from "../components/SearchableDropdown";
 import SegmentedControls from "../components/SegmentedControls";
 import CustomButton from "../components/CustomButton";
 import Header from "../components/Header";
+import Constants from "expo-constants";
 
 const window = Dimensions.get("window");
 const screenHeight = window.height;
 const screenWidth = window.width;
-import GLOBAL from '../../global'
+import GLOBAL from "../../global";
 
 var beers = [
   {
     id: 1,
-    name: "Coors"
+    name: "Coors Original"
   },
   {
     id: 2,
@@ -28,35 +29,28 @@ var beers = [
   },
   {
     id: 3,
-    name: "Modelo"
+    name: "Guinness Draught"
   },
   {
     id: 4,
-    name: "Guiness"
+    name: "Corona Extra"
   },
   {
     id: 5,
-    name: "Corona"
-  },
-  {
-    id: 6,
     name: "Heineken"
   },
   {
-    id: 7,
+    id: 6,
     name: "Bud Light"
   },
   {
-    id: 8,
-    name: "Miller"
+    id: 7,
+    name: "Miller Lite"
   }
 ];
 
-// backend stuff
-// username
-// arraylist of strings beers
-// string flavor
-// string origin
+  
+
 class PreferenceScreen extends Component {
   constructor() {
     super();
@@ -65,10 +59,25 @@ class PreferenceScreen extends Component {
       selectedIndexOrigin: 3,
       selectedFlavorOption: null,
       selectedOriginOption: null,
-      selectedItems: []
+      selectedItems: [],
+      beers: []
     };
   }
 
+  _fetchBeerData() {
+    return fetch(GLOBAL.dblink + 'get-beerDB?')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          beers: responseJson
+        });
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
+  // backend data fetch
   _fetchData() {
     const {
       selectedItems,
@@ -76,7 +85,7 @@ class PreferenceScreen extends Component {
       selectedOriginOption
     } = this.state;
     if (selectedFlavorOption && selectedOriginOption && selectedItems) {
-      fetch("https://44640e6a.ngrok.io//submit-tastes?", {
+      fetch(GLOBAL.dblink + "submit-tastes?", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -101,8 +110,22 @@ class PreferenceScreen extends Component {
     }
   }
 
+
+  componentDidMount() {
+    this._fetchBeerData();
+
+  }
+
   render() {
-    const flavorOptions = ["Sweet", "Mild", "Strong", "Fruity", "Blonde"];
+    const flavorOptions = [
+      "Sweet",
+      "Mild",
+      "Strong",
+      "Fruity",
+      "Chocolate",
+      "Sours",
+      "Hoppy"
+    ];
     const originOptions = ["Domestic", "Local", "Import"];
 
     function setSelectedFlavorOption(selectedFlavorOption) {
@@ -120,17 +143,16 @@ class PreferenceScreen extends Component {
     }
 
     return (
+      
       <View style={styles.container}>
         <SafeAreaView />
         <Header text={"Help us get to know you"} />
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 1, fontSize: 20, color: "#276612" }}>
-              Beers you've tried
-            </Text>
+            <Text style={styles.subtext}>Beers you like</Text>
             <Fragment>
               <SearchableDropdown
-                multi={true}
+                multi={false}
                 selectedItems={this.state.selectedItems}
                 onItemSelect={item => {
                   const items = this.state.selectedItems;
@@ -146,7 +168,9 @@ class PreferenceScreen extends Component {
                 }}
                 itemStyle={styles.beerstyle}
                 itemsContainerStyle={{ maxHeight: 140 }}
-                items={beers}
+
+                //The line in question
+                items={this.state.beers}
                 defaultIndex={2}
                 chip={true}
                 resetValue={false}
@@ -167,9 +191,7 @@ class PreferenceScreen extends Component {
             </Fragment>
           </View>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Preferred flavor profile
-            </Text>
+            <Text style={styles.subtext}>Preferred flavor profile</Text>
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
@@ -184,9 +206,7 @@ class PreferenceScreen extends Component {
             />
           </View>
           <View style={styles.sub}>
-            <Text style={{ paddingBottom: 10, fontSize: 20, color: "#276612" }}>
-              Origin
-            </Text>
+            <Text style={styles.subtext}>Origin</Text>
             <SegmentedControls
               tint={"#aee74a"}
               selectedTint={"#276612"}
@@ -231,7 +251,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: screenHeight,
     width: screenWidth,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   },
   sub: {
     padding: 20
@@ -251,5 +271,10 @@ const styles = StyleSheet.create({
     borderColor: "#276612",
     borderWidth: 1,
     borderRadius: 15
+  },
+  subtext: {
+    paddingBottom: 10,
+    fontSize: 20,
+    color: "#276612"
   }
 });

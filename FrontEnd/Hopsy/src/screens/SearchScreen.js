@@ -14,7 +14,8 @@ import Header from "../components/Header";
 import { SearchBar, List, ListItem } from "react-native-elements";
 import { DrawerActions } from "react-navigation-drawer";
 import _ from "lodash";
-
+import GLOBAL from "../../global";
+import Constants from "expo-constants";
 import CustomButton from "../components/CustomButton";
 
 export default class Search extends Component {
@@ -32,23 +33,23 @@ export default class Search extends Component {
   }
 
   _fetchData() {
-    return fetch('https://44640e6a.ngrok.io/get-beerDB?')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          data: responseJson,
-          fullData: responseJson,
-          currentBeer: responseJson[0],
-        }, function(){
-        });
-
+    return fetch(GLOBAL.dblink + "get-beerDB?")
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            data: responseJson,
+            fullData: responseJson,
+            currentBeer: responseJson[0]
+          },
+          function() {}
+        );
       })
-      .catch((error) =>{
+      .catch(error => {
         console.error(error);
       });
   }
 
-  
   componentDidMount() {
     this.makeRemoteRequest();
   }
@@ -88,6 +89,7 @@ export default class Search extends Component {
       return item.name.toLowerCase().includes(formattedSearch);
     });
     this.setState({ query: formattedSearch, data });
+    console.log(data);
   };
 
   toggleModal(visible, beer) {
@@ -222,7 +224,8 @@ const styles = StyleSheet.create({
     top: "25%",
     fontSize: 30,
     fontWeight: "300",
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 20
   },
   modalName: {
     top: "25%",
@@ -267,6 +270,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Expo.Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   }
 });

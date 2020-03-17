@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "react-native";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "../screens/HomeScreen";
@@ -6,6 +7,7 @@ import MapScreen from "../screens/MapScreen";
 import RecScreen from "../screens/RecommendationScreen";
 import SearchScreen from "../screens/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
+import FavoritesScreen from "../screens/FavoritesScreen";
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -13,7 +15,7 @@ const TabNavigator = createBottomTabNavigator(
       screen: HomeScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-home" color={tintColor} size={25} />
+          <Icon name="ios-home" color={tintColor} size={30} />
         )
       }
     },
@@ -21,23 +23,31 @@ const TabNavigator = createBottomTabNavigator(
       screen: MapScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-compass" color={tintColor} size={25} />
+          <Icon name="ios-compass" color={tintColor} size={30} />
         )
       }
     },
-    Rec: {
+    Favorites: {
+      screen: FavoritesScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="md-beer" color={tintColor} size={30} />
+        )
+      }
+    },
+    /*Rec: {
       screen: RecScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="ios-pricetag" color={tintColor} size={25} />
         )
       }
-    },
+    },*/
     Search: {
       screen: SearchScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-search" color={tintColor} size={25} />
+          <Icon name="ios-search" color={tintColor} size={30} />
         )
       }
     }
