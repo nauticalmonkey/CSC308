@@ -72,7 +72,7 @@ function validateForm(e) {
 	if (/^\d{5}(-\d{4})?$/.test(zip.value)) {
 		removeErrorMessage('zip');
 	} else {
-			addErrorMessage('zip', 'Please enter your zip code.');
+		addErrorMessage('zip', 'Please enter your zip code.');
 		error = true;
 	}
 
@@ -100,11 +100,8 @@ function toggleSubmit() {
 	// Get a reference to the submit button:
 	var submit = U.$('submit');
 	// Toggle its disabled property:
-	if (U.$('terms').checked) {
-		submit.disabled = false;
-	} else {
-		submit.disabled = true;
-	}
+	submit.disabled = U.$('terms').checked;
+
 	
 } // End of toggleSubmit() function.
 
@@ -122,6 +119,4 @@ window.onload = function() {
 
 	// Enbable tooltips on the phone number:
 	U.enableTooltips('phone');
-	//attempt to prevent onnerror reporting
-	//window.onerror=validateForm;
 };
